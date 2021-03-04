@@ -1,0 +1,6 @@
+/*
+ * THIS CLASS MANAGES LOGGING OF EVENTS
+ * CHILD CLASS OF EVERY OTHER CLASS
+ * */
+
+#include "Logs.h"

@@ -80,17 +80,143 @@ CMakeFiles\Year1_CPP_Project.dir\main.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Year1_CPP_Project.dir\main.cpp.s /c "F:\Github Projects\University\Year1-CPP-Project\main.cpp"
 <<
 
+CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.obj: CMakeFiles\Year1_CPP_Project.dir\flags.make
+CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.obj: ..\Commands.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Year1_CPP_Project.dir/Commands.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Year1_CPP_Project.dir\Commands.cpp.obj /FdCMakeFiles\Year1_CPP_Project.dir\ /FS -c "F:\Github Projects\University\Year1-CPP-Project\Commands.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Year1_CPP_Project.dir/Commands.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe > CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "F:\Github Projects\University\Year1-CPP-Project\Commands.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Year1_CPP_Project.dir/Commands.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Year1_CPP_Project.dir\Commands.cpp.s /c "F:\Github Projects\University\Year1-CPP-Project\Commands.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\Stock.cpp.obj: CMakeFiles\Year1_CPP_Project.dir\flags.make
+CMakeFiles\Year1_CPP_Project.dir\Stock.cpp.obj: ..\Stock.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Year1_CPP_Project.dir/Stock.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Year1_CPP_Project.dir\Stock.cpp.obj /FdCMakeFiles\Year1_CPP_Project.dir\ /FS -c "F:\Github Projects\University\Year1-CPP-Project\Stock.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\Stock.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Year1_CPP_Project.dir/Stock.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe > CMakeFiles\Year1_CPP_Project.dir\Stock.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "F:\Github Projects\University\Year1-CPP-Project\Stock.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\Stock.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Year1_CPP_Project.dir/Stock.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Year1_CPP_Project.dir\Stock.cpp.s /c "F:\Github Projects\University\Year1-CPP-Project\Stock.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\FileHandler.cpp.obj: CMakeFiles\Year1_CPP_Project.dir\flags.make
+CMakeFiles\Year1_CPP_Project.dir\FileHandler.cpp.obj: ..\FileHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Year1_CPP_Project.dir/FileHandler.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Year1_CPP_Project.dir\FileHandler.cpp.obj /FdCMakeFiles\Year1_CPP_Project.dir\ /FS -c "F:\Github Projects\University\Year1-CPP-Project\FileHandler.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\FileHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Year1_CPP_Project.dir/FileHandler.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe > CMakeFiles\Year1_CPP_Project.dir\FileHandler.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "F:\Github Projects\University\Year1-CPP-Project\FileHandler.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\FileHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Year1_CPP_Project.dir/FileHandler.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Year1_CPP_Project.dir\FileHandler.cpp.s /c "F:\Github Projects\University\Year1-CPP-Project\FileHandler.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\Order.cpp.obj: CMakeFiles\Year1_CPP_Project.dir\flags.make
+CMakeFiles\Year1_CPP_Project.dir\Order.cpp.obj: ..\Order.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Year1_CPP_Project.dir/Order.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Year1_CPP_Project.dir\Order.cpp.obj /FdCMakeFiles\Year1_CPP_Project.dir\ /FS -c "F:\Github Projects\University\Year1-CPP-Project\Order.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\Order.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Year1_CPP_Project.dir/Order.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe > CMakeFiles\Year1_CPP_Project.dir\Order.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "F:\Github Projects\University\Year1-CPP-Project\Order.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\Order.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Year1_CPP_Project.dir/Order.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Year1_CPP_Project.dir\Order.cpp.s /c "F:\Github Projects\University\Year1-CPP-Project\Order.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\Logs.cpp.obj: CMakeFiles\Year1_CPP_Project.dir\flags.make
+CMakeFiles\Year1_CPP_Project.dir\Logs.cpp.obj: ..\Logs.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Year1_CPP_Project.dir/Logs.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Year1_CPP_Project.dir\Logs.cpp.obj /FdCMakeFiles\Year1_CPP_Project.dir\ /FS -c "F:\Github Projects\University\Year1-CPP-Project\Logs.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\Logs.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Year1_CPP_Project.dir/Logs.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe > CMakeFiles\Year1_CPP_Project.dir\Logs.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "F:\Github Projects\University\Year1-CPP-Project\Logs.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\Logs.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Year1_CPP_Project.dir/Logs.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Year1_CPP_Project.dir\Logs.cpp.s /c "F:\Github Projects\University\Year1-CPP-Project\Logs.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\Shopper.cpp.obj: CMakeFiles\Year1_CPP_Project.dir\flags.make
+CMakeFiles\Year1_CPP_Project.dir\Shopper.cpp.obj: ..\Shopper.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Year1_CPP_Project.dir/Shopper.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Year1_CPP_Project.dir\Shopper.cpp.obj /FdCMakeFiles\Year1_CPP_Project.dir\ /FS -c "F:\Github Projects\University\Year1-CPP-Project\Shopper.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\Shopper.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Year1_CPP_Project.dir/Shopper.cpp.i"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe > CMakeFiles\Year1_CPP_Project.dir\Shopper.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "F:\Github Projects\University\Year1-CPP-Project\Shopper.cpp"
+<<
+
+CMakeFiles\Year1_CPP_Project.dir\Shopper.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Year1_CPP_Project.dir/Shopper.cpp.s"
+	C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Year1_CPP_Project.dir\Shopper.cpp.s /c "F:\Github Projects\University\Year1-CPP-Project\Shopper.cpp"
+<<
+
 # Object files for target Year1_CPP_Project
 Year1_CPP_Project_OBJECTS = \
-"CMakeFiles\Year1_CPP_Project.dir\main.cpp.obj"
+"CMakeFiles\Year1_CPP_Project.dir\main.cpp.obj" \
+"CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.obj" \
+"CMakeFiles\Year1_CPP_Project.dir\Stock.cpp.obj" \
+"CMakeFiles\Year1_CPP_Project.dir\FileHandler.cpp.obj" \
+"CMakeFiles\Year1_CPP_Project.dir\Order.cpp.obj" \
+"CMakeFiles\Year1_CPP_Project.dir\Logs.cpp.obj" \
+"CMakeFiles\Year1_CPP_Project.dir\Shopper.cpp.obj"
 
 # External object files for target Year1_CPP_Project
 Year1_CPP_Project_EXTERNAL_OBJECTS =
 
 Year1_CPP_Project.exe: CMakeFiles\Year1_CPP_Project.dir\main.cpp.obj
+Year1_CPP_Project.exe: CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.obj
+Year1_CPP_Project.exe: CMakeFiles\Year1_CPP_Project.dir\Stock.cpp.obj
+Year1_CPP_Project.exe: CMakeFiles\Year1_CPP_Project.dir\FileHandler.cpp.obj
+Year1_CPP_Project.exe: CMakeFiles\Year1_CPP_Project.dir\Order.cpp.obj
+Year1_CPP_Project.exe: CMakeFiles\Year1_CPP_Project.dir\Logs.cpp.obj
+Year1_CPP_Project.exe: CMakeFiles\Year1_CPP_Project.dir\Shopper.cpp.obj
 Year1_CPP_Project.exe: CMakeFiles\Year1_CPP_Project.dir\build.make
 Year1_CPP_Project.exe: CMakeFiles\Year1_CPP_Project.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Year1_CPP_Project.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Year1_CPP_Project.exe"
 	"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\Year1_CPP_Project.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\10.0.18362.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\10.0.18362.0\x86\mt.exe --manifests  -- C:\PROGRA~2\MICROS~1\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\Year1_CPP_Project.dir\objects1.rsp @<<
  /out:Year1_CPP_Project.exe /implib:Year1_CPP_Project.lib /pdb:"F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Year1_CPP_Project.pdb" /version:0.0  /machine:X86 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<

@@ -127,6 +127,168 @@ Year1_CPP_Project\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\build
 .PHONY : Year1_CPP_Project\fast
 
+Commands.obj: Commands.cpp.obj
+
+.PHONY : Commands.obj
+
+# target to build an object file
+Commands.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.obj
+.PHONY : Commands.cpp.obj
+
+Commands.i: Commands.cpp.i
+
+.PHONY : Commands.i
+
+# target to preprocess a source file
+Commands.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.i
+.PHONY : Commands.cpp.i
+
+Commands.s: Commands.cpp.s
+
+.PHONY : Commands.s
+
+# target to generate assembly for a file
+Commands.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.s
+.PHONY : Commands.cpp.s
+
+FileHandler.obj: FileHandler.cpp.obj
+
+.PHONY : FileHandler.obj
+
+# target to build an object file
+FileHandler.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\FileHandler.cpp.obj
+.PHONY : FileHandler.cpp.obj
+
+FileHandler.i: FileHandler.cpp.i
+
+.PHONY : FileHandler.i
+
+# target to preprocess a source file
+FileHandler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\FileHandler.cpp.i
+.PHONY : FileHandler.cpp.i
+
+FileHandler.s: FileHandler.cpp.s
+
+.PHONY : FileHandler.s
+
+# target to generate assembly for a file
+FileHandler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\FileHandler.cpp.s
+.PHONY : FileHandler.cpp.s
+
+Logs.obj: Logs.cpp.obj
+
+.PHONY : Logs.obj
+
+# target to build an object file
+Logs.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Logs.cpp.obj
+.PHONY : Logs.cpp.obj
+
+Logs.i: Logs.cpp.i
+
+.PHONY : Logs.i
+
+# target to preprocess a source file
+Logs.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Logs.cpp.i
+.PHONY : Logs.cpp.i
+
+Logs.s: Logs.cpp.s
+
+.PHONY : Logs.s
+
+# target to generate assembly for a file
+Logs.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Logs.cpp.s
+.PHONY : Logs.cpp.s
+
+Order.obj: Order.cpp.obj
+
+.PHONY : Order.obj
+
+# target to build an object file
+Order.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Order.cpp.obj
+.PHONY : Order.cpp.obj
+
+Order.i: Order.cpp.i
+
+.PHONY : Order.i
+
+# target to preprocess a source file
+Order.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Order.cpp.i
+.PHONY : Order.cpp.i
+
+Order.s: Order.cpp.s
+
+.PHONY : Order.s
+
+# target to generate assembly for a file
+Order.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Order.cpp.s
+.PHONY : Order.cpp.s
+
+Shopper.obj: Shopper.cpp.obj
+
+.PHONY : Shopper.obj
+
+# target to build an object file
+Shopper.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Shopper.cpp.obj
+.PHONY : Shopper.cpp.obj
+
+Shopper.i: Shopper.cpp.i
+
+.PHONY : Shopper.i
+
+# target to preprocess a source file
+Shopper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Shopper.cpp.i
+.PHONY : Shopper.cpp.i
+
+Shopper.s: Shopper.cpp.s
+
+.PHONY : Shopper.s
+
+# target to generate assembly for a file
+Shopper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Shopper.cpp.s
+.PHONY : Shopper.cpp.s
+
+Stock.obj: Stock.cpp.obj
+
+.PHONY : Stock.obj
+
+# target to build an object file
+Stock.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Stock.cpp.obj
+.PHONY : Stock.cpp.obj
+
+Stock.i: Stock.cpp.i
+
+.PHONY : Stock.i
+
+# target to preprocess a source file
+Stock.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Stock.cpp.i
+.PHONY : Stock.cpp.i
+
+Stock.s: Stock.cpp.s
+
+.PHONY : Stock.s
+
+# target to generate assembly for a file
+Stock.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Stock.cpp.s
+.PHONY : Stock.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -163,6 +325,24 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Year1_CPP_Project
+	@echo ... Commands.obj
+	@echo ... Commands.i
+	@echo ... Commands.s
+	@echo ... FileHandler.obj
+	@echo ... FileHandler.i
+	@echo ... FileHandler.s
+	@echo ... Logs.obj
+	@echo ... Logs.i
+	@echo ... Logs.s
+	@echo ... Order.obj
+	@echo ... Order.i
+	@echo ... Order.s
+	@echo ... Shopper.obj
+	@echo ... Shopper.i
+	@echo ... Shopper.s
+	@echo ... Stock.obj
+	@echo ... Stock.i
+	@echo ... Stock.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

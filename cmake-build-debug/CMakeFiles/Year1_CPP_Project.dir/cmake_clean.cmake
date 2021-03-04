@@ -1,4 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Year1_CPP_Project.dir/Commands.cpp.obj"
+  "CMakeFiles/Year1_CPP_Project.dir/FileHandler.cpp.obj"
+  "CMakeFiles/Year1_CPP_Project.dir/Logs.cpp.obj"
+  "CMakeFiles/Year1_CPP_Project.dir/Order.cpp.obj"
+  "CMakeFiles/Year1_CPP_Project.dir/Shopper.cpp.obj"
+  "CMakeFiles/Year1_CPP_Project.dir/Stock.cpp.obj"
   "CMakeFiles/Year1_CPP_Project.dir/main.cpp.obj"
   "Year1_CPP_Project.exe"
   "Year1_CPP_Project.exe.manifest"

@@ -1,0 +1,6 @@
+/*
+ * THIS CLASS MANAGES ALL FILE HANDLING EVENTS
+ * SAVING AND LOADING FILES
+ * */
+
+#include "FileHandler.h"
