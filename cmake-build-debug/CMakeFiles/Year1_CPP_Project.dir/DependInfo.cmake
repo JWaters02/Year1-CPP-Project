@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "F:/Github Projects/University/Year1-CPP-Project/Commands.cpp" "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Commands.cpp.obj"
   "F:/Github Projects/University/Year1-CPP-Project/FileHandler.cpp" "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/FileHandler.cpp.obj"
+  "F:/Github Projects/University/Year1-CPP-Project/Item.cpp" "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Item.cpp.obj"
   "F:/Github Projects/University/Year1-CPP-Project/Logs.cpp" "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Logs.cpp.obj"
   "F:/Github Projects/University/Year1-CPP-Project/Order.cpp" "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Order.cpp.obj"
   "F:/Github Projects/University/Year1-CPP-Project/Shopper.cpp" "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Shopper.cpp.obj"

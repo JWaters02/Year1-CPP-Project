@@ -6,11 +6,23 @@
 
 #IncludeRegexTransform: 
 
-F:/Github Projects/University/Year1-CPP-Project/rosettaGenerator.cpp
-windows.h
--
+F:/Github Projects/University/Year1-CPP-Project/Shopper.cpp
+Shopper.h
+F:/Github Projects/University/Year1-CPP-Project/Shopper.h
+
+F:/Github Projects/University/Year1-CPP-Project/Shopper.h
 iostream
 -
-string
+vector
 -
+random
+-
+
+F:/Github Projects/University/Year1-CPP-Project/main.cpp
+iostream
+-
+random
+-
+Shopper.h
+F:/Github Projects/University/Year1-CPP-Project/Shopper.h
 

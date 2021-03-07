@@ -5,3 +5,15 @@
  * */
 
 #include "FileHandler.h"
+
+//region Constructor
+//endregion
+
+//region Functions
+//endregion
+
+//region Setters
+//endregion
+
+//region Getters
+//endregion

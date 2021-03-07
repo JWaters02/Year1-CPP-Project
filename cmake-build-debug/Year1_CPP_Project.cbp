@@ -96,6 +96,12 @@
 		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/FileHandler.h">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Item.cpp">
+			<Option target="Year1_CPP_Project"/>
+		</Unit>
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Item.h">
+			<Option target="Year1_CPP_Project"/>
+		</Unit>
 		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Logs.cpp">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>

@@ -181,6 +181,33 @@ FileHandler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\FileHandler.cpp.s
 .PHONY : FileHandler.cpp.s
 
+Item.obj: Item.cpp.obj
+
+.PHONY : Item.obj
+
+# target to build an object file
+Item.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Item.cpp.obj
+.PHONY : Item.cpp.obj
+
+Item.i: Item.cpp.i
+
+.PHONY : Item.i
+
+# target to preprocess a source file
+Item.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Item.cpp.i
+.PHONY : Item.cpp.i
+
+Item.s: Item.cpp.s
+
+.PHONY : Item.s
+
+# target to generate assembly for a file
+Item.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Item.cpp.s
+.PHONY : Item.cpp.s
+
 Logs.obj: Logs.cpp.obj
 
 .PHONY : Logs.obj
@@ -331,6 +358,9 @@ help:
 	@echo ... FileHandler.obj
 	@echo ... FileHandler.i
 	@echo ... FileHandler.s
+	@echo ... Item.obj
+	@echo ... Item.i
+	@echo ... Item.s
 	@echo ... Logs.obj
 	@echo ... Logs.i
 	@echo ... Logs.s

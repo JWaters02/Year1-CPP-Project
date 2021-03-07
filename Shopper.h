@@ -16,8 +16,11 @@ class Shopper {
 public:
     Shopper(double _totalSpent, std::vector<std::string> _itemsPurchased);
 
+    // Functions
+    void giveShopperItem(std::string itemName, double itemCost);
+
+    // Setters
     bool setIsInStore(bool _isInStore);
-    bool getIsInStore() const;
 
     // Getters
     std::string getName();
@@ -25,18 +28,21 @@ public:
     int getWeight();
     int getAge();
     int getID();
+    bool getIsInStore() const;
+    std::string getItemNames();
+    double getItemCosts();
 
     // Purchase history is taken from a pre-existing shopper when created
     struct purchaseHistory {
         double totalSpent;
-        std::vector<std::string> itemsPurchased; // TODO: Use item objects from stock class
+        std::vector<std::string> itemsPurchased; // TODO: Use item objects
     } history;
 private:
     // Setters
     std::string setName();
-    int setHeight();
-    int setWeight();
-    int setAge();
+    int setHeight() const;
+    int setWeight() const;
+    int setAge() const;
     int setID();
 
     // Consts
@@ -50,16 +56,16 @@ private:
     std::string name;
     std::vector<std::string> nameBank; // TODO: Get names from files class
     std::vector<int> IDs; // TODO: Get IDs from files class
+    std::vector<std::string> itemBank; // TODO: Get items from files class (or object from stocks?)
     int height;
     int weight;
     int age;
     int ID;
     struct currentItemsInBasket {
         double costOfItems;
-        std::vector<std::string> items; // TODO: Use item objects from stock class
+        std::vector<std::string> items; // TODO: Use item objects
     };
     bool isInStore;
 };
-
 
 #endif //YEAR1_CPP_PROJECT_SHOPPER_H
