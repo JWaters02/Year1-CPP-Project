@@ -5,9 +5,14 @@
 
 void testingShopperClass() {
     std::vector<std::string> itemsPurchased = {"Apples", "Bananas", "Cherries"};
-    std::unique_ptr<Shopper> shopper1 = std::make_unique<Shopper>(24.2, itemsPurchased);
-    std::cout << "Age: " << shopper1->getAge() << " is in store?" << shopper1->getIsInStore() <<
-        " Name: " << shopper1->getName() << std::endl;
+    std::unique_ptr<Shopper> shopper1 = std::make_unique<Shopper>();
+    std::cout << "Name: " << shopper1->getName()
+    << ", ID: " << shopper1->getID()
+    << ", Age: " << shopper1->getAge()
+    << ", Weight: " << shopper1->getWeight()
+    << ", Height: " << shopper1->getHeight()
+    << ", Is in store? " << shopper1->getIsInStore()
+    << std::endl;
 }
 
 int main() {

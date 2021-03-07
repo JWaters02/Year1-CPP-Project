@@ -11,10 +11,14 @@
 
 class Stock {
 public:
-    Stock(std::vector<std::string>&& _items, std::vector<int>&& _itemCosts);
+    Stock(std::vector<std::string>& _items, std::vector<int>& _itemCosts);
+
+    // Getters
+    std::string getItemFromItemsStock();
+    int getItemCostFromItemStockCosts();
 private:
-    std::vector<std::string> items;
-    std::vector<int> itemCosts;
+    std::vector<std::string> itemsStock;
+    std::vector<int> itemStockCosts;
 };
 
 #endif //YEAR1_CPP_PROJECT_STOCK_H

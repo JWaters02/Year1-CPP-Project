@@ -5,9 +5,8 @@
 #include "Stock.h"
 
 //region Constructor
-Stock::Stock(std::vector<std::string>&& _items, std::vector<int>&& _itemCosts )
-    : items(_items)
-    , itemCosts(_itemCosts) {
+Stock::Stock(std::vector<std::string>& _items, std::vector<int>& _itemCosts )
+: itemsStock(_items), itemStockCosts(_itemCosts) {
 
 }
 //endregion
@@ -19,5 +18,13 @@ Stock::Stock(std::vector<std::string>&& _items, std::vector<int>&& _itemCosts )
 //endregion
 
 //region Getters
+std::string Stock::getItemFromItemsStock() {
+    // If item is valid
+    return "d";
+}
+
+int Stock::getItemCostFromItemStockCosts() {
+    return 0;
+}
 //endregion
 

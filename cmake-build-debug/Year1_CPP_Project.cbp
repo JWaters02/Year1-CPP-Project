@@ -120,6 +120,12 @@
 		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Shopper.h">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Simulation.cpp">
+			<Option target="Year1_CPP_Project"/>
+		</Unit>
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Simulation.h">
+			<Option target="Year1_CPP_Project"/>
+		</Unit>
 		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Stock.cpp">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>

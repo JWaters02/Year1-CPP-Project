@@ -289,6 +289,33 @@ Shopper.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Shopper.cpp.s
 .PHONY : Shopper.cpp.s
 
+Simulation.obj: Simulation.cpp.obj
+
+.PHONY : Simulation.obj
+
+# target to build an object file
+Simulation.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Simulation.cpp.obj
+.PHONY : Simulation.cpp.obj
+
+Simulation.i: Simulation.cpp.i
+
+.PHONY : Simulation.i
+
+# target to preprocess a source file
+Simulation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Simulation.cpp.i
+.PHONY : Simulation.cpp.i
+
+Simulation.s: Simulation.cpp.s
+
+.PHONY : Simulation.s
+
+# target to generate assembly for a file
+Simulation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Simulation.cpp.s
+.PHONY : Simulation.cpp.s
+
 Stock.obj: Stock.cpp.obj
 
 .PHONY : Stock.obj
@@ -370,6 +397,9 @@ help:
 	@echo ... Shopper.obj
 	@echo ... Shopper.i
 	@echo ... Shopper.s
+	@echo ... Simulation.obj
+	@echo ... Simulation.i
+	@echo ... Simulation.s
 	@echo ... Stock.obj
 	@echo ... Stock.i
 	@echo ... Stock.s

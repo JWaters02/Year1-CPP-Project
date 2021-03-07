@@ -11,4 +11,5 @@ add_executable(Year1_CPP_Project
         Order.cpp Order.h
         Logs.cpp Logs.h
         Shopper.cpp Shopper.h
-        Item.cpp Item.h)
+        Item.cpp Item.h
+        Simulation.cpp Simulation.h)

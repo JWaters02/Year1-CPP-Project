@@ -5,10 +5,7 @@
 #include "Shopper.h"
 
 //region Constructor
-Shopper::Shopper(double _totalSpent, std::vector<std::string> _itemsPurchased) {
-    history.totalSpent = _totalSpent;
-    history.itemsPurchased = _itemsPurchased;
-
+Shopper::Shopper() {
     setName();
     setHeight();
     setWeight();
@@ -19,27 +16,38 @@ Shopper::Shopper(double _totalSpent, std::vector<std::string> _itemsPurchased) {
 
 //region Functions
 // Allows manager to give items with values to shopper if they wish
-void Shopper::giveShopperItem(std::string itemName, double itemCost) {
+void Shopper::giveShopperItem(const std::string& itemName, double itemCost) {
     // TODO: Incorporate with item objects
+}
+
+// This allows the toggling of the shopper if it is inside the store or not
+void Shopper::toggleIsInStore() {
+    if (isInStore) {
+        isInStore = false;
+    } else {
+        isInStore = true;
+    }
 }
 //endregion
 
 //region Setters
+// Sets random name from name bank
 void Shopper::setName() {
     int _numRandomNames = nameBank.size();
-    std::string selectedName = nameBank[rand() % _numRandomNames];
-    name = selectedName;
+    name = nameBank[rand() % _numRandomNames];
 };
 
+// Sets random height between min and max heights
 void Shopper::setHeight() {
     height = rand() % (MAXHEIGHT - MINHEIGHT) + MINHEIGHT;
-
 }
 
+// Sets random weight between min and max weights
 void Shopper::setWeight() {
     weight = rand() % (MAXWEIGHT - MINWEIGHT) + MINWEIGHT;
 }
 
+// Sets random age between 0 and max age
 void Shopper::setAge() {
     age = rand() % MAXAGE;
 }
@@ -59,16 +67,6 @@ void Shopper::setID() {
     }
     ID = possibleID;
 }
-
-// This allows the toggling of the shopper if it is inside the store or not
-bool Shopper::setIsInStore(bool _isInStore) {
-    isInStore = _isInStore;
-    if (isInStore) {
-        return false;
-    } else {
-        return true;
-    }
-}
 //endregion
 
 //region Getters
@@ -76,32 +74,32 @@ bool Shopper::getIsInStore() const {
     return isInStore;
 }
 
-std::string Shopper::getName() {
+std::string Shopper::getName() const {
     return name;
 }
 
-int Shopper::getHeight() {
+int Shopper::getHeight() const {
     return height;
 }
 
-int Shopper::getWeight() {
+int Shopper::getWeight() const {
     return weight;
 }
 
-int Shopper::getAge() {
+int Shopper::getAge() const {
     return age;
 }
 
-int Shopper::getID() {
+int Shopper::getID() const {
     return ID;
 }
 
-std::string Shopper::getItemNames() {
+std::string Shopper::getItemsInBasketNames() {
     // TODO: Return this.items.names
     return std::string();
 }
 
-double Shopper::getItemCosts() {
+double Shopper::getItemInBasketCosts() {
     // TODO: Return this.items.costs
     return 0;
 }

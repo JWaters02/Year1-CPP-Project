@@ -10,7 +10,8 @@ namespace itemGlobals {
 }
 
 //region Constructor
-Item::Item(std::string _itemName, double _itemCost) : itemName(_itemName), itemCost(_itemCost) {
+Item::Item(std::string _itemName, double _itemCost)
+: itemName(_itemName), itemCost(_itemCost) {
     // TODO: Reduce 1 from item in stocks class
 }
 //endregion
