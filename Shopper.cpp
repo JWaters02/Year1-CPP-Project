@@ -9,8 +9,6 @@ Shopper::Shopper(double _totalSpent, std::vector<std::string> _itemsPurchased) {
     history.totalSpent = _totalSpent;
     history.itemsPurchased = _itemsPurchased;
 
-    srand(time(NULL));
-
     setName();
     setHeight();
     setWeight();
@@ -27,26 +25,27 @@ void Shopper::giveShopperItem(std::string itemName, double itemCost) {
 //endregion
 
 //region Setters
-std::string Shopper::setName() {
+void Shopper::setName() {
     int _numRandomNames = nameBank.size();
     std::string selectedName = nameBank[rand() % _numRandomNames];
-    return selectedName;
+    name = selectedName;
 };
 
-int Shopper::setHeight() const {
-    return rand() % (MAXHEIGHT - MINHEIGHT) + MINHEIGHT;
+void Shopper::setHeight() {
+    height = rand() % (MAXHEIGHT - MINHEIGHT) + MINHEIGHT;
+
 }
 
-int Shopper::setWeight() const {
-    return rand() % (MAXWEIGHT - MINWEIGHT) + MINWEIGHT;
+void Shopper::setWeight() {
+    weight = rand() % (MAXWEIGHT - MINWEIGHT) + MINWEIGHT;
 }
 
-int Shopper::setAge() const {
-    return rand() % MAXAGE;
+void Shopper::setAge() {
+    age = rand() % MAXAGE;
 }
 
 // Needs to make sure it does not share the same ID with other shoppers
-int Shopper::setID() {
+void Shopper::setID() {
     bool isNewID = true;
     int possibleID;
     while (isNewID) {
@@ -58,7 +57,7 @@ int Shopper::setID() {
             }
         }
     }
-    return possibleID;
+    ID = possibleID;
 }
 
 // This allows the toggling of the shopper if it is inside the store or not

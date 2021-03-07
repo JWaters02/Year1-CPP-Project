@@ -22,6 +22,7 @@ CMakeFiles\Year1_CPP_Project.dir\Shopper.cpp.obj: ..\Shopper.h
 CMakeFiles\Year1_CPP_Project.dir\Stock.cpp.obj: ..\Stock.cpp
 CMakeFiles\Year1_CPP_Project.dir\Stock.cpp.obj: ..\Stock.h
 
+CMakeFiles\Year1_CPP_Project.dir\main.cpp.obj: ..\Item.h
 CMakeFiles\Year1_CPP_Project.dir\main.cpp.obj: ..\Shopper.h
 CMakeFiles\Year1_CPP_Project.dir\main.cpp.obj: ..\main.cpp
 

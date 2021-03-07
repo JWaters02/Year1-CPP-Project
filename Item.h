@@ -15,7 +15,7 @@ public:
     Item(std::string itemName, double itemCost);
 
     // Functions
-    void checkName();
+    static bool isValidName(std::string name);
 
     // Getters
     std::string getItemName();
@@ -24,7 +24,6 @@ private:
     // Vars
     std::string itemName;
     double itemCost;
-    std::vector<std::string> items; // TODO: Get items from files class (or object from stocks?)
 };
 
 
