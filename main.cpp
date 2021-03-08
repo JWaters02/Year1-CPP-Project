@@ -2,6 +2,7 @@
 #include <memory>
 #include "Shopper.h"
 #include "Item.h"
+#include "Stock.h"
 
 void testingShopperClass() {
     std::vector<std::string> itemsPurchased = {"Apples", "Bananas", "Cherries"};
