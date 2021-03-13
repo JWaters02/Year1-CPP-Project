@@ -9,6 +9,8 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <memory>
+#include "Stock.h"
 
 class Item {
 public:

@@ -6,7 +6,7 @@
 #include "Item.h"
 
 namespace itemGlobals {
-    std::vector<std::string> items = {"Apples", "Bananas"};; // TODO: Get items from files class (or object from stocks?)
+    std::vector<std::string> items = {"Apples", "Bananas"}; // TODO: Get items from files class (or object from stocks?)
 }
 
 //region Constructor
