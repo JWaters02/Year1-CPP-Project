@@ -11,13 +11,14 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include "Item.h"
 
 class Shopper {
 public:
     Shopper();
 
     // Functions
-    void giveShopperItem(const std::string& itemName, double itemCost);
+    Item giveShopperItem(const std::string& itemName, double itemCost, int numItems);
     void toggleIsInStore();
 
     // Getters
@@ -30,6 +31,10 @@ public:
     static std::string getItemsInBasketNames();
     static double getItemInBasketCosts();
 private:
+    // Functions
+    Item generateShopperItem();
+    std::vector<Item> generateShopperItemList();
+
     // Setters
     void setName();
     void setHeight();
@@ -44,12 +49,15 @@ private:
     static const int MINWEIGHT = 15;
     static const int MAXAGE = 120;
     static const int MAXID = 10000;
+    static const int MAXITEMSPERITEM = 20;
+    static const int MAXITEMSFORBASKET = 50;
 
     // Vars
     std::string name;
     std::vector<std::string> nameBank = {"Joshua", "Joe"}; // TODO: Get names from files class
     std::vector<int> IDs = {4783748, 333}; // TODO: Get IDs from files class
     std::vector<std::string> itemBank = {"Apple", "Chrocolate"}; // TODO: Get items from files class (or object from stocks?)
+    std::vector<int> itemCostBank = {3, 3};
     int height{};
     int weight{};
     int age{};

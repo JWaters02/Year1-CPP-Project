@@ -14,7 +14,7 @@
 
 class Item {
 public:
-    Item(std::string itemName, double itemCost);
+    Item(std::string itemName, double itemCost, int numItems);
 
     // Functions
     static bool isValidName(std::string name);
@@ -26,6 +26,7 @@ private:
     // Vars
     std::string itemName;
     double itemCost;
+    int numItems;
 };
 
 

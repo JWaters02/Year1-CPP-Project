@@ -16,8 +16,27 @@ Shopper::Shopper() {
 
 //region Functions
 // Allows manager to give items with values to shopper if they wish
-void Shopper::giveShopperItem(const std::string& itemName, double itemCost) {
-    // TODO: Incorporate with item objects
+Item Shopper::giveShopperItem(const std::string& itemName, double itemCost, int numItems) {
+    return Item(itemName, itemCost, numItems);
+}
+
+// All automatically generated items
+Item Shopper::generateShopperItem() {
+    int numRandomItems = itemBank.size();
+    std::string itemName = itemBank[rand() % numRandomItems];
+    int itemCost = itemCostBank[rand() % numRandomItems];
+    int numItems = rand() % MAXITEMSPERITEM;
+    return Item(itemName, itemCost, numItems);
+}
+
+// If manager does not give items, shopper will just pre generate certain number of items
+std::vector<Item> Shopper::generateShopperItemList() {
+    int itemsInBasket = rand() % MAXITEMSFORBASKET;
+    std::vector<Item> basket;
+    for (int items = 0; items < itemsInBasket; items++) {
+        basket.push_back(generateShopperItem());
+    }
+    return basket;
 }
 
 // This allows the toggling of the shopper if it is inside the store or not
@@ -33,8 +52,8 @@ void Shopper::toggleIsInStore() {
 //region Setters
 // Sets random name from name bank
 void Shopper::setName() {
-    int _numRandomNames = nameBank.size();
-    name = nameBank[rand() % _numRandomNames];
+    int numRandomNames = nameBank.size();
+    name = nameBank[rand() % numRandomNames];
 };
 
 // Sets random height between min and max heights

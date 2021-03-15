@@ -1,5 +1,6 @@
 #include <iostream>
 #include <memory>
+#include <Windows.h>
 #include "Shopper.h"
 #include "Item.h"
 #include "Stock.h"
@@ -20,6 +21,14 @@ int main() {
     srand(time(nullptr));
     std::cout << "test" << std::endl;
     testingShopperClass();
+
+    // MAIN EVENT LOOP
+    bool quit = false;
+    while (!quit) {
+        Sleep(1000);
+        // Generate shopper
+    }
+
 
     // TODO: Move to commands class
     std::cout << "Pls input item" << std::endl;

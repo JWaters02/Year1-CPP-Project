@@ -5,8 +5,7 @@
 #include "Stock.h"
 
 //region Constructor
-Stock::Stock(std::vector<std::string>& _items, std::vector<int>& _itemCosts )
-: itemsStock(_items), itemStockCosts(_itemCosts) {
+Stock::Stock(std::vector<std::string>& _items, std::vector<int>& _itemCosts ) {
 
 }
 //endregion
@@ -20,15 +19,32 @@ bool Stock::isItemInStock(std::string itemName) {
         }
         // If the item exists in stock, but there is none left
         if (itemStockCount[item] == 0) {
-            std::cout << "Item is out of stock" << std::endl;
+            // TODO: Remove this to commands class
+            std::cout << "Item: " << itemsStock[item] << " is out of stock" << std::endl;
             return false;
         }
     }
     if (itemCounter != 1) {
-        std::cout << "Item does not exist" << std::endl;
+        // TODO: Remove this to commands class
+        std::cout << "Item: " << itemName << " does not exist" << std::endl;
         return false;
     }
     return true;
+}
+
+void Stock::decrementStock(std::string stockToReduce, int numItems) {
+    for (int item = 0; item < itemsStock.size(); ++item) {
+        if (stockToReduce == itemsStock[item]) {
+            if ((itemStockCount[item] -= numItems) <= 0) {
+                // TODO: Remove this to commands class
+                std::cout << "Item: " << itemsStock[item] << " is out of stock" << std::endl;
+                break;
+            } else {
+                itemStockCount[item]--;
+                break;
+            }
+        }
+    }
 }
 //endregion
 
@@ -37,23 +53,18 @@ bool Stock::isItemInStock(std::string itemName) {
 
 //region Getters
 // Get the requested item from stock
-std::string Stock::getItemFromItemsStock(std::string itemName, int numItems) {
+void Stock::getItemFromItemsStock(std::string itemName, int numItems) {
     // If item is in stock
     if (isItemInStock(itemName)) {
         for (int item = 0; item < itemsStock.size(); item++) {
             // If current item is selected
             if (itemName == itemsStock[item]) {
+                // Decrement stock
+                decrementStock(itemName, numItems);
+
                 // Remove item from stock
-                if ((itemStockCount[item] -= numItems) < 0) {
-                    int maxItemsCanRemove = itemStockCount[item];
-
-                } else {
-                    itemStockCount[item] -= numItems;
-                }
-
                 itemsStock.erase(itemsStock.begin() + item);
                 itemStockCosts.erase(itemStockCosts.begin() + item);
-                return "";
             }
         }
     }

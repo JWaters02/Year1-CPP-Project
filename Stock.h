@@ -15,16 +15,19 @@ class Stock {
 public:
     Stock(std::vector<std::string>& _items, std::vector<int>& _itemCosts);
 
+    // Functions
+
     // Getters
-    std::string getItemFromItemsStock(std::string itemName, int numItems);
+    static void getItemFromItemsStock(std::string itemName, int numItems);
     std::vector<int> getItemStockCount();
 private:
     // Functions
-    bool isItemInStock(std::string itemName);
+    static bool isItemInStock(std::string itemName);
+    static void decrementStock(std::string stockToReduce, int numItems);
 
-    std::vector<std::string> itemsStock;
-    std::vector<int> itemStockCount;
-    std::vector<int> itemStockCosts;
+    static std::vector<std::string> itemsStock;
+    static std::vector<int> itemStockCount;
+    static std::vector<int> itemStockCosts;
 };
 
 #endif //YEAR1_CPP_PROJECT_STOCK_H
