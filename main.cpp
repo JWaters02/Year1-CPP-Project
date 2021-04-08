@@ -1,9 +1,7 @@
 #include <iostream>
 #include <memory>
 #include <Windows.h>
-#include "Shopper.h"
-#include "Item.h"
-#include "Stock.h"
+#include "MainLoop.h"
 
 void testingShopperClass() {
     std::vector<std::string> itemsPurchased = {"Apples", "Bananas", "Cherries"};
@@ -20,24 +18,10 @@ void testingShopperClass() {
 int main() {
     srand(time(nullptr));
     std::cout << "test" << std::endl;
-    testingShopperClass();
+    //testingShopperClass();
 
-    // MAIN EVENT LOOP
-    bool quit = false;
-    while (!quit) {
-        Sleep(1000);
-        // Generate shopper
-    }
-
-
-    // TODO: Move to commands class
-    std::cout << "Pls input item" << std::endl;
-    std::string item;
-    std::cin >> item;
-    while (!Item::isValidName(item)) {
-        std::cout << "Pls input NEW item" << std::endl;
-        std::cin >> item;
-    }
+    std::unique_ptr<MainLoop> mainLoop = std::make_unique<MainLoop>();
+    mainLoop->mainEventLoop();
 
     return 0;
 }

@@ -48,7 +48,7 @@ private:
     static const int MAXWEIGHT = 200;
     static const int MINWEIGHT = 15;
     static const int MAXAGE = 120;
-    static const int MAXID = 10000;
+    static const int MAXID = 100;
     static const int MAXITEMSPERITEM = 20;
     static const int MAXITEMSFORBASKET = 50;
 

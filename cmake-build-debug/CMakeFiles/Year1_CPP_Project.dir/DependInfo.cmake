@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/FileHandler.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/FileHandler.cpp.obj"
   "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Item.cpp.obj"
   "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Logs.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Logs.cpp.obj"
+  "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/MainLoop.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/MainLoop.cpp.obj"
   "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Order.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Order.cpp.obj"
   "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Shopper.cpp.obj"
   "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Simulation.cpp.obj"

@@ -24,10 +24,6 @@ private:
     // Functions
     static bool isItemInStock(std::string itemName);
     static void decrementStock(std::string stockToReduce, int numItems);
-
-    static std::vector<std::string> itemsStock;
-    static std::vector<int> itemStockCount;
-    static std::vector<int> itemStockCosts;
 };
 
 #endif //YEAR1_CPP_PROJECT_STOCK_H

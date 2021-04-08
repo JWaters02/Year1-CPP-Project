@@ -8,6 +8,10 @@
 #define YEAR1_CPP_PROJECT_COMMANDS_H
 
 class Commands {
+public:
+
+
+private:
 
 };
 

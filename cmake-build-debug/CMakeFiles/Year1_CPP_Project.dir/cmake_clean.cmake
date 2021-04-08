@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Year1_CPP_Project.dir/FileHandler.cpp.obj"
   "CMakeFiles/Year1_CPP_Project.dir/Item.cpp.obj"
   "CMakeFiles/Year1_CPP_Project.dir/Logs.cpp.obj"
+  "CMakeFiles/Year1_CPP_Project.dir/MainLoop.cpp.obj"
   "CMakeFiles/Year1_CPP_Project.dir/Order.cpp.obj"
   "CMakeFiles/Year1_CPP_Project.dir/Shopper.cpp.obj"
   "CMakeFiles/Year1_CPP_Project.dir/Simulation.cpp.obj"

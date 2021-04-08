@@ -108,6 +108,12 @@
 		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Logs.h">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
+		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/MainLoop.cpp">
+			<Option target="Year1_CPP_Project"/>
+		</Unit>
+		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/MainLoop.h">
+			<Option target="Year1_CPP_Project"/>
+		</Unit>
 		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Order.cpp">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>

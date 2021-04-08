@@ -12,4 +12,5 @@ add_executable(Year1_CPP_Project
         Logs.cpp Logs.h
         Shopper.cpp Shopper.h
         Item.cpp Item.h
-        Simulation.cpp Simulation.h)
+        Simulation.cpp Simulation.h
+        MainLoop.cpp MainLoop.h)

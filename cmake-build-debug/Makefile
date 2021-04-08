@@ -235,6 +235,33 @@ Logs.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Logs.cpp.s
 .PHONY : Logs.cpp.s
 
+MainLoop.obj: MainLoop.cpp.obj
+
+.PHONY : MainLoop.obj
+
+# target to build an object file
+MainLoop.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\MainLoop.cpp.obj
+.PHONY : MainLoop.cpp.obj
+
+MainLoop.i: MainLoop.cpp.i
+
+.PHONY : MainLoop.i
+
+# target to preprocess a source file
+MainLoop.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\MainLoop.cpp.i
+.PHONY : MainLoop.cpp.i
+
+MainLoop.s: MainLoop.cpp.s
+
+.PHONY : MainLoop.s
+
+# target to generate assembly for a file
+MainLoop.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\MainLoop.cpp.s
+.PHONY : MainLoop.cpp.s
+
 Order.obj: Order.cpp.obj
 
 .PHONY : Order.obj
@@ -391,6 +418,9 @@ help:
 	@echo ... Logs.obj
 	@echo ... Logs.i
 	@echo ... Logs.s
+	@echo ... MainLoop.obj
+	@echo ... MainLoop.i
+	@echo ... MainLoop.s
 	@echo ... Order.obj
 	@echo ... Order.i
 	@echo ... Order.s
