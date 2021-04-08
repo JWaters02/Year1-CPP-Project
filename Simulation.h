@@ -5,12 +5,14 @@
 #ifndef YEAR1_CPP_PROJECT_SIMULATION_H
 #define YEAR1_CPP_PROJECT_SIMULATION_H
 
-#include "Commands.h"
-#include "Logs.h"
 
-class Simulation : Commands, Logs {
+
+class Simulation {
 public:
-    Simulation();
+    Simulation(int simID);
+
+    // Vars
+
 private:
 
 };

@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <memory>
-#include <Windows.h>
+#include <windows.h>
 #include "Shopper.h"
 #include "Item.h"
 #include "Stock.h"

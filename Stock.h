@@ -9,7 +9,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include "Item.h"
 
 class Stock {
 public:

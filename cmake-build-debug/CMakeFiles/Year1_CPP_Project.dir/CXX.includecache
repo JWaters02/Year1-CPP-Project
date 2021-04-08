@@ -6,13 +6,17 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Commands.cpp
+Commands.h
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Commands.h
 
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/FileHandler.h
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Commands.h
+vector
+-
+iostream
+-
 
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.cpp
-Item.h
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.h
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/FileHandler.h
 
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.h
 iostream
@@ -56,10 +60,6 @@ C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Order.h
 
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Order.h
 
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.cpp
-Shopper.h
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.h
-
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.h
 iostream
 -
@@ -70,9 +70,15 @@ random
 Item.h
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.h
 
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.cpp
-Stock.h
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.h
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.cpp
+Simulation.h
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.h
+
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.h
+Commands.h
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Commands.h
+Logs.h
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Logs.h
 
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.h
 iostream
