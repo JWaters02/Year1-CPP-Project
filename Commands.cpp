@@ -13,36 +13,77 @@ void Commands::quit() {
     exit(0);
 }
 
-void Commands::pause(int pauseLength) {
-    Sleep(pauseLength);
+void Commands::pause() {
+    std::cout << "All simulations paused. Press any key to continue." << std::endl;
+    std::string temp;
+    std::cin >> temp;
 }
 
 void Commands::addSim() {
-    simCount++;
-    std::unique_ptr<Simulation> newSim = std::make_unique<Simulation>(simCount);
-    simIDs.push_back(std::to_string(simCount));
-//    simulationsRunning.push_back(newSim);
+    if (simCount <= MAXID) {
+        simCount++;
+        std::unique_ptr<Simulation> newSim = std::make_unique<Simulation>(simCount);
+        simIDs.push_back(std::to_string(simCount));
+        simulationsRunning.push_back(*newSim);
+    } else {
+        std::cout << "Too many simulations running!" << std::endl;
+    }
 }
 
-void Commands::removeSim(int simID) {
-
+void Commands::removeSim() {
+    simIDs.pop_back();
+    simulationsRunning.pop_back();
+    simCount--;
 }
 
-void Commands::pauseSim(int simID) {
-
+void Commands::pauseSim(std::string simID) {
+    for (int sim = 0; sim < simCount; sim++) {
+        if (simIDs[sim] == simID) {
+            simulationsRunning[sim].pause();
+        }
+    }
 }
 
-void Commands::continueSim(int simID) {
+void Commands::continueSim(std::string simID) {
+    for (int sim = 0; sim < simCount; sim++) {
+        if (simIDs[sim] == simID) {
+            simulationsRunning[sim].resume();
+        }
+    }
+}
 
+void Commands::listSimInfo(std::string simID) {
+    for (int sim = 0; sim < simCount; sim++) {
+        if (simIDs[sim] == simID) {
+            simulationsRunning[sim].getSimInfo();
+        }
+    }
 }
 //endregion
 
 //region Setters
 void Commands::setCommand(std::string command) {
+    // I would use switch statement here but C++ switch does not accept strings
     if (command == "quit") {
         quit();
-    } else if (command.starts_with("pause")) {
-
+    } else if (command == "pause") {
+        pause();
+    } else if (command == "add sim") {
+        addSim();
+    } else if (command == "remove sim") {
+        removeSim();
+    } else if (command.starts_with("list sims")) {
+        // Get the ID on the right of the command
+        std::string simID;
+        listSimInfo(simID);
+    } else if (command.starts_with("continue sim")) {
+        // Get the ID on the right of the command
+        std::string simID;
+        continueSim(simID);
+    } else if (command.starts_with("pause sim")) {
+        // Get the ID on the right of the command
+        std::string simID;
+        pauseSim(simID);
     }
 }
 //endregion

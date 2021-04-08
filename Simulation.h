@@ -5,16 +5,25 @@
 #ifndef YEAR1_CPP_PROJECT_SIMULATION_H
 #define YEAR1_CPP_PROJECT_SIMULATION_H
 
-
+#include <iostream>
 
 class Simulation {
 public:
-    Simulation(int simID);
+    // Constructor
+    Simulation(int _simID);
+
+    // Functions
+    void pause();
+    void resume();
+
+    // Getters
+    void getSimInfo();
 
     // Vars
 
 private:
-
+    // Vars
+    int simID;
 };
 
 

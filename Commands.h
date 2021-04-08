@@ -18,12 +18,13 @@ class Commands {
 public:
     // Functions
     void quit();
-    void pause(int pauseLength);
+    void pause();
 
     void addSim();
-    void removeSim(int simID);
-    void pauseSim(int simID);
-    void continueSim(int simID);
+    void removeSim();
+    void pauseSim(std::string simID);
+    void continueSim(std::string simID);
+    void listSimInfo(std::string simID);
 
     // Setters
     void setCommand(std::string command);
@@ -42,8 +43,8 @@ private:
     const int MAXID = 10; // Max of 10 simulations
 
     // Vars
-    std::vector<std::string> commands = {"help", "quit", "pause <length of pause, ms>", "log",
-                                         "add sim", "remove sim <ID>", "list sims <ID>",
+    std::vector<std::string> commands = {"help", "quit", "pause",
+                                         "add sim", "remove sim", "list sim info <ID>",
                                          "continue sim <ID>", "pause sim <ID>"};
     std::vector<std::string> simIDs;
     int simCount = 0;
