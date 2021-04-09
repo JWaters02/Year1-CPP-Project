@@ -9,11 +9,9 @@ void MainLoop::setTickSpeed(int _tickSpeed) {
 }
 
 void MainLoop::mainEventLoop() {
-    // MAIN EVENT LOOP
+    std::unique_ptr<Commands> commands = std::make_unique<Commands>();
     bool quit = false;
     while (!quit) {
-        // Checking for key press which stops loop
-        std::cout << "main loop restarts" << std::endl;
         int count = 0;
         while (count < tickSpeed / 2) {
             Sleep(1);
@@ -23,8 +21,7 @@ void MainLoop::mainEventLoop() {
                 Sleep(tickSpeed / 2);
 
                 // Display list of commands and what the user wishes to do
-                std::unique_ptr<Commands> commands = std::make_unique<Commands>();
-                std::cout << "List of commands:\n" << commands->getCommandList();
+                std::cout << "\nList of commands:\n" << commands->getCommandList();
 
                 // User inputs command
                 std::string command = "";
@@ -45,5 +42,6 @@ void MainLoop::mainEventLoop() {
         }
 
         // Run simulations
+
     }
 }

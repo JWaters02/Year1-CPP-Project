@@ -16,7 +16,7 @@
 #include "FileHandler.h"
 #include "Order.h"
 
-class MainLoop {
+class MainLoop : Commands {
 public:
     void mainEventLoop();
     void setTickSpeed(int _tickSpeed);

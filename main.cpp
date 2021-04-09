@@ -17,9 +17,9 @@ void testingShopperClass() {
 
 int main() {
     srand(time(nullptr));
-    std::cout << "test" << std::endl;
     //testingShopperClass();
 
+    // MAIN EVENT LOOP
     std::unique_ptr<MainLoop> mainLoop = std::make_unique<MainLoop>();
     mainLoop->mainEventLoop();
 
