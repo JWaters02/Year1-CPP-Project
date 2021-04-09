@@ -4,6 +4,7 @@
 CMakeFiles/Year1_CPP_Project.dir/Commands.cpp.obj
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Commands.cpp
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Commands.h
+ C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.h
 CMakeFiles/Year1_CPP_Project.dir/FileHandler.cpp.obj
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/FileHandler.cpp
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/FileHandler.h
@@ -23,6 +24,7 @@ CMakeFiles/Year1_CPP_Project.dir/MainLoop.cpp.obj
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/MainLoop.h
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Order.h
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.h
+ C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.h
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.h
 CMakeFiles/Year1_CPP_Project.dir/Order.cpp.obj
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Order.cpp
@@ -33,12 +35,9 @@ CMakeFiles/Year1_CPP_Project.dir/Shopper.cpp.obj
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.h
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.h
 CMakeFiles/Year1_CPP_Project.dir/Simulation.cpp.obj
- C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Commands.h
- C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Logs.h
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.cpp
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.h
 CMakeFiles/Year1_CPP_Project.dir/Stock.cpp.obj
- C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.h
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.cpp
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.h
 CMakeFiles/Year1_CPP_Project.dir/main.cpp.obj
@@ -49,5 +48,6 @@ CMakeFiles/Year1_CPP_Project.dir/main.cpp.obj
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/MainLoop.h
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Order.h
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.h
+ C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.h
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.h
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/main.cpp

@@ -17,9 +17,10 @@
 class Commands {
 public:
     // Functions
+    void help();
     void quit();
     void pause();
-
+    void listSimIDs();
     void addSim();
     void removeSim();
     void pauseSim(std::string simID);
@@ -31,21 +32,17 @@ public:
 
     // Getters
     std::string getCommandList();
-    std::string getSimIDs();
     std::string getShopperIDs();
     std::string listShoppers();
-    std::string getHelp();
-
-    // Vars
-
 private:
     // Consts
     const int MAXID = 10; // Max of 10 simulations
 
     // Vars
-    std::vector<std::string> commands = {"help", "quit", "pause",
-                                         "add sim", "remove sim", "list sim info <ID>",
-                                         "continue sim <ID>", "pause sim <ID>"};
+    std::vector<std::string> commands = {"help", "quit", "pause", "list sims",
+                                         "add sim", "remove sim", "list sim info <sim ID>",
+                                         "continue sim <sim ID>", "pause sim <sim ID>",
+                                         ""};
     std::vector<std::string> simIDs;
     int simCount = 0;
     std::vector<Simulation> simulationsRunning;

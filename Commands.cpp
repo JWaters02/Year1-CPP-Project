@@ -9,14 +9,31 @@
 //endregion
 
 //region Functions
+void Commands::help() {
+    std::string ret = "Help page.\n"
+                      "Contactless shopper simulator.\n"
+                      "Press spacebar anytime whilst the simulations are running, to input a new command.\n"
+                      "Commands syntax: <parameter> denotes required parameter.\n"
+                      "Commands are NOT capital sensitive, however spaces are still required.\n";
+    std::cout << ret << std::endl;
+}
+
 void Commands::quit() {
     exit(0);
 }
 
 void Commands::pause() {
-    std::cout << "All simulations paused. Press any key to continue." << std::endl;
+    std::cout << "All simulations paused. Enter anything to continue." << std::endl;
     std::string temp;
     std::cin >> temp;
+}
+
+void Commands::listSimIDs() {
+    std::string ret = "";
+    for (int i = 0; i < simIDs.size(); i++) {
+        ret += "Simulation ID: " + simIDs[i] + "\n";
+    }
+    std::cout << ret << std::endl;
 }
 
 void Commands::addSim() {
@@ -25,6 +42,7 @@ void Commands::addSim() {
         std::unique_ptr<Simulation> newSim = std::make_unique<Simulation>(simCount);
         simIDs.push_back(std::to_string(simCount));
         simulationsRunning.push_back(*newSim);
+        std::cout << "New simulation added!" << std::endl;
     } else {
         std::cout << "Too many simulations running!" << std::endl;
     }
@@ -34,6 +52,7 @@ void Commands::removeSim() {
     simIDs.pop_back();
     simulationsRunning.pop_back();
     simCount--;
+    std::cout << "Simulation removed from stack." << std::endl;
 }
 
 void Commands::pauseSim(std::string simID) {
@@ -42,6 +61,7 @@ void Commands::pauseSim(std::string simID) {
             simulationsRunning[sim].pause();
         }
     }
+    std::cout << "Selected simulation paused." << std::endl;
 }
 
 void Commands::continueSim(std::string simID) {
@@ -50,6 +70,7 @@ void Commands::continueSim(std::string simID) {
             simulationsRunning[sim].resume();
         }
     }
+    std::cout << "Selected simulation unpaused." << std::endl;
 }
 
 void Commands::listSimInfo(std::string simID) {
@@ -64,10 +85,14 @@ void Commands::listSimInfo(std::string simID) {
 //region Setters
 void Commands::setCommand(std::string command) {
     // I would use switch statement here but C++ switch does not accept strings
-    if (command == "quit") {
+    if (command == "help") {
+        help();
+    } else if (command == "quit") {
         quit();
     } else if (command == "pause") {
         pause();
+    } else if (command == "list sims") {
+        listSimIDs();
     } else if (command == "add sim") {
         addSim();
     } else if (command == "remove sim") {
@@ -97,19 +122,11 @@ std::string Commands::getCommandList() {
     return ret;
 }
 
-std::string Commands::getSimIDs() {
-    std::string ret = "";
-    for (int i = 0; i < simIDs.size(); i++) {
-        ret += simIDs[i] + "\n";
-    }
-    return ret;
+std::string Commands::getShopperIDs() {
+    return std::string();
 }
 
-std::string Commands::getHelp() {
-    std::string ret = "Help page.\n"
-                      "Contactless shopper simulator.\n"
-                      "Press spacebar anytime whilst the simulations are running, to input a new command.\n"
-                      "Blah";
-    return ret;
+std::string Commands::listShoppers() {
+    return std::string();
 }
 //endregion

@@ -20,12 +20,11 @@ void MainLoop::mainEventLoop() {
             // If key pressed, pause simulation
             // TODO: Change for any key pressed
             if (GetAsyncKeyState(VK_SPACE) & 0x8000) {
-                std::cout << "user pressed space!" << std::endl;
                 Sleep(tickSpeed / 2);
 
                 // Display list of commands and what the user wishes to do
                 std::unique_ptr<Commands> commands = std::make_unique<Commands>();
-                std::cout << "List of commands:\n" << commands->getCommandList() << std::endl;
+                std::cout << "List of commands:\n" << commands->getCommandList();
 
                 // User inputs command
                 std::string command = "";
