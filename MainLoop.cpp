@@ -34,7 +34,8 @@ void MainLoop::mainEventLoop() {
                     command[i] = tolower(command[i]);
                 }
 
-                // Run command
+                // TODO: Fix bug where random letter seems to get deleted in memory when passed into commands object
+                //Run command
                 commands->setCommand(command);
 
                 SetConsoleTextAttribute(hConsole, 3); // DARK CYAN
@@ -47,6 +48,6 @@ void MainLoop::mainEventLoop() {
         }
 
         // Run simulations
-        // commands->getSimInfo();
+        commands->getSimInfo();
     }
 }

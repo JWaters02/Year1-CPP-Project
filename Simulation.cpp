@@ -44,7 +44,7 @@ void Simulation::listShoppers() {
 //region Getters
 void Simulation::getSimInfo() {
     if (!isPaused) {
-
+        std::cout << "SIMULATION " << simID << " HAS RUN, WOOO!" << std::endl;
     }
 }
 //endregion

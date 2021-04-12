@@ -27,6 +27,8 @@ public:
     void aliases();
     void quit();
     void pause();
+    void saveSimulations();
+    void loadSimulations();
     void listSimIDs();
     void addSim();
     void removeSim();
@@ -47,19 +49,22 @@ public:
 private:
     // Functions
     bool isIDValid(std::vector<std::string>& IDTypes);
-    std::vector<std::string> splitCommand(std::string command, std::string token);
+    bool isCommandValid(std::string command);
+    std::vector<std::string> splitCommand(std::string command, std::string delimeter);
 
     // Consts
     const int MAXID = 10; // Max of 10 simulations
 
     // Vars
-    std::vector<std::string> commands = {"help", "commands", "aliases", "quit", "pause", "list sims",
+    std::vector<std::string> commands = {"help", "commands", "aliases", "quit", "pause",
+                                         "save program", "load program", "list sims",
                                          "add sim", "remove sim", "list sim info <sim ID>",
                                          "continue sim <sim ID>", "pause sim <sim ID>",
                                          "add shopper <sim ID>", "remove shopper <sim ID>",
                                          "list shopper info <sim ID> <shopper ID>",
                                          "list shoppers <sim ID>"};
-    std::vector<std::string> commandAliases = {"h", "c", "a", "q", "p", "ls", "as", "rs", "lsi <sim ID>",
+    std::vector<std::string> commandAliases = {"h", "c", "a", "q", "p", "ls", "as", "rs",
+                                               "sp", "lp", "lsi <sim ID>",
                                                "cs <sim ID>", "ps <sim ID>", "ash <sim ID>",
                                                "rsh <sim ID>", "lshi <sim ID> <shopper ID>",
                                                "lsh <sim ID>"};
@@ -75,6 +80,10 @@ private:
         std::make_pair("q", [this](std::vector<std::string>&){quit();}),
         std::make_pair("pause", [this](std::vector<std::string>&){pause();}),
         std::make_pair("p", [this](std::vector<std::string>&){pause();}),
+        std::make_pair("save program", [this](std::vector<std::string>&){saveSimulations();}),
+        std::make_pair("sp", [this](std::vector<std::string>&){saveSimulations();}),
+        std::make_pair("load program", [this](std::vector<std::string>&){loadSimulations();}),
+        std::make_pair("lp", [this](std::vector<std::string>&){loadSimulations();}),
         std::make_pair("list sims", [this](std::vector<std::string>&){listSimIDs();}),
         std::make_pair("ls", [this](std::vector<std::string>&){listSimIDs();}),
         std::make_pair("add sim", [this](std::vector<std::string>&){addSim();}),
