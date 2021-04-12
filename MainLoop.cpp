@@ -9,6 +9,7 @@ void MainLoop::setTickSpeed(int _tickSpeed) {
 }
 
 void MainLoop::mainEventLoop() {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     std::unique_ptr<Commands> commands = std::make_unique<Commands>();
     while (true) {
         int count = 0;
@@ -20,7 +21,9 @@ void MainLoop::mainEventLoop() {
                 Sleep(tickSpeed / 2);
 
                 // Display list of commands and what the user wishes to do
-                std::cout << "\nList of commands:\n" << commands->getCommandList();
+                SetConsoleTextAttribute(hConsole, 3); // DARK CYAN
+                std::cout << "\nType 'commands' for list of commands.\nEnter command:" << std::endl;
+                SetConsoleTextAttribute(hConsole, 7); // DEFAULT
 
                 // User inputs command
                 std::string command = "";
@@ -34,6 +37,9 @@ void MainLoop::mainEventLoop() {
                 // Run command
                 commands->setCommand(command);
 
+                SetConsoleTextAttribute(hConsole, 3); // DARK CYAN
+                std::cout << "\nPress space to input new command or nothing to continue program loop." << std::endl;
+                SetConsoleTextAttribute(hConsole, 7); // DEFAULT
                 break;
             }
             Sleep(1);

@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Commands.cpp
-Commands.h
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Commands.h
-
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Commands.h
 vector
 -
@@ -28,6 +24,8 @@ algorithm
 Simulation.h
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.h
 
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/FileHandler.h
+
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.h
 iostream
 -
@@ -39,6 +37,32 @@ memory
 -
 Stock.h
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.h
+
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Logs.h
+
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/MainLoop.cpp
+MainLoop.h
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/MainLoop.h
+
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/MainLoop.h
+iostream
+-
+memory
+-
+windows.h
+-
+Stock.h
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.h
+Commands.h
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Commands.h
+Logs.h
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Logs.h
+FileHandler.h
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/FileHandler.h
+Order.h
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Order.h
+
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Order.h
 
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.h
 iostream

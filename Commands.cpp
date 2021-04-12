@@ -14,8 +14,12 @@ Commands::Commands() {
 
 //region Functions
 void Commands::help() {
-    std::string ret = "Help page.\n"
-                      "Contactless shopper simulator.\n"
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, 10); // GREEN
+    std::cout << "Help page:" << std::endl;
+
+    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
+    std::string ret = "Contactless shopper simulator.\n"
                       "Press spacebar anytime whilst the simulations are running, to input a new command.\n"
                       "Commands syntax: <parameter> denotes required parameter.\n"
                       "Commands are NOT capital sensitive, however spaces are still required.\n"
@@ -24,12 +28,23 @@ void Commands::help() {
     std::cout << ret << std::endl;
 }
 
-void Commands::aliases() {
-    std::string ret = "Aliases:\n";
-    for (int alias = 0; alias < commandAliases.size(); alias++) {
-        ret += commands[alias] + ": " + commandAliases[alias] + "\n";
+void Commands::commandList() {
+    std::string ret = "";
+    for (int i = 0; i < commands.size(); i++) {
+        ret += commands[i] + "\n";
     }
     std::cout << ret << std::endl;
+}
+
+void Commands::aliases() {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    std::cout << "Aliases:\n";
+    for (int command = 0; command < commandAliases.size(); command++) {
+        SetConsoleTextAttribute(hConsole, 7); // DEFAULT
+        std::cout << commands[command] << ": ";
+        SetConsoleTextAttribute(hConsole, 12); // RED
+        std::cout << commandAliases[command] << std::endl;
+    }
 }
 
 void Commands::quit() {
@@ -37,8 +52,11 @@ void Commands::quit() {
 }
 
 void Commands::pause() {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, 12); // RED
     std::cout << "All simulations paused. Enter anything to continue." << std::endl;
     std::string temp;
+    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
     std::cin >> temp;
 }
 
@@ -51,49 +69,67 @@ void Commands::listSimIDs() {
 }
 
 void Commands::addSim() {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     if (simCount <= MAXID) {
         simCount++;
         std::unique_ptr<Simulation> newSim = std::make_unique<Simulation>(simCount);
         simIDs.push_back(std::to_string(simCount));
         simulationsRunning.push_back(*newSim);
+        SetConsoleTextAttribute(hConsole, 12); // RED
         std::cout << "New simulation added!" << std::endl;
+        SetConsoleTextAttribute(hConsole, 7); // DEFAULT
     } else {
+        SetConsoleTextAttribute(hConsole, 12); // RED
         std::cout << "Too many simulations running!" << std::endl;
+        SetConsoleTextAttribute(hConsole, 7); // DEFAULT
     }
 }
 
 void Commands::removeSim() {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     simIDs.pop_back();
     simulationsRunning.pop_back();
     simCount--;
+    SetConsoleTextAttribute(hConsole, 12); // RED
     std::cout << "Simulation removed from stack." << std::endl;
+    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
+
 }
 
 void Commands::pauseSim(std::vector<std::string>& IDTypes) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     if (isIDValid(IDTypes)) {
         for (int sim = 0; sim < simCount; sim++) {
             if (simIDs[sim] == IDTypes[0]) {
                 simulationsRunning[sim].pause();
             }
         }
+        SetConsoleTextAttribute(hConsole, 12); // RED
         std::cout << "Selected simulation paused." << std::endl;
+        SetConsoleTextAttribute(hConsole, 7); // DEFAULT
     }
 }
 
 void Commands::continueSim(std::vector<std::string>& IDTypes) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     if (isIDValid(IDTypes)) {
         for (int sim = 0; sim < simCount; sim++) {
             if (simIDs[sim] == IDTypes[0]) {
                 simulationsRunning[sim].resume();
             }
         }
+        SetConsoleTextAttribute(hConsole, 12); // RED
         std::cout << "Selected simulation unpaused." << std::endl;
+        SetConsoleTextAttribute(hConsole, 7); // DEFAULT
     }
 }
 
 void Commands::listSimInfo(std::vector<std::string>& IDTypes) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     if (isIDValid(IDTypes)) {
+        SetConsoleTextAttribute(hConsole, 12); // RED
         std::cout << "Information for simulation ID " << IDTypes[0] << std::endl;
+        SetConsoleTextAttribute(hConsole, 7); // DEFAULT
         for (int sim = 0; sim < simCount; sim++) {
             if (simIDs[sim] == IDTypes[0]) {
                 simulationsRunning[sim].getSimInfo();
@@ -103,30 +139,39 @@ void Commands::listSimInfo(std::vector<std::string>& IDTypes) {
 }
 
 void Commands::addShopper(std::vector<std::string>& IDTypes) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     if (isIDValid(IDTypes)) {
         for (int sim = 0; sim < simCount; sim++) {
             if (simIDs[sim] == IDTypes[0]) {
                 simulationsRunning[sim].addShopper();
             }
         }
+        SetConsoleTextAttribute(hConsole, 12); // RED
         std::cout << "Shopper added to simulation " << IDTypes[0] << "'s stack" <<  std::endl;
+        SetConsoleTextAttribute(hConsole, 7); // DEFAULT
     }
 }
 
 void Commands::removeShopper(std::vector<std::string>& IDTypes) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     if (isIDValid(IDTypes)) {
         for (int sim = 0; sim < simCount; sim++) {
             if (simIDs[sim] == IDTypes[0]) {
                 simulationsRunning[sim].removeShopper();
             }
         }
+        SetConsoleTextAttribute(hConsole, 12); // RED
         std::cout << "Shopper remove from simulation " << IDTypes[0] << "'s stack" << std::endl;
+        SetConsoleTextAttribute(hConsole, 7); // DEFAULT
     }
 }
 
 void Commands::listShopperInfo(std::vector<std::string>& IDTypes) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     if (isIDValid(IDTypes)) {
+        SetConsoleTextAttribute(hConsole, 12); // RED
         std::cout << "Information for shopper ID " << IDTypes[1] << " in simulation ID " << IDTypes[0] << std::endl;
+        SetConsoleTextAttribute(hConsole, 7); // DEFAULT
         for (int sim = 0; sim < simCount; sim++) {
             if (simIDs[sim] == IDTypes[0]) {
                 simulationsRunning[sim].listShopperInfo(IDTypes[1]);
@@ -136,8 +181,11 @@ void Commands::listShopperInfo(std::vector<std::string>& IDTypes) {
 }
 
 void Commands::listShoppers(std::vector<std::string>& IDTypes) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     if (isIDValid(IDTypes)) {
+        SetConsoleTextAttribute(hConsole, 12); // RED
         std::cout << "Shoppers in simulation ID " << IDTypes[0] << ":" << std::endl;
+        SetConsoleTextAttribute(hConsole, 7); // DEFAULT
         for (int sim = 0; sim < simCount; sim++) {
             if (simIDs[sim] == IDTypes[0]) {
                 simulationsRunning[sim].listShoppers();
@@ -147,6 +195,8 @@ void Commands::listShoppers(std::vector<std::string>& IDTypes) {
 }
 
 bool Commands::isIDValid(std::vector<std::string>& IDTypes) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, 12); // RED
     bool isNumValid = true;
     bool isSimIDValid = true;
     bool isShopperIDValid = true;
@@ -197,6 +247,7 @@ bool Commands::isIDValid(std::vector<std::string>& IDTypes) {
         std::cout << "Shopper ID is not a number or command entered incorrectly!" << std::endl;
         return false;
     }
+    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
     return true;
 }
 
