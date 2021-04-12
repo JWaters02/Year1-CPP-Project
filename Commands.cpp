@@ -6,6 +6,10 @@
 #include "Commands.h"
 
 //region Constructor
+Commands::Commands() {
+    std::sort(commandFunc.begin(), commandFunc.end(),
+              [](const funcPair& a, const funcPair& b){return (a.first.length() > b.first.length());});
+};
 //endregion
 
 //region Functions
@@ -16,7 +20,7 @@ void Commands::help() {
                       "Commands syntax: <parameter> denotes required parameter.\n"
                       "Commands are NOT capital sensitive, however spaces are still required.\n"
                       "Aliases still require parameters if specified by the full command.\n"
-                      "";
+                      "E.g. to list simulation 3, commands could be 'list sim 3' or 'ls 3'";
     std::cout << ret << std::endl;
 }
 
@@ -65,122 +69,165 @@ void Commands::removeSim() {
     std::cout << "Simulation removed from stack." << std::endl;
 }
 
-void Commands::pauseSim(std::string simID) {
-    for (int sim = 0; sim < simCount; sim++) {
-        if (simIDs[sim] == simID) {
-            simulationsRunning[sim].pause();
+void Commands::pauseSim(std::vector<std::string>& IDTypes) {
+    if (isIDValid(IDTypes)) {
+        for (int sim = 0; sim < simCount; sim++) {
+            if (simIDs[sim] == IDTypes[0]) {
+                simulationsRunning[sim].pause();
+            }
+        }
+        std::cout << "Selected simulation paused." << std::endl;
+    }
+}
+
+void Commands::continueSim(std::vector<std::string>& IDTypes) {
+    if (isIDValid(IDTypes)) {
+        for (int sim = 0; sim < simCount; sim++) {
+            if (simIDs[sim] == IDTypes[0]) {
+                simulationsRunning[sim].resume();
+            }
+        }
+        std::cout << "Selected simulation unpaused." << std::endl;
+    }
+}
+
+void Commands::listSimInfo(std::vector<std::string>& IDTypes) {
+    if (isIDValid(IDTypes)) {
+        std::cout << "Information for simulation ID " << IDTypes[0] << std::endl;
+        for (int sim = 0; sim < simCount; sim++) {
+            if (simIDs[sim] == IDTypes[0]) {
+                simulationsRunning[sim].getSimInfo();
+            }
         }
     }
-    std::cout << "Selected simulation paused." << std::endl;
 }
 
-void Commands::continueSim(std::string simID) {
-    for (int sim = 0; sim < simCount; sim++) {
-        if (simIDs[sim] == simID) {
-            simulationsRunning[sim].resume();
+void Commands::addShopper(std::vector<std::string>& IDTypes) {
+    if (isIDValid(IDTypes)) {
+        for (int sim = 0; sim < simCount; sim++) {
+            if (simIDs[sim] == IDTypes[0]) {
+                simulationsRunning[sim].addShopper();
+            }
+        }
+        std::cout << "Shopper added to simulation " << IDTypes[0] << "'s stack" <<  std::endl;
+    }
+}
+
+void Commands::removeShopper(std::vector<std::string>& IDTypes) {
+    if (isIDValid(IDTypes)) {
+        for (int sim = 0; sim < simCount; sim++) {
+            if (simIDs[sim] == IDTypes[0]) {
+                simulationsRunning[sim].removeShopper();
+            }
+        }
+        std::cout << "Shopper remove from simulation " << IDTypes[0] << "'s stack" << std::endl;
+    }
+}
+
+void Commands::listShopperInfo(std::vector<std::string>& IDTypes) {
+    if (isIDValid(IDTypes)) {
+        std::cout << "Information for shopper ID " << IDTypes[1] << " in simulation ID " << IDTypes[0] << std::endl;
+        for (int sim = 0; sim < simCount; sim++) {
+            if (simIDs[sim] == IDTypes[0]) {
+                simulationsRunning[sim].listShopperInfo(IDTypes[1]);
+            }
         }
     }
-    std::cout << "Selected simulation unpaused." << std::endl;
 }
 
-void Commands::listSimInfo(std::string simID) {
-    std::cout << "Information for simulation ID " << simID << std::endl;
-    for (int sim = 0; sim < simCount; sim++) {
-        if (simIDs[sim] == simID) {
-            simulationsRunning[sim].getSimInfo();
+void Commands::listShoppers(std::vector<std::string>& IDTypes) {
+    if (isIDValid(IDTypes)) {
+        std::cout << "Shoppers in simulation ID " << IDTypes[0] << ":" << std::endl;
+        for (int sim = 0; sim < simCount; sim++) {
+            if (simIDs[sim] == IDTypes[0]) {
+                simulationsRunning[sim].listShoppers();
+            }
         }
     }
 }
 
-void Commands::addShopper(std::string simID) {
+bool Commands::isIDValid(std::vector<std::string>& IDTypes) {
+    bool isNumValid = true;
+    bool isSimIDValid = true;
+    bool isShopperIDValid = true;
+    std::string simID = "";
+    if (IDTypes.size() == 0) {
+        isNumValid = false;
+    } else if (IDTypes.size() == 1) {
+        simID = IDTypes[0];
+    } else if (IDTypes.size() == 2) {
+        simID = IDTypes[0];
+        std::string shopperID = IDTypes[1];
 
-}
-
-void Commands::removeShopper(std::string simID) {
-
-}
-
-void Commands::listShopperInfo(std::string simID, std::string shopperID) {
-
-}
-
-void Commands::listShoppers(std::string simID, std::string shopperID) {
-
-}
-
-void Commands::isIDValid(std::string simID, std::string shopperID, int commandType) {
-    bool isNumFlag = true;
-    // First, check if the simulation ID inputted is an actual number
-    for (int i = 0; i < simID.size(); i++) {
-        if (!isdigit(simID[i])) {
-            isNumFlag = false;
+        // Check if the shopper ID inputted is an actual number
+        for (int i = 0; i < shopperID.size(); i++) {
+            if (!isdigit(shopperID[i])) {
+                isShopperIDValid = false;
+                break;
+            }
         }
-    }
-
-    // Then, check if the simulation ID is in the ID stack
-    if (!std::count(simIDs.begin(), simIDs.end(), simID)) {
-        isNumFlag = false;
-    }
-
-    // If ID is number, run command
-    if (isNumFlag) {
-        switch (commandType) {
-            case 0:
-                listSimInfo(simID);
-            case 1:
-                continueSim(simID);
-            case 2:
-                pauseSim(simID);
+        // Then, check if the shopper ID is in the ID stack
+        if (!std::count(simulationsRunning[std::stoi(simID)].shopperIDs.begin(),
+                        simulationsRunning[std::stoi(simID)].shopperIDs.end(), shopperID)) {
+            isShopperIDValid = false;
         }
     } else {
-        std::cout << "ID is not a number or command entered incorrectly!" << std::endl;
+        isNumValid = false;
     }
-};
+    
+    // Check if the simulation ID inputted is an actual number
+    for (int i = 0; i < simID.size(); i++) {
+        if (!isdigit(simID[i])) {
+            isSimIDValid = false;
+            break;
+        }
+    }
+    // Check if the simulation ID is in the ID stack
+    if (!std::count(simIDs.begin(), simIDs.end(), simID)) {
+        isSimIDValid = false;
+    }
+
+    if (!isNumValid) {
+        std::cout << "ID is not a number or command entered incorrectly!" << std::endl;
+        return false;
+    } else if (!isSimIDValid) {
+        std::cout << "Simulation ID is not a number or command entered incorrectly!" << std::endl;
+        return false;
+    } else if (!isShopperIDValid) {
+        std::cout << "Shopper ID is not a number or command entered incorrectly!" << std::endl;
+        return false;
+    }
+    return true;
+}
+
+std::vector<std::string> Commands::splitCommand(std::string command, std::string delimeter) {
+    std::vector<std::string> ret;
+    while (command.size()) {
+        int index = command.find(delimeter);
+        if (index != std::string::npos) {
+            ret.push_back(command.substr(0, index));
+            command = command.substr(index + delimeter.size());
+            if (command.size() == 0) {
+                ret.push_back(command);
+            } else {
+                ret.push_back(command);
+                command = "";
+            }
+        }
+    }
+    return ret;
+}
 //endregion
 
 //region Setters
 void Commands::setCommand(std::string command) {
-    // I would use switch statement here but C++ switch does not accept strings
-    if (command == "help" || command == "h") {
-        help();
-    } else if (command == "aliases" || command == "a") {
-        aliases();
-    } else if (command == "quit" || command == "q") {
-        quit();
-    } else if (command == "pause" || command == "p") {
-        pause();
-    } else if (command == "list sims" || command == "ls") {
-        listSimIDs();
-    } else if (command == "add sim" || command == "as") {
-        addSim();
-    } else if (command == "remove sim" || command == "rs") {
-        removeSim();
-    } else if (command.starts_with("list sim info") || command.starts_with("lsi")) {
-        // Get the ID on the right of the command
-        std::string simID = command.replace(0, 14, "");
-
-        // Check that ID is a digit
-        isIDValid(simID, 0);
-    } else if (command.starts_with("continue sim") || command.starts_with("cs")) {
-        // Get the ID on the right of the command
-        std::string simID = command.replace(0, 12, "");
-
-        // Check that ID is a digit
-        isIDValid(simID, 1);
-    } else if (command.starts_with("pause sim") || command.starts_with("ps")) {
-        // Get the ID on the right of the command
-        std::string simID = command.replace(0, 10, "");
-
-        // Check that ID is a digit
-        isIDValid(simID, 2);
-    } else if (command.starts_with("add shopper") || command.starts_with("ash")) {
-
-    } else if (command.starts_with("remove shopper") || command.starts_with("rsh")) {
-
-    } else if (command.starts_with("list shopper info") || command.starts_with("lshi")) {
-
-    } else if (command.starts_with("list shoppers") || command.starts_with("lsh")) {
-
+    for (int i = 0; i < commandFunc.size(); i++) {
+        if (command.starts_with(commandFunc[i].first)) {
+            command.replace(0, commandFunc[i].first.length(), "");
+            std::vector<std::string> IDTypes = splitCommand(command, " ");
+            commandFunc[i].second(IDTypes);
+            break;
+        }
     }
 }
 //endregion
@@ -194,11 +241,9 @@ std::string Commands::getCommandList() {
     return ret;
 }
 
-std::string Commands::getShopperIDs() {
-    return std::string();
-}
-
-std::string Commands::listShoppers() {
-    return std::string();
+void Commands::getSimInfo() {
+    for (int sim = 0; sim < simCount; sim++) {
+        simulationsRunning[sim].getSimInfo();
+    }
 }
 //endregion

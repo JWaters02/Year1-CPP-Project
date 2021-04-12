@@ -10,13 +10,12 @@ void MainLoop::setTickSpeed(int _tickSpeed) {
 
 void MainLoop::mainEventLoop() {
     std::unique_ptr<Commands> commands = std::make_unique<Commands>();
-    bool quit = false;
-    while (!quit) {
+    while (true) {
         int count = 0;
         while (count < tickSpeed / 2) {
             Sleep(1);
             // If key pressed, pause simulation
-            // TODO: Change for any key pressed
+            // TODO: Change for any key pressed (or find better solution)
             if (GetAsyncKeyState(VK_SPACE) & 0x8000) {
                 Sleep(tickSpeed / 2);
 
@@ -42,6 +41,6 @@ void MainLoop::mainEventLoop() {
         }
 
         // Run simulations
-
+        // commands->getSimInfo();
     }
 }

@@ -12,10 +12,15 @@
 #include <string>
 #include <windows.h>
 #include <memory>
+#include <functional>
+#include <algorithm>
 #include "Simulation.h"
 
 class Commands {
 public:
+    // Constructor
+    Commands();
+
     // Functions
     void help();
     void aliases();
@@ -24,24 +29,24 @@ public:
     void listSimIDs();
     void addSim();
     void removeSim();
-    void listSimInfo(std::string simID);
-    void pauseSim(std::string simID);
-    void continueSim(std::string simID);
-    void addShopper(std::string simID);
-    void removeShopper(std::string simID);
-    void listShopperInfo(std::string simID, std::string shopperID);
-    void listShoppers(std::string simID, std::string shopperID);
+    void listSimInfo(std::vector<std::string>& IDTypes);
+    void pauseSim(std::vector<std::string>& IDTypes);
+    void continueSim(std::vector<std::string>& IDTypes);
+    void addShopper(std::vector<std::string>& IDTypes);
+    void removeShopper(std::vector<std::string>& IDTypes);
+    void listShopperInfo(std::vector<std::string>& IDTypes);
+    void listShoppers(std::vector<std::string>& IDTypes);
 
     // Setters
     void setCommand(std::string command);
 
     // Getters
     std::string getCommandList();
-    std::string getShopperIDs();
-    std::string listShoppers();
+    void getSimInfo();
 private:
     // Functions
-    void isIDValid(std::string simID, std::string shopperID, int commandType);
+    bool isIDValid(std::vector<std::string>& IDTypes);
+    std::vector<std::string> splitCommand(std::string command, std::string token);
 
     // Consts
     const int MAXID = 10; // Max of 10 simulations
@@ -57,6 +62,29 @@ private:
                                                "cs <sim ID>", "ps <sim ID>", "ash <sim ID>",
                                                "rsh <sim ID>", "lshi <sim ID> <shopper ID>",
                                                "lsh <sim ID>"};
+    using funcPair = std::pair<std::string, std::function<void(std::vector<std::string>&)>>;
+    std::vector<funcPair> commandFunc {
+        std::make_pair("help", [this](std::vector<std::string>&){help();}),
+        std::make_pair("h", [this](std::vector<std::string>&){help();}),
+        std::make_pair("aliases", [this](std::vector<std::string>&){aliases();}),
+        std::make_pair("a", [this](std::vector<std::string>&){aliases();}),
+        std::make_pair("quit", [this](std::vector<std::string>&){quit();}),
+        std::make_pair("q", [this](std::vector<std::string>&){quit();}),
+        std::make_pair("pause", [this](std::vector<std::string>&){pause();}),
+        std::make_pair("p", [this](std::vector<std::string>&){pause();}),
+        std::make_pair("list sims", [this](std::vector<std::string>&){listSimIDs();}),
+        std::make_pair("ls", [this](std::vector<std::string>&){listSimIDs();}),
+        std::make_pair("add sim", [this](std::vector<std::string>&){addSim();}),
+        std::make_pair("as", [this](std::vector<std::string>&){addSim();}),
+        std::make_pair("remove sim", [this](std::vector<std::string>&){removeSim();}),
+        std::make_pair("list sim info ", [this](std::vector<std::string>& IDTypes){listSimInfo(IDTypes);}),
+        std::make_pair("continue sim ", [this](std::vector<std::string>& IDTypes){continueSim(IDTypes);}),
+        std::make_pair("pause sim ", [this](std::vector<std::string>& IDTypes){pauseSim(IDTypes);}),
+        std::make_pair("add shopper ", [this](std::vector<std::string>& IDTypes){addShopper(IDTypes);}),
+        std::make_pair("remove shopper ", [this](std::vector<std::string>& IDTypes){removeShopper(IDTypes);}),
+        std::make_pair("list shopper info ", [this](std::vector<std::string>& IDTypes){listShopperInfo(IDTypes);}),
+        std::make_pair("list shoppers ", [this](std::vector<std::string>& IDTypes){listShoppers(IDTypes);}),
+    };
     std::vector<std::string> simIDs;
     int simCount = 0;
     std::vector<Simulation> simulationsRunning;

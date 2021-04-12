@@ -8,8 +8,6 @@
 #include <iostream>
 #include <memory>
 #include <windows.h>
-#include "Shopper.h"
-#include "Item.h"
 #include "Stock.h"
 #include "Commands.h"
 #include "Logs.h"

@@ -6,15 +6,31 @@
 
 //region Constructor
 Simulation::Simulation(int _simID) : simID(_simID) {
-    // TODO: Allow user to use commands to instantiate shoppers
+
 }
 
 //region Functions
 void Simulation::pause() {
-
+    isPaused = true;
 }
 
 void Simulation::resume() {
+    isPaused = false;
+}
+
+void Simulation::addShopper() {
+
+}
+
+void Simulation::removeShopper() {
+
+}
+
+void Simulation::listShopperInfo(std::string shopperID) {
+
+}
+
+void Simulation::listShoppers() {
 
 }
 //endregion
@@ -27,6 +43,8 @@ void Simulation::resume() {
 
 //region Getters
 void Simulation::getSimInfo() {
+    if (!isPaused) {
 
+    }
 }
 //endregion

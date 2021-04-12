@@ -4,7 +4,10 @@
 CMakeFiles/Year1_CPP_Project.dir/Commands.cpp.obj
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Commands.cpp
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Commands.h
+ C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.h
+ C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.h
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.h
+ C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.h
 CMakeFiles/Year1_CPP_Project.dir/FileHandler.cpp.obj
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/FileHandler.cpp
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/FileHandler.h
@@ -35,8 +38,11 @@ CMakeFiles/Year1_CPP_Project.dir/Shopper.cpp.obj
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.h
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.h
 CMakeFiles/Year1_CPP_Project.dir/Simulation.cpp.obj
+ C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.h
+ C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.h
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.cpp
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.h
+ C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.h
 CMakeFiles/Year1_CPP_Project.dir/Stock.cpp.obj
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.cpp
  C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.h
