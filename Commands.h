@@ -10,11 +10,13 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <windows.h>
 #include <memory>
 #include <functional>
 #include <algorithm>
 #include "Simulation.h"
+#include "FileHandler.h"
 
 class Commands {
 public:
@@ -29,6 +31,8 @@ public:
     void pause();
     void saveSimulations();
     void loadSimulations();
+    void deleteFile();
+    void printFile();
     void listSimIDs();
     void addSim();
     void removeSim();
@@ -52,19 +56,23 @@ private:
     bool isCommandValid(std::string command);
     std::vector<std::string> splitCommand(std::string command, std::string delimeter);
 
+    // Getters
+    std::string getFileName();
+
     // Consts
     const int MAXID = 10; // Max of 10 simulations
 
     // Vars
     std::vector<std::string> commands = {"help", "commands", "aliases", "quit", "pause",
-                                         "save program", "load program", "list sims",
+                                         "save program", "load program", "delete file",
+                                         "print file", "list sims",
                                          "add sim", "remove sim", "list sim info <sim ID>",
                                          "continue sim <sim ID>", "pause sim <sim ID>",
                                          "add shopper <sim ID>", "remove shopper <sim ID>",
                                          "list shopper info <sim ID> <shopper ID>",
                                          "list shoppers <sim ID>"};
     std::vector<std::string> commandAliases = {"h", "c", "a", "q", "p", "ls", "as", "rs",
-                                               "sp", "lp", "lsi <sim ID>",
+                                               "sp", "lp", "df", "pf", "lsi <sim ID>",
                                                "cs <sim ID>", "ps <sim ID>", "ash <sim ID>",
                                                "rsh <sim ID>", "lshi <sim ID> <shopper ID>",
                                                "lsh <sim ID>"};
@@ -84,6 +92,10 @@ private:
         std::make_pair("sp", [this](std::vector<std::string>&){saveSimulations();}),
         std::make_pair("load program", [this](std::vector<std::string>&){loadSimulations();}),
         std::make_pair("lp", [this](std::vector<std::string>&){loadSimulations();}),
+        std::make_pair("delete file", [this](std::vector<std::string>&){deleteFile();}),
+        std::make_pair("df", [this](std::vector<std::string>&){deleteFile();}),
+        std::make_pair("print file", [this](std::vector<std::string>&){printFile();}),
+        std::make_pair("pf", [this](std::vector<std::string>&){printFile();}),
         std::make_pair("list sims", [this](std::vector<std::string>&){listSimIDs();}),
         std::make_pair("ls", [this](std::vector<std::string>&){listSimIDs();}),
         std::make_pair("add sim", [this](std::vector<std::string>&){addSim();}),

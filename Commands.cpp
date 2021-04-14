@@ -69,6 +69,16 @@ void Commands::loadSimulations() {
 
 }
 
+void Commands::deleteFile() {
+    std::unique_ptr<FileHandler> fileHandler = std::make_unique<FileHandler>();
+    fileHandler->deleteFile(getFileName());
+}
+
+void Commands::printFile() {
+    std::unique_ptr<FileHandler> fileHandler = std::make_unique<FileHandler>();
+    fileHandler->printFileContents(getFileName());
+}
+
 void Commands::listSimIDs() {
     std::string ret = "";
     for (int i = 0; i < simIDs.size(); i++) {
@@ -86,12 +96,11 @@ void Commands::addSim() {
         simulationsRunning.push_back(*newSim);
         SetConsoleTextAttribute(hConsole, 10); // GREEN
         std::cout << "New simulation added!" << std::endl;
-        SetConsoleTextAttribute(hConsole, 7); // DEFAULT
     } else {
         SetConsoleTextAttribute(hConsole, 10); // GREEN
         std::cout << "Too many simulations running!" << std::endl;
-        SetConsoleTextAttribute(hConsole, 7); // DEFAULT
     }
+    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
 }
 
 void Commands::removeSim() {
@@ -103,12 +112,11 @@ void Commands::removeSim() {
         simCount--;
         SetConsoleTextAttribute(hConsole, 10); // GREEN
         std::cout << "Simulation removed from stack." << std::endl;
-        SetConsoleTextAttribute(hConsole, 7); // DEFAULT
     } else {
         SetConsoleTextAttribute(hConsole, 12); // RED
         std::cout << "There are no simulations to remove." << std::endl;
-        SetConsoleTextAttribute(hConsole, 7); // DEFAULT
     }
+    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
 }
 
 void Commands::pauseSim(std::vector<std::string>& IDTypes) {
@@ -268,10 +276,11 @@ bool Commands::isIDValid(std::vector<std::string>& IDTypes) {
 }
 
 std::vector<std::string> Commands::splitCommand(std::string command, std::string delimeter) {
+    int count = 0;
     std::vector<std::string> ret;
     while (command.size()) {
         int index = command.find(delimeter);
-        if (index != std::string::npos) {
+        if (index != std::string::npos && count != 0) {
             ret.push_back(command.substr(0, index));
             command = command.substr(index + delimeter.size());
             if (command.size() == 0) {
@@ -280,18 +289,38 @@ std::vector<std::string> Commands::splitCommand(std::string command, std::string
                 ret.push_back(command);
                 command = "";
             }
+        } else if (index == std::string::npos && count == 0) {
+            ret.push_back(command);
+            break;
         }
+        count++;
     }
     return ret;
 }
 
 bool Commands::isCommandValid(std::string command) {
+    // Check if string even contains space
     for (int i = 0; i < commandFunc.size(); i++) {
         std::vector<std::string> actCommand = splitCommand(command, " ");
 
-        if (actCommand[0] == commandFunc[i].first
-        || actCommand[0] + " " + actCommand[1] == commandFunc[i].first) {
-            return true;
+        switch (actCommand.size()) {
+            case 0:
+                return false;
+            case 1:
+                if (actCommand[0] == commandFunc[i].first) {
+                    return true;
+                }
+                break;
+            case 2:
+                if (actCommand[0] + " " + actCommand[1] == commandFunc[i].first) {
+                    return true;
+                }
+                break;
+            case 3:
+                if (actCommand[0] + " " + actCommand[1] + " " + actCommand[2] == commandFunc[i].first) {
+                    return true;
+                }
+                break;
         }
     }
     return false;
@@ -332,5 +361,16 @@ void Commands::getSimInfo() {
     for (int sim = 0; sim < simCount; sim++) {
         simulationsRunning[sim].getSimInfo();
     }
+}
+
+std::string Commands::getFileName() {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, 3); // DARK CYAN
+    std::cout << "Please enter a filename:" << std::endl;
+    std::string fileName;
+    std::cin >> fileName;
+    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
+
+    return fileName;
 }
 //endregion

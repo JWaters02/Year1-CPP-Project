@@ -3,6 +3,7 @@
 
 CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.obj: ..\Commands.cpp
 CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.obj: ..\Commands.h
+CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.obj: ..\FileHandler.h
 CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.obj: ..\Item.h
 CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.obj: ..\Shopper.h
 CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.obj: ..\Simulation.h

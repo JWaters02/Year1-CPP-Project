@@ -34,9 +34,10 @@ void MainLoop::mainEventLoop() {
                     command[i] = tolower(command[i]);
                 }
 
-                // TODO: Fix bug where random letter seems to get deleted in memory when passed into commands object
                 //Run command
                 commands->setCommand(command);
+
+                // TODO: Fix bug on pf or df that puts another space in buffer or something
 
                 SetConsoleTextAttribute(hConsole, 3); // DARK CYAN
                 std::cout << "\nPress space to input new command or nothing to continue program loop." << std::endl;

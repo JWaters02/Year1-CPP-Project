@@ -17,6 +17,8 @@ iostream
 -
 string
 -
+sstream
+-
 windows.h
 -
 memory
@@ -27,6 +29,18 @@ algorithm
 -
 Simulation.h
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.h
+FileHandler.h
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/FileHandler.h
+
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/FileHandler.h
+iostream
+-
+fstream
+-
+string
+-
+Windows.h
+-
 
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.h
 iostream

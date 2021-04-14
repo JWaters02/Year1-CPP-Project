@@ -11,17 +11,22 @@
 
 //region Functions
 void FileHandler::saveToFile(std::string inputData, std::string fileName) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     std::ofstream file(fileName + ".txt");
 
     // If file exists
     if (file.is_open()) {
         file << inputData;
         file.close();
+        SetConsoleTextAttribute(hConsole, 10); // GREEN
+        std::cout << fileName << " saved successfully." << std::endl;
     }
+    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
 }
 
-std::string FileHandler::loadFromFile(std::string filename) {
-    std::ifstream file(filename + ".txt");
+std::string FileHandler::loadFromFile(std::string fileName) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    std::ifstream file(fileName + ".txt");
     std::string ret = "";
 
     // If file exists
@@ -31,12 +36,18 @@ std::string FileHandler::loadFromFile(std::string filename) {
             ret += line;
         }
         file.close();
+        SetConsoleTextAttribute(hConsole, 10); // GREEN
+        std::cout << fileName << " loaded successfully." << std::endl;
+    } else {
+        SetConsoleTextAttribute(hConsole, 12); // RED
+        std::cout << fileName << " could not be found." << std::endl;
     }
+    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
     return ret;
 }
 
-void FileHandler::printFileContents(std::string filename) {
-    std::ifstream file(filename + ".txt");
+void FileHandler::printFileContents(std::string fileName) {
+    std::ifstream file(fileName + ".txt");
 
     // If file exists
     if (file.is_open()) {
@@ -51,12 +62,20 @@ void FileHandler::printFileContents(std::string filename) {
     }
 }
 
-void FileHandler::deleteFile(std::string filename) {
-//    if (std::remove(filename) != 0) {
-//        // Failed
-//    } else {
-//        // Success
-//    }
+void FileHandler::deleteFile(std::string fileName) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    std::string file = fileName + ".txt";
+
+    if (std::remove("file.txt") == 0) { // TODO: Fix
+        // Success
+        SetConsoleTextAttribute(hConsole, 10); // GREEN
+        std::cout << fileName << " deleted." << std::endl;
+    } else {
+        // Failed
+        SetConsoleTextAttribute(hConsole, 12); // RED
+        std::cout << fileName << " could not be found." << std::endl;
+    }
+    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
 }
 //endregion
 
