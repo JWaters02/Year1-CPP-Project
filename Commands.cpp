@@ -66,7 +66,7 @@ void Commands::saveSimulations() {
 }
 
 void Commands::loadSimulations() {
-
+    // TODO
 }
 
 void Commands::deleteFile() {
@@ -89,6 +89,7 @@ void Commands::listSimIDs() {
 
 void Commands::addSim() {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    // If there is space on the stack for more simulations
     if (simCount <= MAXID) {
         simCount++;
         std::unique_ptr<Simulation> newSim = std::make_unique<Simulation>(simCount);
@@ -97,7 +98,7 @@ void Commands::addSim() {
         SetConsoleTextAttribute(hConsole, 10); // GREEN
         std::cout << "New simulation added!" << std::endl;
     } else {
-        SetConsoleTextAttribute(hConsole, 10); // GREEN
+        SetConsoleTextAttribute(hConsole, 12); // RED
         std::cout << "Too many simulations running!" << std::endl;
     }
     SetConsoleTextAttribute(hConsole, 7); // DEFAULT
@@ -162,30 +163,22 @@ void Commands::listSimInfo(std::vector<std::string>& IDTypes) {
 }
 
 void Commands::addShopper(std::vector<std::string>& IDTypes) {
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     if (isIDValid(IDTypes)) {
         for (int sim = 0; sim < simCount; sim++) {
             if (simIDs[sim] == IDTypes[0]) {
                 simulationsRunning[sim].addShopper();
             }
         }
-        SetConsoleTextAttribute(hConsole, 10); // GREEN
-        std::cout << "Shopper added to simulation " << IDTypes[0] << "'s stack" <<  std::endl;
-        SetConsoleTextAttribute(hConsole, 7); // DEFAULT
     }
 }
 
 void Commands::removeShopper(std::vector<std::string>& IDTypes) {
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     if (isIDValid(IDTypes)) {
         for (int sim = 0; sim < simCount; sim++) {
             if (simIDs[sim] == IDTypes[0]) {
                 simulationsRunning[sim].removeShopper();
             }
         }
-        SetConsoleTextAttribute(hConsole, 10); // GREEN
-        std::cout << "Shopper remove from simulation " << IDTypes[0] << "'s stack" << std::endl;
-        SetConsoleTextAttribute(hConsole, 7); // DEFAULT
     }
 }
 
@@ -239,9 +232,10 @@ bool Commands::isIDValid(std::vector<std::string>& IDTypes) {
                 break;
             }
         }
-        // Then, check if the shopper ID is in the ID stack
-        if (!std::count(simulationsRunning[std::stoi(simID)].shopperIDs.begin(),
-                        simulationsRunning[std::stoi(simID)].shopperIDs.end(),
+        // Check if the shopper ID is in the ID stack
+        // TODO: Fix out of bounds error here
+        if (!std::count(simulationsRunning[std::stoi(simID)-1].shopperIDs.begin(),
+                        simulationsRunning[std::stoi(simID)-1].shopperIDs.end(),
                         shopperID)) {
             isShopperIDValid = false;
         }
@@ -275,49 +269,55 @@ bool Commands::isIDValid(std::vector<std::string>& IDTypes) {
     return true;
 }
 
-std::vector<std::string> Commands::splitCommand(std::string command, std::string delimeter) {
-    int count = 0;
+std::vector<std::string> Commands::splitCommand(std::string command, char delimeter) {
+    std::string line;
     std::vector<std::string> ret;
-    while (command.size()) {
-        int index = command.find(delimeter);
-        if (index != std::string::npos && count != 0) {
-            ret.push_back(command.substr(0, index));
-            command = command.substr(index + delimeter.size());
-            if (command.size() == 0) {
-                ret.push_back(command);
-            } else {
-                ret.push_back(command);
-                command = "";
-            }
-        } else if (index == std::string::npos && count == 0) {
-            ret.push_back(command);
-            break;
-        }
-        count++;
+    std::stringstream ss(command);
+    while (std::getline(ss, line, delimeter)) {
+        ret.push_back(line);
     }
     return ret;
+}
+
+bool Commands::isNumber(const std::string &string) {
+    std::string::const_iterator iterator = string.begin();
+    while (iterator != string.end() && std::isdigit(*iterator)) {
+        ++iterator;
+    }
+    return !string.empty() && iterator == string.end();
 }
 
 bool Commands::isCommandValid(std::string command) {
     // Check if string even contains space
     for (int i = 0; i < commandFunc.size(); i++) {
-        std::vector<std::string> actCommand = splitCommand(command, " ");
+        std::vector<std::string> actualCommand = splitCommand(command, ' ');
 
-        switch (actCommand.size()) {
+        // Remove any trailing numbers
+        for (int j = 0; j < actualCommand.size(); j++) {
+            if (isNumber(actualCommand[j])) {
+                actualCommand.erase(std::remove(
+                        actualCommand.begin(), actualCommand.end(), actualCommand[j]), actualCommand.end()
+                );
+                // Add trailing space
+                actualCommand[j-1] += " ";
+            }
+        }
+        
+        switch (actualCommand.size()) {
             case 0:
                 return false;
             case 1:
-                if (actCommand[0] == commandFunc[i].first) {
+                if (actualCommand[0] == commandFunc[i].first) {
                     return true;
                 }
                 break;
             case 2:
-                if (actCommand[0] + " " + actCommand[1] == commandFunc[i].first) {
+                if (actualCommand[0] + " " + actualCommand[1] == commandFunc[i].first) {
                     return true;
                 }
                 break;
             case 3:
-                if (actCommand[0] + " " + actCommand[1] + " " + actCommand[2] == commandFunc[i].first) {
+                if (actualCommand[0] + " " + actualCommand[1] + " " + actualCommand[2] == commandFunc[i].first) {
                     return true;
                 }
                 break;
@@ -334,7 +334,7 @@ void Commands::setCommand(std::string command) {
         for (int i = 0; i < commandFunc.size(); i++) {
             if (command.starts_with(commandFunc[i].first)) {
                 command.replace(0, commandFunc[i].first.length(), "");
-                std::vector<std::string> IDTypes = splitCommand(command, " ");
+                std::vector<std::string> IDTypes = splitCommand(command, ' ');
                 commandFunc[i].second(IDTypes);
                 break;
             }

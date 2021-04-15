@@ -5,12 +5,11 @@
 #include "Shopper.h"
 
 //region Constructor
-Shopper::Shopper() {
+Shopper::Shopper(int _shopperID) : shopperID(_shopperID) {
     setName();
     setHeight();
     setWeight();
     setAge();
-    setID();
 }
 //endregion
 
@@ -70,22 +69,6 @@ void Shopper::setWeight() {
 void Shopper::setAge() {
     age = rand() % MAXAGE;
 }
-
-// Needs to make sure it does not share the same ID with other shoppers
-void Shopper::setID() {
-    bool isNewID = true;
-    int possibleID;
-    while (isNewID) {
-        possibleID = rand() % MAXID;
-        for (int i = 0; i < IDs.size(); i++) {
-            if (possibleID == IDs[i]) {
-                isNewID = false;
-                break;
-            }
-        }
-    }
-    ID = possibleID;
-}
 //endregion
 
 //region Getters
@@ -110,7 +93,7 @@ int Shopper::getAge() const {
 }
 
 int Shopper::getID() const {
-    return ID;
+    return shopperID;
 }
 
 std::string Shopper::getItemsInBasketNames() {
@@ -121,6 +104,10 @@ std::string Shopper::getItemsInBasketNames() {
 double Shopper::getItemInBasketCosts() {
     // TODO: Return this.items.costs
     return 0;
+}
+
+void Shopper::getShopperInfo() {
+    std::cout << "SHOPPER INFO LALALALA" << std::endl;
 }
 //endregion
 

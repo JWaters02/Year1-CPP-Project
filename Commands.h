@@ -53,8 +53,9 @@ public:
 private:
     // Functions
     bool isIDValid(std::vector<std::string>& IDTypes);
+    std::vector<std::string> splitCommand(std::string command, char delimeter);
+    bool isNumber(const std::string& string);
     bool isCommandValid(std::string command);
-    std::vector<std::string> splitCommand(std::string command, std::string delimeter);
 
     // Getters
     std::string getFileName();

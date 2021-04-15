@@ -15,7 +15,7 @@
 
 class Shopper {
 public:
-    Shopper();
+    Shopper(int _shopperID);
 
     // Functions
     Item giveShopperItem(const std::string& itemName, double itemCost, int numItems);
@@ -30,6 +30,7 @@ public:
     [[nodiscard]] bool getIsInStore() const;
     static std::string getItemsInBasketNames();
     static double getItemInBasketCosts();
+    void getShopperInfo();
 private:
     // Functions
     Item generateShopperItem();
@@ -40,7 +41,6 @@ private:
     void setHeight();
     void setWeight();
     void setAge();
-    void setID();
 
     // Consts
     static const int MAXHEIGHT = 240;
@@ -53,15 +53,14 @@ private:
     static const int MAXITEMSFORBASKET = 50;
 
     // Vars
+    int shopperID;
     std::string name;
     std::vector<std::string> nameBank = {"Joshua", "Joe"}; // TODO: Get names from files class
-    std::vector<int> IDs = {4783748, 333}; // TODO: Get IDs from files class
     std::vector<std::string> itemBank = {"Apple", "Chrocolate"}; // TODO: Get items from files class (or object from stocks?)
     std::vector<int> itemCostBank = {3, 3};
     int height{};
     int weight{};
     int age{};
-    int ID{};
     struct currentItemsInBasket {
         double costOfItems;
         std::vector<std::string> items; // TODO: Use item objects

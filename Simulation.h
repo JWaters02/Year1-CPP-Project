@@ -31,6 +31,9 @@ public:
     // Vars
     std::vector<std::string> shopperIDs;
 private:
+    // Consts
+    const int MAXID = 10; // Max of 10 shoppers per sim
+
     // Vars
     bool isPaused = false;
     int simID;
