@@ -23,7 +23,7 @@ void Simulation::addShopper() {
     // If there is space on the stack for more shoppers
     if (shopperCount <= MAXID) {
         shopperCount++;
-        std::unique_ptr<Shopper> newShopper = std::make_unique<Shopper>(shopperCount);
+        std::unique_ptr<Shopper> newShopper = std::make_unique<Shopper>(shopperCount, true);
         shopperIDs.push_back(std::to_string(shopperCount));
         shoppersRunning.push_back(*newShopper);
         SetConsoleTextAttribute(hConsole, 10); // GREEN

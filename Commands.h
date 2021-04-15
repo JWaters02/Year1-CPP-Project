@@ -55,6 +55,7 @@ private:
     bool isIDValid(std::vector<std::string>& IDTypes);
     std::vector<std::string> splitCommand(std::string command, char delimeter);
     bool isNumber(const std::string& string);
+    std::vector<std::string> parseActualCommand(std::string command);
     bool isCommandValid(std::string command);
 
     // Getters

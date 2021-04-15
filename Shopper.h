@@ -15,19 +15,19 @@
 
 class Shopper {
 public:
-    Shopper(int _shopperID);
+    Shopper(int _shopperID, bool _isRandomObject, std::string _name = "", int _height = 100, int _weight = 50, int _age = 35);
 
     // Functions
     Item giveShopperItem(const std::string& itemName, double itemCost, int numItems);
     void toggleIsInStore();
 
     // Getters
-    [[nodiscard]] std::string getName() const;
-    [[nodiscard]] int getHeight() const;
-    [[nodiscard]] int getWeight() const;
-    [[nodiscard]] int getAge() const;
-    [[nodiscard]] int getID() const;
-    [[nodiscard]] bool getIsInStore() const;
+    std::string getName() const;
+    int getHeight() const;
+    int getWeight() const;
+    int getAge() const;
+    int getID() const;
+    bool getIsInStore() const;
     static std::string getItemsInBasketNames();
     static double getItemInBasketCosts();
     void getShopperInfo();
@@ -47,16 +47,23 @@ private:
     static const int MINHEIGHT = 90;
     static const int MAXWEIGHT = 200;
     static const int MINWEIGHT = 15;
-    static const int MAXAGE = 120;
-    static const int MAXID = 100;
+    static const int MAXAGE = 90;
     static const int MAXITEMSPERITEM = 20;
     static const int MAXITEMSFORBASKET = 50;
 
     // Vars
     int shopperID;
     std::string name;
-    std::vector<std::string> nameBank = {"Joshua", "Joe"}; // TODO: Get names from files class
-    std::vector<std::string> itemBank = {"Apple", "Chrocolate"}; // TODO: Get items from files class (or object from stocks?)
+    std::vector<std::string> nameBank = {"Joshua", "Joe", "Ben",
+                                         "Charlie", "Dodo", "Elizabeth",
+                                         "Freddo", "Georgina", "Hardie",
+                                         "Isabelle", "Kale", "Luna",
+                                         "Monsa", "Meep", "Nick",
+                                         "Oscar", "Papa", "Quebec",
+                                         "Roger", "Susan", "Thomas",
+                                         "Ugra", "Victor", "Wolfie",
+                                         "Xray", "Yankee", "Zulu"};
+    std::vector<std::string> itemBank = {"Apple", "Chrocolate"};
     std::vector<int> itemCostBank = {3, 3};
     int height{};
     int weight{};

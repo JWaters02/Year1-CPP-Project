@@ -5,11 +5,19 @@
 #include "Shopper.h"
 
 //region Constructor
-Shopper::Shopper(int _shopperID) : shopperID(_shopperID) {
-    setName();
-    setHeight();
-    setWeight();
-    setAge();
+Shopper::Shopper(int _shopperID, bool _isRandomObject, std::string _name, int _height, int _weight, int _age)
+: shopperID(_shopperID) {
+    if (_isRandomObject) {
+        setName();
+        setHeight();
+        setWeight();
+        setAge();
+    } else {
+        name = _name;
+        height = _height;
+        weight = _weight;
+        age = _age;
+    }
 }
 //endregion
 
@@ -49,23 +57,19 @@ void Shopper::toggleIsInStore() {
 //endregion
 
 //region Setters
-// Sets random name from name bank
 void Shopper::setName() {
     int numRandomNames = nameBank.size();
     name = nameBank[rand() % numRandomNames];
 };
 
-// Sets random height between min and max heights
 void Shopper::setHeight() {
     height = rand() % (MAXHEIGHT - MINHEIGHT) + MINHEIGHT;
 }
 
-// Sets random weight between min and max weights
 void Shopper::setWeight() {
     weight = rand() % (MAXWEIGHT - MINWEIGHT) + MINWEIGHT;
 }
 
-// Sets random age between 0 and max age
 void Shopper::setAge() {
     age = rand() % MAXAGE;
 }
@@ -107,7 +111,13 @@ double Shopper::getItemInBasketCosts() {
 }
 
 void Shopper::getShopperInfo() {
-    std::cout << "SHOPPER INFO LALALALA" << std::endl;
+    std::cout << "Name: " << getName()
+    << "\nID: " << getID()
+    << "\nAge: " << getAge()
+    << "\nWeight: " << getWeight()
+    << "\nHeight: " << getHeight()
+    << "\nIs in store? " << getIsInStore()
+    << std::endl;
 }
 //endregion
 

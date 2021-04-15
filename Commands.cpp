@@ -12,7 +12,7 @@ Commands::Commands() {
 };
 //endregion
 
-//region Functions
+//region Public Functions
 void Commands::help() {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, 10); // GREEN
@@ -209,7 +209,9 @@ void Commands::listShoppers(std::vector<std::string>& IDTypes) {
         }
     }
 }
+// endregion
 
+// region Private Functions
 bool Commands::isIDValid(std::vector<std::string>& IDTypes) {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, 12); // RED
@@ -232,12 +234,17 @@ bool Commands::isIDValid(std::vector<std::string>& IDTypes) {
                 break;
             }
         }
-        // Check if the shopper ID is in the ID stack
-        // TODO: Fix out of bounds error here
-        if (!std::count(simulationsRunning[std::stoi(simID)-1].shopperIDs.begin(),
-                        simulationsRunning[std::stoi(simID)-1].shopperIDs.end(),
-                        shopperID)) {
+        // Check if there are any sims running
+        if (simIDs.size() > 0) {
+            // Check if the shopper ID is in the ID stack
+            if (!std::count(simulationsRunning[std::stoi(simID)-1].shopperIDs.begin(),
+                            simulationsRunning[std::stoi(simID)-1].shopperIDs.end(),
+                            shopperID)) {
+                isShopperIDValid = false;
+            }
+        } else {
             isShopperIDValid = false;
+            isSimIDValid = false;
         }
     } else {
         isNumValid = false;
@@ -282,27 +289,45 @@ std::vector<std::string> Commands::splitCommand(std::string command, char delime
 bool Commands::isNumber(const std::string &string) {
     std::string::const_iterator iterator = string.begin();
     while (iterator != string.end() && std::isdigit(*iterator)) {
-        ++iterator;
+        iterator++;
     }
     return !string.empty() && iterator == string.end();
 }
 
+std::vector<std::string> Commands::parseActualCommand(std::string command) {
+    std::vector<std::string> actualCommand = splitCommand(command, ' ');
+    bool trailingRequired = false;
+
+    // Remove any trailing numbers
+    for (int j = 0; j < actualCommand.size(); j++) {
+        if (isNumber(actualCommand[j])) {
+            actualCommand[j] = "NULL";
+            trailingRequired = true;
+        }
+    }
+    for (int j = actualCommand.size(); j --> 0;) {
+        if (actualCommand[j] == "NULL") {
+            actualCommand.erase(std::remove(
+                    actualCommand.begin(), actualCommand.end(), actualCommand[j]), actualCommand.end()
+            );
+            break;
+        }
+    }
+
+    // Add trailing space
+    if (trailingRequired) {
+        actualCommand[actualCommand.size()-1] += " ";
+    }
+
+    return actualCommand;
+}
+
 bool Commands::isCommandValid(std::string command) {
+    int temp;
     // Check if string even contains space
     for (int i = 0; i < commandFunc.size(); i++) {
-        std::vector<std::string> actualCommand = splitCommand(command, ' ');
+        std::vector<std::string> actualCommand = parseActualCommand(command);
 
-        // Remove any trailing numbers
-        for (int j = 0; j < actualCommand.size(); j++) {
-            if (isNumber(actualCommand[j])) {
-                actualCommand.erase(std::remove(
-                        actualCommand.begin(), actualCommand.end(), actualCommand[j]), actualCommand.end()
-                );
-                // Add trailing space
-                actualCommand[j-1] += " ";
-            }
-        }
-        
         switch (actualCommand.size()) {
             case 0:
                 return false;
