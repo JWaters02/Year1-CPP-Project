@@ -29,27 +29,37 @@ Item Shopper::giveShopperItem(const std::string& itemName, double itemCost, int 
 }
 
 // All automatically generated items
-Item Shopper::generateShopperItem(int numItems) {
-    int numRandomItems = itemBank.size();
-    std::string itemName = itemBank[rand() % numRandomItems];
-    double itemCost = itemCostBank[rand() % numRandomItems];
+Item Shopper::generateShopperItem(int numItems, std::string itemName) {
+    double itemCost = itemCostBank[rand() % itemBank.size()];
     return Item(itemName, itemCost, numItems);
 }
 
 void Shopper::pickupItem() {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     const int ITEMSTOPICKUP = rand() % 10 + 1;
+    std::string itemName = itemBank[rand() % itemBank.size()];
     std::string plural = "";
+    bool canAddItem = true;
 
-    basket.push_back(generateShopperItem(ITEMSTOPICKUP));
+    // Find if the item already exists in the basket
+    for (int item = 0; item < basket.size(); item++) {
+        if (basket[item].getItemName() == itemName) {
+            basket[item].addItems(ITEMSTOPICKUP);
+            canAddItem = false;
+        }
+    }
+    if (canAddItem) {
+        // Item does not exist in basket
+        basket.push_back(generateShopperItem(ITEMSTOPICKUP, itemName));
+    }
+
 
     if (ITEMSTOPICKUP > 1) {
         plural = "s";
     }
-
     SetConsoleTextAttribute(hConsole, 10); // GREEN
     std::cout << "Shopper " << shopperID << " has picked up " << ITEMSTOPICKUP
-    << " " << basket[basket.size() - 1].getItemName() << plural << std::endl;
+    << " " << basket[basket.size() - 1].getItemName() << plural << "." << std::endl;
     SetConsoleTextAttribute(hConsole, 7); // DEFAULT
 }
 
@@ -58,8 +68,8 @@ void Shopper::dropItem() {
     const int ITEMTODROP = rand() % (basket.size());
 
     SetConsoleTextAttribute(hConsole, 10); // GREEN
-    std::cout << "Shopper " << shopperID << " has dropped "
-    << basket[ITEMTODROP].getItemName() << std::endl;
+    std::cout << "Shopper " << shopperID << " has dropped their "
+    << basket[ITEMTODROP].getItemName() << "s." << std::endl;
     SetConsoleTextAttribute(hConsole, 7); // DEFAULT
 
     basket.erase(basket.begin() + ITEMTODROP);
@@ -69,33 +79,37 @@ void Shopper::checkout() {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     double total = 0;
     for (int i = 0; i < basket.size(); i++) {
-        total += basket[i].getItemCost();
+        total += basket[i].getItemCost() * basket[i].getNumItems();
     }
 
     SetConsoleTextAttribute(hConsole, 10); // GREEN
     std::cout.precision(2);
-    std::cout << "Shopper " << shopperID << " has checked out with a value of £"
-    << std::fixed << total << "." << std::endl;
+    std::cout << "Shopper " << shopperID << " has checked out with a value of $"
+    << std::fixed << total << ", and has left the store!" << std::endl;
     SetConsoleTextAttribute(hConsole, 7); // DEFAULT
+
+    isInStore = false;
 }
 
 // This is what drives the changing of every variable in shopper during event loop
 void Shopper::simulateShopper() {
-    const int ACTION = rand() % 100;
-    const int CHANCETOPICKUP = 60;
-    const int CHANCETODROP = CHANCETOPICKUP + 30;
-    const int CHANCETOCHECKOUT = CHANCETODROP + 10;
+    if (isInStore) {
+        const int ACTION = rand() % 100;
+        const int CHANCETOPICKUP = 60;
+        const int CHANCETODROP = CHANCETOPICKUP + 30;
+        const int CHANCETOCHECKOUT = CHANCETODROP + 10;
 
-    // Weighting on certain conditions
-    if (ACTION >= 0 && ACTION < CHANCETOPICKUP) {
-        // Pick up an item
-        pickupItem();
-    } else if (ACTION >= CHANCETOPICKUP && ACTION < CHANCETODROP) {
-        // Drop an item
-        dropItem();
-    } else if (ACTION >= CHANCETODROP && ACTION < CHANCETOCHECKOUT) {
-        // Checkout
-        checkout();
+        // Weighting on certain conditions
+        if (ACTION >= 0 && ACTION < CHANCETOPICKUP) {
+            // Pick up an item
+            pickupItem();
+        } else if (ACTION >= CHANCETOPICKUP && ACTION < CHANCETODROP) {
+            // Drop an item
+            dropItem();
+        } else if (ACTION >= CHANCETODROP && ACTION < CHANCETOCHECKOUT) {
+            // Checkout
+            checkout();
+        }
     }
 }
 //endregion
@@ -140,23 +154,22 @@ int Shopper::getID() const {
     return shopperID;
 }
 
-std::vector<Item> Shopper::getBasket() const {
-    return basket;
-}
-
 void Shopper::getShopperInfo() {
     std::cout.precision(2);
+
     std::cout << "Name: " << getName()
     << "\nID: " << getID()
     << "\nAge: " << getAge()
-    << "\nWeight: " << getWeight()
-    << "\nHeight: " << getHeight()
+    << "\nWeight: " << getWeight() << "kg"
+    << "\nHeight: " << getHeight() << "cm"
     << std::endl;
+
     std::cout << "Items in basket: " << std::endl;
     for (int item = 0; item < basket.size(); item++) {
         std::cout << basket[item].getItemName()
         << " x" << basket[item].getNumItems()
-        << ", costing: £" << std::fixed << basket[item].getItemCost()
+        << ", costing: $" << std::fixed
+        << basket[item].getItemCost() * basket[item].getNumItems()
         << "." << std::endl;
     }
 }

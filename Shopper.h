@@ -28,11 +28,10 @@ public:
     int getWeight() const;
     int getAge() const;
     int getID() const;
-    std::vector<Item> getBasket() const;
     void getShopperInfo();
 private:
     // Functions
-    Item generateShopperItem(int numItems);
+    Item generateShopperItem(int numItems, std::string itemName);
     void pickupItem();
     void dropItem();
     void checkout();
@@ -80,6 +79,7 @@ private:
     int height;
     int weight;
     int age;
+    bool isInStore = true;
 };
 
 #endif //YEAR1_CPP_PROJECT_SHOPPER_H

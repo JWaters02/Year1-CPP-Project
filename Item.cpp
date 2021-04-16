@@ -32,6 +32,10 @@ bool Item::isValidName(std::string item) {
     }
     return true;
 }
+
+void Item::addItems(int _numItems) {
+    numItems += _numItems;
+}
 //endregion
 
 //region Setters

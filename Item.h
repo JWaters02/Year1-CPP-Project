@@ -18,6 +18,7 @@ public:
 
     // Functions
     static bool isValidName(std::string name);
+    void addItems(int _numItems);
 
     // Getters
     std::string getItemName();
