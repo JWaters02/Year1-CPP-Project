@@ -8,6 +8,7 @@
 Simulation::Simulation(int _simID) : simID(_simID) {
 
 }
+//endregion
 
 //region Functions
 void Simulation::pause() {
@@ -66,11 +67,18 @@ void Simulation::listShoppers() {
     }
     std::cout << ret << std::endl;
 }
+
+void Simulation::simulateShoppers() {
+    if (!isPaused) {
+        std::cout << "SIMULATION " << simID << ":" << std::endl;
+        for (int shopper = 0; shopper < shopperCount; shopper++) {
+            shoppersRunning[shopper].simulateShopper();
+        }
+    }
+}
 //endregion
 
 //region Setters
-
-//endregion
 
 //endregion
 

@@ -13,7 +13,7 @@ namespace itemGlobals {
 Item::Item(std::string _itemName, double _itemCost, int _numItems)
 : itemName(_itemName), itemCost(_itemCost), numItems(_numItems) {
     // Reduce 1 from item in stocks class
-    Stock::getItemFromItemsStock(itemName, numItems);
+    //Stock::getItemFromItemsStock(itemName, numItems);
 }
 //endregion
 
@@ -44,6 +44,10 @@ std::string Item::getItemName() {
 
 double Item::getItemCost() {
     return itemCost;
+}
+
+int Item::getNumItems() {
+    return numItems;
 }
 //endregion
 

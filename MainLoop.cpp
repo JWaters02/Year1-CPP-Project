@@ -49,6 +49,7 @@ void MainLoop::mainEventLoop() {
         }
 
         // Run simulations
-        commands->getSimInfo();
+        // commands->getSimInfo();
+        commands->simulateShoppers();
     }
 }

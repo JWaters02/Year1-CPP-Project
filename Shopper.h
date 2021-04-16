@@ -11,6 +11,7 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <Windows.h>
 #include "Item.h"
 
 class Shopper {
@@ -19,7 +20,7 @@ public:
 
     // Functions
     Item giveShopperItem(const std::string& itemName, double itemCost, int numItems);
-    void toggleIsInStore();
+    void simulateShopper();
 
     // Getters
     std::string getName() const;
@@ -27,14 +28,14 @@ public:
     int getWeight() const;
     int getAge() const;
     int getID() const;
-    bool getIsInStore() const;
-    static std::string getItemsInBasketNames();
-    static double getItemInBasketCosts();
+    std::vector<Item> getBasket() const;
     void getShopperInfo();
 private:
     // Functions
-    Item generateShopperItem();
-    std::vector<Item> generateShopperItemList();
+    Item generateShopperItem(int numItems);
+    void pickupItem();
+    void dropItem();
+    void checkout();
 
     // Setters
     void setName();
@@ -63,16 +64,22 @@ private:
                                          "Roger", "Susan", "Thomas",
                                          "Ugra", "Victor", "Wolfie",
                                          "Xray", "Yankee", "Zulu"};
-    std::vector<std::string> itemBank = {"Apple", "Chrocolate"};
-    std::vector<int> itemCostBank = {3, 3};
-    int height{};
-    int weight{};
-    int age{};
-    struct currentItemsInBasket {
-        double costOfItems;
-        std::vector<std::string> items; // TODO: Use item objects
-    };
-    bool isInStore = true;
+    std::vector<std::string> itemBank = {"Apple", "Banana", "Cherry",
+                                         "Date", "Elderberry", "Fig",
+                                         "Grape", "Huckleberry", "Kiwi",
+                                         "Lemon", "Mango", "Nectarine",
+                                         "Orange", "Pear", "Quince",
+                                         "Raisin", "Satsuma", "Tomato",
+                                         "Ugli", "Victoria Plum",
+                                         "Watermelon", "Zucchini"};
+    std::vector<double> itemCostBank = {1.2, 0.8, 0.2, 0.3, 0.6, 1,
+                                        0.1, 1, 1.2, 0.5, 1.6, 1,
+                                        1, 1.1, 2, 0.1, 1, 0.7,
+                                        2, 1.5, 2.3, 5};
+    std::vector<Item> basket;
+    int height;
+    int weight;
+    int age;
 };
 
 #endif //YEAR1_CPP_PROJECT_SHOPPER_H

@@ -209,9 +209,15 @@ void Commands::listShoppers(std::vector<std::string>& IDTypes) {
         }
     }
 }
-// endregion
 
-// region Private Functions
+void Commands::simulateShoppers() {
+    for (int sim = 0; sim < simCount; sim++) {
+        simulationsRunning[sim].simulateShoppers();
+    }
+}
+//endregion
+
+//region Private Functions
 bool Commands::isIDValid(std::vector<std::string>& IDTypes) {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, 12); // RED

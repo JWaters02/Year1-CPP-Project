@@ -17,6 +17,7 @@ Shopper::Shopper(int _shopperID, bool _isRandomObject, std::string _name, int _h
         height = _height;
         weight = _weight;
         age = _age;
+        // TODO: Add any other vars like items
     }
 }
 //endregion
@@ -28,30 +29,73 @@ Item Shopper::giveShopperItem(const std::string& itemName, double itemCost, int 
 }
 
 // All automatically generated items
-Item Shopper::generateShopperItem() {
+Item Shopper::generateShopperItem(int numItems) {
     int numRandomItems = itemBank.size();
     std::string itemName = itemBank[rand() % numRandomItems];
-    int itemCost = itemCostBank[rand() % numRandomItems];
-    int numItems = rand() % MAXITEMSPERITEM;
+    double itemCost = itemCostBank[rand() % numRandomItems];
     return Item(itemName, itemCost, numItems);
 }
 
-// If manager does not give items, shopper will just pre generate certain number of items
-std::vector<Item> Shopper::generateShopperItemList() {
-    int itemsInBasket = rand() % MAXITEMSFORBASKET;
-    std::vector<Item> basket;
-    for (int items = 0; items < itemsInBasket; items++) {
-        basket.push_back(generateShopperItem());
+void Shopper::pickupItem() {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    const int ITEMSTOPICKUP = rand() % 10 + 1;
+    std::string plural = "";
+
+    basket.push_back(generateShopperItem(ITEMSTOPICKUP));
+
+    if (ITEMSTOPICKUP > 1) {
+        plural = "s";
     }
-    return basket;
+
+    SetConsoleTextAttribute(hConsole, 10); // GREEN
+    std::cout << "Shopper " << shopperID << " has picked up " << ITEMSTOPICKUP
+    << " " << basket[basket.size() - 1].getItemName() << plural << std::endl;
+    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
 }
 
-// This allows the toggling of the shopper if it is inside the store or not
-void Shopper::toggleIsInStore() {
-    if (isInStore) {
-        isInStore = false;
-    } else {
-        isInStore = true;
+void Shopper::dropItem() {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    const int ITEMTODROP = rand() % (basket.size());
+
+    SetConsoleTextAttribute(hConsole, 10); // GREEN
+    std::cout << "Shopper " << shopperID << " has dropped "
+    << basket[ITEMTODROP].getItemName() << std::endl;
+    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
+
+    basket.erase(basket.begin() + ITEMTODROP);
+}
+
+void Shopper::checkout() {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    double total = 0;
+    for (int i = 0; i < basket.size(); i++) {
+        total += basket[i].getItemCost();
+    }
+
+    SetConsoleTextAttribute(hConsole, 10); // GREEN
+    std::cout.precision(2);
+    std::cout << "Shopper " << shopperID << " has checked out with a value of £"
+    << std::fixed << total << "." << std::endl;
+    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
+}
+
+// This is what drives the changing of every variable in shopper during event loop
+void Shopper::simulateShopper() {
+    const int ACTION = rand() % 100;
+    const int CHANCETOPICKUP = 60;
+    const int CHANCETODROP = CHANCETOPICKUP + 30;
+    const int CHANCETOCHECKOUT = CHANCETODROP + 10;
+
+    // Weighting on certain conditions
+    if (ACTION >= 0 && ACTION < CHANCETOPICKUP) {
+        // Pick up an item
+        pickupItem();
+    } else if (ACTION >= CHANCETOPICKUP && ACTION < CHANCETODROP) {
+        // Drop an item
+        dropItem();
+    } else if (ACTION >= CHANCETODROP && ACTION < CHANCETOCHECKOUT) {
+        // Checkout
+        checkout();
     }
 }
 //endregion
@@ -76,10 +120,6 @@ void Shopper::setAge() {
 //endregion
 
 //region Getters
-bool Shopper::getIsInStore() const {
-    return isInStore;
-}
-
 std::string Shopper::getName() const {
     return name;
 }
@@ -100,24 +140,25 @@ int Shopper::getID() const {
     return shopperID;
 }
 
-std::string Shopper::getItemsInBasketNames() {
-    // TODO: Return this.items.names
-    return std::string();
-}
-
-double Shopper::getItemInBasketCosts() {
-    // TODO: Return this.items.costs
-    return 0;
+std::vector<Item> Shopper::getBasket() const {
+    return basket;
 }
 
 void Shopper::getShopperInfo() {
+    std::cout.precision(2);
     std::cout << "Name: " << getName()
     << "\nID: " << getID()
     << "\nAge: " << getAge()
     << "\nWeight: " << getWeight()
     << "\nHeight: " << getHeight()
-    << "\nIs in store? " << getIsInStore()
     << std::endl;
+    std::cout << "Items in basket: " << std::endl;
+    for (int item = 0; item < basket.size(); item++) {
+        std::cout << basket[item].getItemName()
+        << " x" << basket[item].getNumItems()
+        << ", costing: £" << std::fixed << basket[item].getItemCost()
+        << "." << std::endl;
+    }
 }
 //endregion
 

@@ -43,6 +43,7 @@ public:
     void removeShopper(std::vector<std::string>& IDTypes);
     void listShopperInfo(std::vector<std::string>& IDTypes);
     void listShoppers(std::vector<std::string>& IDTypes);
+    void simulateShoppers();
 
     // Setters
     void setCommand(std::string command);
@@ -73,8 +74,8 @@ private:
                                          "add shopper <sim ID>", "remove shopper <sim ID>",
                                          "list shopper info <sim ID> <shopper ID>",
                                          "list shoppers <sim ID>"};
-    std::vector<std::string> commandAliases = {"h", "c", "a", "q", "p", "ls", "as", "rs",
-                                               "sp", "lp", "df", "pf", "lsi <sim ID>",
+    std::vector<std::string> commandAliases = {"h", "c", "a", "q", "p", "sp", "lp", "df",
+                                               "pf", "ls", "as", "rs", "lsi <sim ID>",
                                                "cs <sim ID>", "ps <sim ID>", "ash <sim ID>",
                                                "rsh <sim ID>", "lshi <sim ID> <shopper ID>",
                                                "lsh <sim ID>"};

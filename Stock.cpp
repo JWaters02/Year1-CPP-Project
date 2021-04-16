@@ -25,13 +25,11 @@ bool Stock::isItemInStock(std::string itemName) {
         }
         // If the item exists in stock, but there is none left
         if (items::stockCount[item] == 0) {
-            // TODO: Remove this to commands class
             std::cout << "Item: " << items::stock[item] << " is out of stock" << std::endl;
             return false;
         }
     }
     if (itemCounter != 1) {
-        // TODO: Remove this to commands class
         std::cout << "Item: " << itemName << " does not exist" << std::endl;
         return false;
     }
@@ -42,7 +40,6 @@ void Stock::decrementStock(std::string stockToReduce, int numItems) {
     for (int item = 0; item < items::stock.size(); ++item) {
         if (stockToReduce == items::stock[item]) {
             if ((items::stockCount[item] -= numItems) <= 0) {
-                // TODO: Remove this to commands class
                 std::cout << "Item: " << items::stock[item] << " is out of stock" << std::endl;
                 break;
             } else {

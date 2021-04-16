@@ -19,7 +19,7 @@ public:
     void mainEventLoop();
     void setTickSpeed(int _tickSpeed);
 private:
-    int tickSpeed = 1000;
+    int tickSpeed = 500;
 };
 
 #endif //SHOPPER_CPP_MAINLOOP_H

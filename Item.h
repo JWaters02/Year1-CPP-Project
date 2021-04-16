@@ -22,6 +22,7 @@ public:
     // Getters
     std::string getItemName();
     double getItemCost();
+    int getNumItems();
 private:
     // Vars
     std::string itemName;
