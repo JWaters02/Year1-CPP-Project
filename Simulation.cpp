@@ -70,7 +70,9 @@ void Simulation::listShoppers() {
 
 void Simulation::simulateShoppers() {
     if (!isPaused) {
-        std::cout << "SIMULATION " << simID << ":" << std::endl;
+        if (shopperCount > 0) {
+            std::cout << "SIMULATION " << simID << ":" << std::endl;
+        }
         for (int shopper = 0; shopper < shopperCount; shopper++) {
             shoppersRunning[shopper].simulateShopper();
         }
@@ -84,8 +86,7 @@ void Simulation::simulateShoppers() {
 
 //region Getters
 void Simulation::getSimInfo() {
-    if (!isPaused) {
-        std::cout << "SIMULATION " << simID << " HAS RUN, WOOO!" << std::endl;
-    }
+    std::cout << "No. shoppers: " << shopperCount
+    << "\nPaused? " << isPaused << std::endl;
 }
 //endregion

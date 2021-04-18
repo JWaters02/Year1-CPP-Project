@@ -47,6 +47,7 @@ std::string FileHandler::loadFromFile(std::string fileName) {
 }
 
 void FileHandler::printFileContents(std::string fileName) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     std::ifstream file(fileName + ".txt");
 
     // If file exists
@@ -59,7 +60,11 @@ void FileHandler::printFileContents(std::string fileName) {
         file.close();
 
         std::cout << ret << std::endl;
+    } else {
+        SetConsoleTextAttribute(hConsole, 12); // RED
+        std::cout << fileName << " could not be found." << std::endl;
     }
+    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
 }
 
 void FileHandler::deleteFile(std::string fileName) {

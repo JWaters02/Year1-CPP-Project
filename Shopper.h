@@ -12,7 +12,9 @@
 #include <vector>
 #include <random>
 #include <Windows.h>
+#include <string>
 #include "Item.h"
+#include "Logs.h"
 
 class Shopper {
 public:
@@ -31,7 +33,7 @@ public:
     void getShopperInfo();
 private:
     // Functions
-    Item generateShopperItem(int numItems, std::string itemName);
+    Item generateShopperItem(int numItems, std::string itemName, double itemCost);
     void pickupItem();
     void dropItem();
     void checkout();
@@ -45,11 +47,9 @@ private:
     // Consts
     static const int MAXHEIGHT = 240;
     static const int MINHEIGHT = 90;
-    static const int MAXWEIGHT = 200;
+    static const int MAXWEIGHT = 100;
     static const int MINWEIGHT = 15;
     static const int MAXAGE = 90;
-    static const int MAXITEMSPERITEM = 20;
-    static const int MAXITEMSFORBASKET = 50;
 
     // Vars
     int shopperID;
@@ -71,10 +71,14 @@ private:
                                          "Raisin", "Satsuma", "Tomato",
                                          "Ugli", "Victoria Plum",
                                          "Watermelon", "Zucchini"};
-    std::vector<double> itemCostBank = {1.2, 0.8, 0.2, 0.3, 0.6, 1,
-                                        0.1, 1, 1.2, 0.5, 1.6, 1,
-                                        1, 1.1, 2, 0.1, 1, 0.7,
-                                        2, 1.5, 2.3, 5};
+    std::vector<double> itemCostBank = {1.2, 0.8, 0.2,
+                                        0.3, 0.6, 1,
+                                        0.1, 1, 1.2,
+                                        0.5, 1.6, 1,
+                                        1, 1.1, 2,
+                                        0.1, 1, 0.7,
+                                        2, 1.5,
+                                        2.3, 5};
     std::vector<Item> basket;
     int height;
     int weight;

@@ -10,14 +10,12 @@
 #include <vector>
 #include <random>
 #include <memory>
-#include "Stock.h"
 
 class Item {
 public:
     Item(std::string itemName, double itemCost, int numItems);
 
     // Functions
-    static bool isValidName(std::string name);
     void addItems(int _numItems);
 
     // Getters

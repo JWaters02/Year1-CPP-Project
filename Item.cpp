@@ -5,34 +5,14 @@
 
 #include "Item.h"
 
-namespace itemGlobals {
-    std::vector<std::string> items = {"Apples", "Bananas"}; // TODO: Get items from files class (or object from stocks?)
-}
-
 //region Constructor
 Item::Item(std::string _itemName, double _itemCost, int _numItems)
 : itemName(_itemName), itemCost(_itemCost), numItems(_numItems) {
-    // Reduce 1 from item in stocks class
-    //Stock::getItemFromItemsStock(itemName, numItems);
+
 }
 //endregion
 
 //region Functions
-// If item name that doesn't exist has been inputted
-bool Item::isValidName(std::string item) {
-    int itemCounter = 0;
-    for (int i = 0; i < itemGlobals::items.size(); i++) {
-        if (item == itemGlobals::items[i]) {
-            itemCounter++;
-        }
-    }
-    if (itemCounter != 1) {
-        std::cout << "Item does not exist" << std::endl;
-        return false;
-    }
-    return true;
-}
-
 void Item::addItems(int _numItems) {
     numItems += _numItems;
 }

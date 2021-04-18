@@ -42,10 +42,6 @@ string
 Windows.h
 -
 
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.cpp
-Item.h
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.h
-
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.h
 iostream
 -
@@ -55,10 +51,16 @@ random
 -
 memory
 -
-Stock.h
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.h
+
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Logs.cpp
+Logs.h
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Logs.h
 
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Logs.h
+iostream
+-
+Windows.h
+-
 
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/MainLoop.cpp
 MainLoop.h
@@ -97,8 +99,12 @@ random
 -
 Windows.h
 -
+string
+-
 Item.h
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.h
+Logs.h
+C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Logs.h
 
 C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.cpp
 Simulation.h

@@ -51,6 +51,5 @@ void MainLoop::mainEventLoop() {
         // Run simulations
         // commands->getSimInfo();
         commands->simulateShoppers();
-        std::cout << std::endl;
     }
 }
