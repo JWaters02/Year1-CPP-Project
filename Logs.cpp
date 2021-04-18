@@ -9,7 +9,7 @@
 //endregion
 
 //region Functions
-void Logs::log(const std::string output, const int colour, const bool fixed) {
+void Logs::log(const std::string output, const int colour) {
     /*
      * RED = 12
      * DARK CYAN = 3
@@ -18,20 +18,20 @@ void Logs::log(const std::string output, const int colour, const bool fixed) {
      */
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, colour);
-    if (fixed) {
-        setPrecision(2);
-        std::cout << std::fixed << output << std::endl;
-    } else {
-        std::cout << output << std::endl;
-    }
+    std::cout << output << std::endl;
+    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
+}
+
+void Logs::precisionLog(const std::string output1, const double fixedNum, const std::string output2, const int colour) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, colour);
+    std::cout.precision(2);
+    std::cout << output1 << std::fixed << fixedNum << output2 << std::endl;
     SetConsoleTextAttribute(hConsole, 7); // DEFAULT
 }
 //endregion
 
 //region Setters
-void Logs::setPrecision(int precision) {
-    std::cout.precision(precision);
-}
 //endregion
 
 //region Getters

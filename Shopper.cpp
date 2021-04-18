@@ -40,11 +40,14 @@ void Shopper::pickupItem() {
     std::string plural = "";
     bool canAddItem = true;
 
+    // TODO: Work out if there are enough items in stock to pick item up
+
     // Find if the item already exists in the basket
     for (int item = 0; item < basket.size(); item++) {
         if (basket[item].getItemName() == itemName) {
             basket[item].addItems(ITEMSTOPICKUP);
             canAddItem = false;
+            break;
         }
     }
     if (canAddItem) {
@@ -81,13 +84,11 @@ void Shopper::checkout() {
         total += basket[i].getItemCost() * basket[i].getNumItems();
     }
 
-    std::string output = "Shopper " + std::to_string(shopperID) + " has checked out with a value of $"
-            + std::to_string(total) + "0, and has left the store!";
-    Logs::log(output, 10, true); // GREEN
+    std::string output1 = "Shopper " + std::to_string(shopperID) + " has checked out with a value of $";
+    std::string output2 = ", and has left the store!";
+    Logs::precisionLog(output1, total, output2,10); // GREEN
 
     isInStore = false;
-
-    // TODO: Use items to get from stocks
 }
 
 // This is what drives the changing of every variable in shopper during event loop
@@ -159,17 +160,22 @@ void Shopper::getShopperInfo() {
     std::string output = "Name: " + getName()
             + "\nID: " + std::to_string(getID())
             + "\nAge: " + std::to_string(getAge())
-            + "\nWeight: " + std::to_string(getWeight()) + "kg"
-            + "\nHeight: " + std::to_string(getHeight()) + "cm";
-    Logs::log(output, 7, true);
+            + "\nWeight: " + std::to_string(getWeight()) + " kg"
+            + "\nHeight: " + std::to_string(getHeight()) + " cm";
+    Logs::log(output, 7);
 
-    output = "Items in basket: ";
-    for (int item = 0; item < basket.size(); item++) {
-        std::cout << basket[item].getItemName()
-        << " x" << basket[item].getNumItems()
-        << ", costing: $" << std::fixed
-        << basket[item].getItemCost() * basket[item].getNumItems()
-        << "." << std::endl;
+    if (isInStore) {
+        std::cout << "Items in basket: " << std::endl;
+        for (int item = 0; item < basket.size(); item++) {
+            std::string output1 = basket[item].getItemName()
+                                  + " x" + std::to_string(basket[item].getNumItems())
+                                  + ", costing: $";
+            std::string output2 = ".";
+            const double cost = basket[item].getItemCost() * basket[item].getNumItems();
+            Logs::precisionLog(output1, cost, output2, 7);
+        }
+    } else {
+        Logs::log("This shopper is not in the store.", 12); // RED
     }
 }
 //endregion
