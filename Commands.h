@@ -43,6 +43,7 @@ public:
     void removeShopper(std::vector<std::string>& IDTypes);
     void listShopperInfo(std::vector<std::string>& IDTypes);
     void listShoppers(std::vector<std::string>& IDTypes);
+    void orderItems(std::vector<std::string>& IDTypes);
     void simulateShoppers();
 
     // Setters
@@ -73,12 +74,12 @@ private:
                                          "continue sim <sim ID>", "pause sim <sim ID>",
                                          "add shopper <sim ID>", "remove shopper <sim ID>",
                                          "list shopper info <sim ID> <shopper ID>",
-                                         "list shoppers <sim ID>"};
+                                         "list shoppers <sim ID>", "order items <sim ID>"};
     std::vector<std::string> commandAliases = {"h", "c", "a", "q", "p", "sp", "lp", "df",
                                                "pf", "ls", "as", "rs", "lsi <sim ID>",
                                                "cs <sim ID>", "ps <sim ID>", "ash <sim ID>",
                                                "rsh <sim ID>", "lshi <sim ID> <shopper ID>",
-                                               "lsh <sim ID>"};
+                                               "lsh <sim ID>", "oi <sim ID>"};
     using funcPair = std::pair<std::string, std::function<void(std::vector<std::string>&)>>;
     std::vector<funcPair> commandFunc {
         std::make_pair("help", [this](std::vector<std::string>&){help();}),
@@ -119,6 +120,8 @@ private:
         std::make_pair("lshi ", [this](std::vector<std::string>& IDTypes){listShopperInfo(IDTypes);}),
         std::make_pair("list shoppers ", [this](std::vector<std::string>& IDTypes){listShoppers(IDTypes);}),
         std::make_pair("lsh ", [this](std::vector<std::string>& IDTypes){listShoppers(IDTypes);}),
+        std::make_pair("order items ", [this](std::vector<std::string>& IDTypes){orderItems(IDTypes);}),
+        std::make_pair("oi ", [this](std::vector<std::string>& IDTypes){orderItems(IDTypes);}),
     };
     std::vector<std::string> simIDs;
     int simCount = 0;

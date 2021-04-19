@@ -23,6 +23,7 @@ void Simulation::addShopper() {
     // If there is space on the stack for more shoppers
     if (shopperCount <= MAXID) {
         shopperCount++;
+        // TODO: Make sure stock is passed by reference
         std::unique_ptr<Shopper> newShopper = std::make_unique<Shopper>(shopperCount, stock ,true);
         shopperIDs.push_back(std::to_string(shopperCount));
         shoppersRunning.push_back(*newShopper);
@@ -58,6 +59,15 @@ void Simulation::listShoppers() {
         ret += "Shopper ID: " + shopperIDs[i] + "\n";
     }
     std::cout << ret << std::endl;
+}
+
+void Simulation::orderItems(std::string itemName, int numItems) {
+    for (int item = 0; item < stock.size(); item++) {
+        if (stock[item].getItemName() == itemName) {
+            stock[item].addItems(numItems);
+            Logs::log("More " + stock[item].getItemName() + "s have been ordered!", 10);
+        }
+    }
 }
 
 void Simulation::simulateShoppers() {

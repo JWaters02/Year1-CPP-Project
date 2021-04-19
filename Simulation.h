@@ -24,6 +24,7 @@ public:
     void removeShopper();
     void listShopperInfo(std::string shopperID);
     void listShoppers();
+    void orderItems(std::string itemName, int numItems);
     void simulateShoppers();
 
     // Getters

@@ -182,6 +182,23 @@ void Commands::listShoppers(std::vector<std::string>& IDTypes) {
     }
 }
 
+void Commands::orderItems(std::vector<std::string> &IDTypes) {
+    if (isIDValid(IDTypes)) {
+        Logs::log("Please input the item name you wish to order: ", 3);
+        std::string itemName;
+        std::cin >> itemName;
+        Logs::log("Please input the number of this item you wish to order: ", 3);
+        int numItems;
+        std::cin >> numItems;
+
+        for (int sim = 0; sim < simCount; sim++) {
+            if (simIDs[sim] == IDTypes[0]) {
+                simulationsRunning[sim].orderItems(itemName, numItems);
+            }
+        }
+    }
+}
+
 void Commands::simulateShoppers() {
     for (int sim = 0; sim < simCount; sim++) {
         simulationsRunning[sim].simulateShoppers();
