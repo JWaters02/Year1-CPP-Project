@@ -5,30 +5,33 @@
 #include "Shopper.h"
 
 //region Constructor
-Shopper::Shopper(int _shopperID, bool _isRandomObject, std::string _name, int _height, int _weight, int _age)
-: shopperID(_shopperID) {
+Shopper::Shopper(int _shopperID, std::vector<Item>& _stock, bool _isRandomObject,
+                 std::string _name, int _height, int _weight, int _age)
+: shopperID(_shopperID), stock(_stock) {
     if (_isRandomObject) {
         setName();
         setHeight();
         setWeight();
         setAge();
+        setItemBank();
+        setItemCostBank();
     } else {
         name = _name;
         height = _height;
         weight = _weight;
         age = _age;
-        // TODO: Add any other vars like items
     }
+    // TODO: Add ability to change item costs
 }
 //endregion
 
 //region Functions
-// Allows manager to give items with values to shopper if they wish
-Item Shopper::giveShopperItem(const std::string& itemName, double itemCost, int numItems) {
-    return Item(itemName, itemCost, numItems);
+// Allows manager (or file handler) to give items with values to shopper if they wish
+void Shopper::giveShopperItem(const std::string itemName, double itemCost, int numItems) {
+    basket.push_back(Item(itemName, itemCost, numItems));
 }
 
-Item Shopper::generateShopperItem(int numItems, std::string itemName, double itemCost) {
+Item Shopper::generateShopperItem(const std::string itemName, const double itemCost, const int numItems) {
     return Item(itemName, itemCost, numItems);
 }
 
@@ -40,32 +43,44 @@ void Shopper::pickupItem() {
     std::string plural = "";
     bool canAddItem = true;
 
-    // TODO: Work out if there are enough items in stock to pick item up
+    if (ITEMSTOPICKUP > stock[PICKITEM].getNumItems()) {
+        Logs::log("Shopped failed to pickup " + itemName + " as it is out of stock!", 12);
+    } else {
+        // Decrement stock
+        stock[PICKITEM].decrementStock(ITEMSTOPICKUP);
 
-    // Find if the item already exists in the basket
-    for (int item = 0; item < basket.size(); item++) {
-        if (basket[item].getItemName() == itemName) {
-            basket[item].addItems(ITEMSTOPICKUP);
-            canAddItem = false;
-            break;
+        // Find if the item already exists in the basket
+        for (int item = 0; item < basket.size(); item++) {
+            if (basket[item].getItemName() == itemName) {
+                basket[item].addItems(ITEMSTOPICKUP);
+                canAddItem = false;
+                break;
+            }
         }
-    }
-    if (canAddItem) {
-        // Item does not exist in basket
-        basket.push_back(generateShopperItem(ITEMSTOPICKUP, itemName, itemCost));
-    }
+        if (canAddItem) {
+            // Item does not exist in basket
+            basket.push_back(generateShopperItem(itemName, itemCost, ITEMSTOPICKUP));
+        }
 
-    if (ITEMSTOPICKUP > 1) {
-        plural = "s";
+        if (ITEMSTOPICKUP > 1) {
+            plural = "s";
+        }
+        std::string output = "Shopper " + std::to_string(shopperID) + " has picked up " + std::to_string(ITEMSTOPICKUP)
+                             + " " + basket[basket.size() - 1].getItemName() + plural + ".";
+        Logs::log(output, 10); // GREEN
     }
-    std::string output = "Shopper " + std::to_string(shopperID) + " has picked up " + std::to_string(ITEMSTOPICKUP)
-            + " " + basket[basket.size() - 1].getItemName() + plural + ".";
-    Logs::log(output, 10); // GREEN
 }
 
 void Shopper::dropItem() {
     if (basket.size() > 0) {
         const int ITEMTODROP = rand() % (basket.size());
+
+        // Increase stock
+        for (int item = 0; item < stock.size(); item++) {
+            if (stock[item].getItemName() == basket[ITEMTODROP].getItemName()) {
+                stock[item].addItems(basket[ITEMTODROP].getNumItems());
+            }
+        }
 
         std::string output = "Shopper " + std::to_string(shopperID) + " has dropped their "
                 + basket[ITEMTODROP].getItemName() + "s.";
@@ -132,6 +147,14 @@ void Shopper::setWeight() {
 
 void Shopper::setAge() {
     age = rand() % MAXAGE;
+}
+
+void Shopper::setItemBank() {
+    itemBank = Stock::getItemBank();
+}
+
+void Shopper::setItemCostBank() {
+    itemCostBank = Stock::getItemCostBank();
 }
 //endregion
 

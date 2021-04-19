@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project
+# Install script for directory: F:/Github Projects/University/Year1-CPP-Project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

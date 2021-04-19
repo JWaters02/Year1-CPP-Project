@@ -15,13 +15,15 @@
 #include <string>
 #include "Item.h"
 #include "Logs.h"
+#include "Stock.h"
 
 class Shopper {
 public:
-    Shopper(int _shopperID, bool _isRandomObject, std::string _name = "", int _height = 100, int _weight = 50, int _age = 35);
+    Shopper(int _shopperID, std::vector<Item>& _stock, bool _isRandomObject,
+            std::string _name = "", int _height = 100, int _weight = 50, int _age = 35);
 
     // Functions
-    Item giveShopperItem(const std::string& itemName, double itemCost, int numItems);
+    void giveShopperItem(const std::string itemName, double itemCost, int numItems);
     void simulateShopper();
 
     // Getters
@@ -33,7 +35,7 @@ public:
     void getShopperInfo();
 private:
     // Functions
-    Item generateShopperItem(int numItems, std::string itemName, double itemCost);
+    Item generateShopperItem(const std::string itemName, const double itemCost, const int numItems);
     void pickupItem();
     void dropItem();
     void checkout();
@@ -43,6 +45,8 @@ private:
     void setHeight();
     void setWeight();
     void setAge();
+    void setItemBank();
+    void setItemCostBank();
 
     // Consts
     static const int MAXHEIGHT = 240;
@@ -63,23 +67,10 @@ private:
                                          "Roger", "Susan", "Thomas",
                                          "Ugra", "Victor", "Wolfie",
                                          "Xray", "Yankee", "Zulu"};
-    std::vector<std::string> itemBank = {"Apple", "Banana", "Cherry",
-                                         "Date", "Elderberry", "Fig",
-                                         "Grape", "Huckleberry", "Kiwi",
-                                         "Lemon", "Mango", "Nectarine",
-                                         "Orange", "Pear", "Quince",
-                                         "Raisin", "Satsuma", "Tomato",
-                                         "Ugli", "Victoria Plum",
-                                         "Watermelon", "Zucchini"};
-    std::vector<double> itemCostBank = {1.2, 0.8, 0.2,
-                                        0.3, 0.6, 1,
-                                        0.1, 1, 1.2,
-                                        0.5, 1.6, 1,
-                                        1, 1.1, 2,
-                                        0.1, 1, 0.7,
-                                        2, 1.5,
-                                        2.3, 5};
+    std::vector<std::string> itemBank;
+    std::vector<double> itemCostBank;
     std::vector<Item> basket;
+    std::vector<Item> stock;
     int height;
     int weight;
     int age;

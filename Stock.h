@@ -9,20 +9,25 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <memory>
+#include "Item.h"
 
 class Stock {
 public:
-    Stock(std::vector<std::string>& _items, std::vector<int>& _itemCosts);
-
     // Functions
+
+    // Setters
+    static std::vector<Item> setStock();
 
     // Getters
-    static void getItemFromItemsStock(std::string itemName, int numItems);
-    std::vector<int> getItemStockCount();
+    static std::vector<std::string> getItemBank();
+    static std::vector<double> getItemCostBank();
 private:
     // Functions
-    static bool isItemInStock(std::string itemName);
-    static void decrementStock(std::string stockToReduce, int numItems);
+
+    // Vars
+    std::vector<std::string> itemBank;
+    std::vector<double> itemCostBank;
 };
 
 #endif //YEAR1_CPP_PROJECT_STOCK_H

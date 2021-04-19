@@ -17,6 +17,7 @@ public:
 
     // Functions
     void addItems(int _numItems);
+    void decrementStock(int itemsPickedUp);
 
     // Getters
     std::string getItemName();

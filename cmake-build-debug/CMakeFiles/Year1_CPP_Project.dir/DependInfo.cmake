@@ -4,16 +4,16 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Commands.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Commands.cpp.obj"
-  "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/FileHandler.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/FileHandler.cpp.obj"
-  "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Item.cpp.obj"
-  "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Logs.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Logs.cpp.obj"
-  "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/MainLoop.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/MainLoop.cpp.obj"
-  "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Order.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Order.cpp.obj"
-  "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Shopper.cpp.obj"
-  "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Simulation.cpp.obj"
-  "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Stock.cpp.obj"
-  "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/main.cpp" "C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/main.cpp.obj"
+  "F:/Github Projects/University/Year1-CPP-Project/Commands.cpp" "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Commands.cpp.obj"
+  "F:/Github Projects/University/Year1-CPP-Project/FileHandler.cpp" "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/FileHandler.cpp.obj"
+  "F:/Github Projects/University/Year1-CPP-Project/Item.cpp" "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Item.cpp.obj"
+  "F:/Github Projects/University/Year1-CPP-Project/Logs.cpp" "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Logs.cpp.obj"
+  "F:/Github Projects/University/Year1-CPP-Project/MainLoop.cpp" "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/MainLoop.cpp.obj"
+  "F:/Github Projects/University/Year1-CPP-Project/Order.cpp" "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Order.cpp.obj"
+  "F:/Github Projects/University/Year1-CPP-Project/Shopper.cpp" "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Shopper.cpp.obj"
+  "F:/Github Projects/University/Year1-CPP-Project/Simulation.cpp" "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Simulation.cpp.obj"
+  "F:/Github Projects/University/Year1-CPP-Project/Stock.cpp" "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/Stock.cpp.obj"
+  "F:/Github Projects/University/Year1-CPP-Project/main.cpp" "F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/CMakeFiles/Year1_CPP_Project.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
 

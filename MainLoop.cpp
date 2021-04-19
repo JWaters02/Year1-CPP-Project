@@ -21,9 +21,7 @@ void MainLoop::mainEventLoop() {
                 Sleep(tickSpeed / 2);
 
                 // Display list of commands and what the user wishes to do
-                SetConsoleTextAttribute(hConsole, 3); // DARK CYAN
-                std::cout << "\nType 'commands' for list of commands.\nEnter command:" << std::endl;
-                SetConsoleTextAttribute(hConsole, 7); // DEFAULT
+                Logs::log("\nType 'commands' for list of commands.\nEnter command:", 3);
 
                 // User inputs command
                 std::string command = "";
@@ -39,9 +37,7 @@ void MainLoop::mainEventLoop() {
 
                 // TODO: Fix bug on pf or df that puts another space in buffer or something
 
-                SetConsoleTextAttribute(hConsole, 3); // DARK CYAN
-                std::cout << "\nPress space to input new command or nothing to continue program loop." << std::endl;
-                SetConsoleTextAttribute(hConsole, 7); // DEFAULT
+                Logs::log("\nPress space to input new command or nothing to continue program loop.", 3);
                 break;
             }
             Sleep(1);

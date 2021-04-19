@@ -6,7 +6,7 @@
 
 //region Constructor
 Simulation::Simulation(int _simID) : simID(_simID) {
-
+    setStock();
 }
 //endregion
 
@@ -20,36 +20,28 @@ void Simulation::resume() {
 }
 
 void Simulation::addShopper() {
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     // If there is space on the stack for more shoppers
     if (shopperCount <= MAXID) {
         shopperCount++;
-        std::unique_ptr<Shopper> newShopper = std::make_unique<Shopper>(shopperCount, true);
+        std::unique_ptr<Shopper> newShopper = std::make_unique<Shopper>(shopperCount, stock ,true);
         shopperIDs.push_back(std::to_string(shopperCount));
         shoppersRunning.push_back(*newShopper);
-        SetConsoleTextAttribute(hConsole, 10); // GREEN
-        std::cout << "New shopper added!" << std::endl;
+        Logs::log("New shopper added!", 10);
     } else {
-        SetConsoleTextAttribute(hConsole, 12); // RED
-        std::cout << "Too many shoppers running!" << std::endl;
+        Logs::log("Too many shoppers running!", 12);
     }
-    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
 }
 
 void Simulation::removeShopper() {
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     // If there are actually any shoppers to remove
     if (shopperCount > 0) {
         shopperIDs.pop_back();
         shoppersRunning.pop_back();
         shopperCount--;
-        SetConsoleTextAttribute(hConsole, 10); // GREEN
-        std::cout << "Shopper removed from stack." << std::endl;
+        Logs::log("Shopper removed from stack.", 10);
     } else {
-        SetConsoleTextAttribute(hConsole, 12); // RED
-        std::cout << "There are no shoppers to remove." << std::endl;
+        Logs::log("There are no shoppers to remove.", 12);
     }
-    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
 }
 
 void Simulation::listShopperInfo(std::string shopperID) {
@@ -81,12 +73,19 @@ void Simulation::simulateShoppers() {
 //endregion
 
 //region Setters
-
+void Simulation::setStock() {
+    stock = Stock::setStock();
+}
 //endregion
 
 //region Getters
 void Simulation::getSimInfo() {
     std::cout << "No. shoppers: " << shopperCount
     << "\nPaused? " << isPaused << std::endl;
+    std::cout << "Stocks: " << std::endl;
+    for (int item = 0; item < stock.size(); item++) {
+        std::string output = stock[item].getItemName() + " x" + std::to_string(stock[item].getNumItems());
+        Logs::log(output, 7);
+    }
 }
 //endregion

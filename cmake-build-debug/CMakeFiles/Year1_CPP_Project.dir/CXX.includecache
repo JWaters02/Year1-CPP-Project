@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.h
+F:/Github Projects/University/Year1-CPP-Project/Item.h
 iostream
 -
 vector
@@ -16,29 +16,19 @@ random
 memory
 -
 
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Logs.h
-iostream
--
-Windows.h
--
+F:/Github Projects/University/Year1-CPP-Project/Stock.cpp
+Stock.h
+F:/Github Projects/University/Year1-CPP-Project/Stock.h
 
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.cpp
-Shopper.h
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.h
-
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.h
+F:/Github Projects/University/Year1-CPP-Project/Stock.h
 iostream
 -
 vector
 -
-random
+cmath
 -
-Windows.h
--
-string
+memory
 -
 Item.h
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.h
-Logs.h
-C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Logs.h
+F:/Github Projects/University/Year1-CPP-Project/Item.h
 

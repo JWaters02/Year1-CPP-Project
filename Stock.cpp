@@ -4,77 +4,46 @@
 
 #include "Stock.h"
 
-namespace items {
-    static std::vector<std::string> stock;
-    static std::vector<int> stockCount;
-    static std::vector<int> stockCosts;
-}
-
 //region Constructor
-Stock::Stock(std::vector<std::string>& _items, std::vector<int>& _itemCosts ) {
-
-}
 //endregion
 
 //region Functions
-bool Stock::isItemInStock(std::string itemName) {
-    int itemCounter = 0;
-    for (int item = 0; item < items::stock.size(); item++) {
-        if (itemName == items::stock[item]) {
-            itemCounter++;
-        }
-        // If the item exists in stock, but there is none left
-        if (items::stockCount[item] == 0) {
-            std::cout << "Item: " << items::stock[item] << " is out of stock" << std::endl;
-            return false;
-        }
-    }
-    if (itemCounter != 1) {
-        std::cout << "Item: " << itemName << " does not exist" << std::endl;
-        return false;
-    }
-    return true;
-}
-
-void Stock::decrementStock(std::string stockToReduce, int numItems) {
-    for (int item = 0; item < items::stock.size(); ++item) {
-        if (stockToReduce == items::stock[item]) {
-            if ((items::stockCount[item] -= numItems) <= 0) {
-                std::cout << "Item: " << items::stock[item] << " is out of stock" << std::endl;
-                break;
-            } else {
-                items::stockCount[item]--;
-                break;
-            }
-        }
-    }
-}
 //endregion
 
 //region Setters
+std::vector<Item> Stock::setStock() {
+    // Get stock of amount of items; names, costs, nums
+    std::vector<Item> items;
+    for (int item = 0; item < getItemBank().size(); item++) {
+        const int ITEMSPERSTOCK = rand() % 50 + 1;
+        std::unique_ptr<Item> newItem = std::make_unique<Item>(getItemBank()[item], getItemCostBank()[item], ITEMSPERSTOCK);
+        items.push_back(*newItem);
+    }
+    return items;
+}
 //endregion
 
 //region Getters
-// Get the requested item from stock
-void Stock::getItemFromItemsStock(std::string itemName, int numItems) {
-    // If item is in stock
-    if (isItemInStock(itemName)) {
-        for (int item = 0; item < items::stock.size(); item++) {
-            // If current item is selected
-            if (itemName == items::stock[item]) {
-                // Decrement stock
-                decrementStock(itemName, numItems);
-
-                // Remove item from stock
-                items::stock.erase(items::stock.begin() + item);
-                items::stockCosts.erase(items::stockCosts.begin() + item);
-            }
-        }
-    }
+std::vector<std::string> Stock::getItemBank() {
+    return {"Apple", "Banana", "Cherry",
+            "Date", "Elderberry", "Fig",
+            "Grape", "Huckleberry", "Kiwi",
+            "Lemon", "Mango", "Nectarine",
+            "Orange", "Pear", "Quince",
+            "Raisin", "Satsuma", "Tomato",
+            "Ugli", "Victoria Plum",
+            "Watermelon", "Zucchini"};
 }
 
-std::vector<int> Stock::getItemStockCount() {
-    return items::stockCount;
+std::vector<double> Stock::getItemCostBank() {
+    return {1.2, 0.8, 0.2,
+            0.3, 0.6, 1,
+            0.1, 1, 1.2,
+            0.5, 1.6, 1,
+            1, 1.1, 2,
+            0.1, 1, 0.7,
+            2, 1.5,
+            2.3, 5};
 }
 //endregion
 

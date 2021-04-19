@@ -32,6 +32,9 @@ public:
     // Vars
     std::vector<std::string> shopperIDs;
 private:
+    // Setters
+    void setStock();
+
     // Consts
     const int MAXID = 10; // Max of 10 shoppers per sim
 
@@ -40,6 +43,7 @@ private:
     int simID;
     int shopperCount = 0;
     std::vector<Shopper> shoppersRunning;
+    std::vector<Item> stock;
 };
 
 

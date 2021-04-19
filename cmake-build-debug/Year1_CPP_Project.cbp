@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug"/>
+				<Option working_dir="F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 all"/>
-					<CompileFile command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Year1_CPP_Project">
-				<Option output="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/Year1_CPP_Project.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug"/>
+				<Option output="F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/Year1_CPP_Project.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
@@ -34,15 +34,15 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 Year1_CPP_Project"/>
-					<CompileFile command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 Year1_CPP_Project"/>
+					<CompileFile command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Year1_CPP_Project/fast">
-				<Option output="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug/Year1_CPP_Project.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug"/>
+				<Option output="F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug/Year1_CPP_Project.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
@@ -57,91 +57,91 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 Year1_CPP_Project/fast"/>
-					<CompileFile command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 Year1_CPP_Project/fast"/>
+					<CompileFile command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug"/>
+				<Option working_dir="F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 edit_cache"/>
-					<CompileFile command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/cmake-build-debug"/>
+				<Option working_dir="F:/Github Projects/University/Year1-CPP-Project/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f &quot;C:\Users\water\OneDrive\Documents\Github Projects\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f &quot;F:\Github Projects\University\Year1-CPP-Project\cmake-build-debug\Makefile&quot; VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Commands.cpp">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Commands.cpp">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Commands.h">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Commands.h">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/FileHandler.cpp">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/FileHandler.cpp">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/FileHandler.h">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/FileHandler.h">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.cpp">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Item.cpp">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Item.h">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Item.h">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Logs.cpp">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Logs.cpp">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Logs.h">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Logs.h">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/MainLoop.cpp">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/MainLoop.cpp">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/MainLoop.h">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/MainLoop.h">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Order.cpp">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Order.cpp">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Order.h">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Order.h">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.cpp">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Shopper.cpp">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Shopper.h">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Shopper.h">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.cpp">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Simulation.cpp">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Simulation.h">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Simulation.h">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.cpp">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Stock.cpp">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/Stock.h">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Stock.h">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/main.cpp">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/main.cpp">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="C:/Users/water/OneDrive/Documents/Github Projects/Year1-CPP-Project/CMakeLists.txt">
+		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

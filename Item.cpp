@@ -16,6 +16,10 @@ Item::Item(std::string _itemName, double _itemCost, int _numItems)
 void Item::addItems(int _numItems) {
     numItems += _numItems;
 }
+
+void Item::decrementStock(int itemsPickedUp) {
+    numItems -= itemsPickedUp;
+}
 //endregion
 
 //region Setters
