@@ -6,7 +6,7 @@
 
 //region Constructor
 Shopper::Shopper(int _shopperID, std::vector<Item>& _stock, bool _isRandomObject,
-                 std::string _name, int _height, int _weight, int _age)
+                 std::string _name, int _height, int _weight, int _age, bool _isInStore)
 : shopperID(_shopperID), stock(_stock) {
     if (_isRandomObject) {
         setName();
@@ -20,8 +20,8 @@ Shopper::Shopper(int _shopperID, std::vector<Item>& _stock, bool _isRandomObject
         height = _height;
         weight = _weight;
         age = _age;
+        isInStore = _isInStore;
     }
-    // TODO: Add ability to change item costs
 }
 //endregion
 

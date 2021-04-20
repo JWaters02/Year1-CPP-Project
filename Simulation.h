@@ -25,11 +25,13 @@ public:
     void listShopperInfo(std::string shopperID);
     void listShoppers();
     void orderItems(std::string itemName, int numItems);
+    void giveShopperItem(int ID, std::string itemName, double itemCost, int numItems);
     void simulateShoppers();
 
     // Setters
     void setPaused(std::string _isPaused);
     void setStock(std::string itemName, double itemCost, int numItems);
+    void setShopper(std::string ID, std::string name, int age, int weight, int height, std::string isInStore);
 
     // Getters
     std::string getPaused();

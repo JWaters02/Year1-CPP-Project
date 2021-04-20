@@ -20,7 +20,7 @@
 class Shopper {
 public:
     Shopper(int _shopperID, std::vector<Item>& _stock, bool _isRandomObject,
-            std::string _name = "", int _height = 100, int _weight = 50, int _age = 35);
+            std::string _name = "", int _height = 100, int _weight = 50, int _age = 35, bool _isInStore = true);
 
     // Functions
     void giveShopperItem(const std::string itemName, double itemCost, int numItems);

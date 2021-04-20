@@ -58,11 +58,12 @@ void Commands::pause() {
 
 void Commands::saveSimulations() {
     /*
-     * 1,0#1,joshua,19,45,180,1#apple,1.2,3+banana,0.8,4:2,joe,21,55,175,1#watermelon,2.3,1
+     * 1,0#apple,4,23+banana,1,50#1,joshua,19,45,180,1~apple,1.2,3+banana,0.8,4:2,joe,21,55,175,1~watermelon,2.3,1
      * # = Main separator
      * , = Separator
      * + = Looping separator
-     * : = Shoppers separator
+     * : = Item -> shoppers separator
+     * ~ = Shopper -> item separator
      */
     if (simCount == 0) {
         Logs::log("There are no simulations to save!", 12);
@@ -89,7 +90,7 @@ void Commands::saveSimulations() {
 
             if (simulationsRunning[sim].getShoppers().size() == 0) {
                 Logs::log("Sim: " + simIDs[sim] + " has no shoppers to save!", 12);
-                line.replace(line.size() - 2, line.size() - 1, "");
+                line.replace(line.size() - 1, line.size(), "");
             } else {
                 // Loop through shoppers
                 for (int shopper = 0; shopper < simulationsRunning[sim].getShoppers().size(); shopper++) {
@@ -106,17 +107,20 @@ void Commands::saveSimulations() {
                         + " has no items to save!", 12);
                         line.replace(line.size() - 2, line.size() - 1, "");
                     } else {
-                        line += "#";
+                        line += "~";
                         // Loop through items in basket
                         for (int item = 0; item < simulationsRunning[sim].getShoppers()[shopper].getBasket().size(); item++) {
                             line += simulationsRunning[sim].getShoppers()[shopper].getBasket()[item].getItemName()
                                     + "," + truncateDouble(simulationsRunning[sim].getShoppers()[shopper].getBasket()[item].getItemCost())
-                                    + "," + std::to_string(simulationsRunning[sim].getShoppers()[shopper].getBasket()[item].getNumItems());
+                                    + "," + std::to_string(simulationsRunning[sim].getShoppers()[shopper].getBasket()[item].getNumItems())
+                                    + "+";
                         }
                     }
                     if (shopper != simulationsRunning[sim].getShoppers().size() - 1) {
-                        // Use shoppers separator
-                        line += ":";
+                        // Use item -> shoppers separator
+                        line.replace(line.size() - 1, line.size(), ":");
+                    } else {
+                        line.replace(line.size() - 1, line.size(), "");
                     }
                 }
             }
@@ -134,7 +138,82 @@ void Commands::saveSimulations() {
 }
 
 void Commands::loadSimulations() {
-    // TODO: Load sim
+    /*
+     * 1,0#apple,4,23+banana,1,50#1,joshua,19,45,180,1~apple,1.2,3+banana,0.8,4:2,joe,21,55,175,1~watermelon,2.3,1
+     * # = Main separator
+     * , = Separator
+     * + = Looping separator
+     * : = Shoppers separator
+     * ~ = Shopper -> item separator
+     */
+    std::vector<std::string> lines = FileHandler::loadFromFile(getFileName());
+    std::vector<std::string> _simIDs;
+    std::vector<Simulation> _simulationsRunning;
+
+    // Loop through each simulation (line)
+    for (int line = 0; line < lines.size(); line++) {
+        // Split each line into their primary elements
+        std::vector<std::string> simulationElement = splitCommand(lines[line], '#');
+
+        // First, split sim info details and capture
+        std::vector<std::string> simInfo = splitCommand(simulationElement[0], ',');
+        _simIDs.push_back(simInfo[0]);
+        std::unique_ptr<Simulation> _simulation = std::make_unique<Simulation>(std::stoi(simInfo[0]));
+        _simulation->setPaused(simInfo[1]);
+
+        // Next, split stock info into individual stocks
+        std::vector<std::string> stockInfo = splitCommand(simulationElement[1], '+');
+        // Loop through each item stock
+        for (int stock = 0; stock < stockInfo.size(); stock++) {
+            // Split each item stock into individual parameters
+            std::vector<std::string> stockType = splitCommand(stockInfo[stock], ',');
+            _simulation->setStock(stockType[0],
+                                  std::stod(stockType[1]),
+                                  std::stoi(stockType[2]));
+        }
+
+        // Check if any shoppers exist
+        if (simulationElement.size() < 3) {
+            Logs::log("No shoppers exist in simulation " + simInfo[0] + ".", 12);
+        } else {
+            // Next, shoppers from sim info and stocks
+            std::vector<std::string> shoppers = splitCommand(simulationElement[3], ':');
+            // Loop through shoppers
+            for (int shopper = 0; shopper < shoppers.size(); shopper++) {
+                // Split the shoppers up
+                std::vector<std::string> shopperAndItem = splitCommand(shoppers[shopper], '~');
+                // Split the shopper details up
+                std::vector<std::string> shopperDetails = splitCommand(shopperAndItem[0], ',');
+                // Give shopper details to sim
+                _simulation->setShopper(shopperDetails[0],
+                                        shopperDetails[1],
+                                        std::stoi(shopperDetails[2]),
+                                        std::stoi(shopperDetails[3]),
+                                        std::stoi(shopperDetails[4]),
+                                        shopperDetails[5]);
+
+                // Check if items exist
+                if (shopperAndItem.size() < 2) {
+                    Logs::log("Shopper " + shopperDetails[0] + " in sim " + simInfo[0] + " does not contain any items.", 12);
+                } else {
+                    // Split the items up
+                    std::vector<std::string> items = splitCommand(shopperAndItem[1], '+');
+                    // Loop through the items
+                    for (int item = 0; item < items.size(); item++) {
+                        // Give item details to shopper
+                        _simulation->giveShopperItem(std::stoi(shopperDetails[0]),
+                                                     items[0],
+                                                     std::stoi(items[1]),
+                                                     std::stoi(items[2]));
+                    }
+                }
+            }
+        }
+        // Push simulation into sims stack
+        _simulationsRunning.push_back(*_simulation);
+        Logs::log("File loaded successfully!", 10);
+    }
+    simulationsRunning = _simulationsRunning;
 }
 
 void Commands::deleteFile() {
