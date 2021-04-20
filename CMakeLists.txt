@@ -8,7 +8,6 @@ add_executable(Year1_CPP_Project
         Commands.cpp Commands.h
         Stock.cpp Stock.h
         FileHandler.cpp FileHandler.h
-        Order.cpp Order.h
         Logs.cpp Logs.h
         Shopper.cpp Shopper.h
         Item.cpp Item.h

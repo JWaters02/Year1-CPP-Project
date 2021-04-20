@@ -11,7 +11,7 @@
 //endregion
 
 //region Setters
-std::vector<Item> Stock::setStock() {
+std::vector<Item> Stock::setRandomStock() {
     // Get stock of amount of items; names, costs, nums
     std::vector<Item> items;
     for (int item = 0; item < getItemBank().size(); item++) {
@@ -20,6 +20,11 @@ std::vector<Item> Stock::setStock() {
         items.push_back(*newItem);
     }
     return items;
+}
+
+Item Stock::setStock(std::string itemName, double itemCost, int numItems) {
+    std::unique_ptr<Item> newItem = std::make_unique<Item>(itemName, itemCost, numItems);
+    return *newItem;
 }
 //endregion
 

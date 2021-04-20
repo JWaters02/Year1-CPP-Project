@@ -6,7 +6,7 @@
 
 //region Constructor
 Simulation::Simulation(int _simID) : simID(_simID) {
-    setStock();
+    setRandomStock();
 }
 //endregion
 
@@ -83,8 +83,17 @@ void Simulation::simulateShoppers() {
 //endregion
 
 //region Setters
-void Simulation::setStock() {
-    stock = Stock::setStock();
+void Simulation::setPaused(std::string _isPaused) {
+    if (_isPaused == "1") isPaused = true;
+    else isPaused = false;
+}
+
+void Simulation::setStock(std::string itemName, double itemCost, int numItems) {
+    stock.push_back(Stock::setStock(itemName, itemCost, numItems));
+}
+
+void Simulation::setRandomStock() {
+    stock = Stock::setRandomStock();
 }
 //endregion
 

@@ -15,7 +15,8 @@
 class Stock {
 public:
     // Setters
-    static std::vector<Item> setStock();
+    static std::vector<Item> setRandomStock();
+    static Item setStock(std::string itemName, double itemCost, int numItems);
 
     // Getters
     static std::vector<std::string> getItemBank();

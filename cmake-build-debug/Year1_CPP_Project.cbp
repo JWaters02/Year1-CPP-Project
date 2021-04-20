@@ -114,12 +114,6 @@
 		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/MainLoop.h">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>
-		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Order.cpp">
-			<Option target="Year1_CPP_Project"/>
-		</Unit>
-		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Order.h">
-			<Option target="Year1_CPP_Project"/>
-		</Unit>
 		<Unit filename="F:/Github Projects/University/Year1-CPP-Project/Shopper.cpp">
 			<Option target="Year1_CPP_Project"/>
 		</Unit>

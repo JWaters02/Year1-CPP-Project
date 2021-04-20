@@ -39,8 +39,12 @@ fstream
 -
 string
 -
+vector
+-
 Windows.h
 -
+Logs.h
+F:/Github Projects/University/Year1-CPP-Project/Logs.h
 
 F:/Github Projects/University/Year1-CPP-Project/Item.h
 iostream

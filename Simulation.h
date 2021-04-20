@@ -27,6 +27,10 @@ public:
     void orderItems(std::string itemName, int numItems);
     void simulateShoppers();
 
+    // Setters
+    void setPaused(std::string _isPaused);
+    void setStock(std::string itemName, double itemCost, int numItems);
+
     // Getters
     std::string getPaused();
     std::vector<Item> getStock();
@@ -37,7 +41,7 @@ public:
     std::vector<std::string> shopperIDs;
 private:
     // Setters
-    void setStock();
+    void setRandomStock();
 
     // Consts
     const int MAXID = 10; // Max of 10 shoppers per sim

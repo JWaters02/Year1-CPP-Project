@@ -23,15 +23,15 @@ void FileHandler::saveToFile(std::string inputData, std::string fileName) {
     }
 }
 
-std::string FileHandler::loadFromFile(std::string fileName) {
+std::vector<std::string> FileHandler::loadFromFile(std::string fileName) {
     std::ifstream file(fileName + ".txt");
-    std::string ret = "";
+    std::vector<std::string> ret;
 
     // If file exists
     if (file.is_open()) {
         std::string line;
         while (std::getline(file, line)) {
-            ret += line;
+            ret.push_back(line);
         }
         file.close();
         Logs::log(fileName + " loaded successfully.", 10);

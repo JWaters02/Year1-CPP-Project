@@ -9,6 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 #include <Windows.h>
 #include "Logs.h"
 
@@ -16,7 +17,7 @@ class FileHandler {
 public:
     // Functions
     static void saveToFile(std::string inputData, std::string fileName);
-    static std::string loadFromFile(std::string filename);
+    static std::vector<std::string> loadFromFile(std::string filename);
     static void printFileContents(std::string filename);
     static void deleteFile(std::string filename);
 private:

@@ -13,6 +13,7 @@ CMakeFiles/Year1_CPP_Project.dir/Commands.cpp.obj
 CMakeFiles/Year1_CPP_Project.dir/FileHandler.cpp.obj
  F:/Github Projects/University/Year1-CPP-Project/FileHandler.cpp
  F:/Github Projects/University/Year1-CPP-Project/FileHandler.h
+ F:/Github Projects/University/Year1-CPP-Project/Logs.h
 CMakeFiles/Year1_CPP_Project.dir/Item.cpp.obj
  F:/Github Projects/University/Year1-CPP-Project/Item.cpp
  F:/Github Projects/University/Year1-CPP-Project/Item.h
@@ -26,13 +27,9 @@ CMakeFiles/Year1_CPP_Project.dir/MainLoop.cpp.obj
  F:/Github Projects/University/Year1-CPP-Project/Logs.h
  F:/Github Projects/University/Year1-CPP-Project/MainLoop.cpp
  F:/Github Projects/University/Year1-CPP-Project/MainLoop.h
- F:/Github Projects/University/Year1-CPP-Project/Order.h
  F:/Github Projects/University/Year1-CPP-Project/Shopper.h
  F:/Github Projects/University/Year1-CPP-Project/Simulation.h
  F:/Github Projects/University/Year1-CPP-Project/Stock.h
-CMakeFiles/Year1_CPP_Project.dir/Order.cpp.obj
- F:/Github Projects/University/Year1-CPP-Project/Order.cpp
- F:/Github Projects/University/Year1-CPP-Project/Order.h
 CMakeFiles/Year1_CPP_Project.dir/Shopper.cpp.obj
  F:/Github Projects/University/Year1-CPP-Project/Item.h
  F:/Github Projects/University/Year1-CPP-Project/Logs.h
@@ -56,7 +53,6 @@ CMakeFiles/Year1_CPP_Project.dir/main.cpp.obj
  F:/Github Projects/University/Year1-CPP-Project/Item.h
  F:/Github Projects/University/Year1-CPP-Project/Logs.h
  F:/Github Projects/University/Year1-CPP-Project/MainLoop.h
- F:/Github Projects/University/Year1-CPP-Project/Order.h
  F:/Github Projects/University/Year1-CPP-Project/Shopper.h
  F:/Github Projects/University/Year1-CPP-Project/Simulation.h
  F:/Github Projects/University/Year1-CPP-Project/Stock.h

@@ -12,6 +12,7 @@ CMakeFiles\Year1_CPP_Project.dir\Commands.cpp.obj: ..\Stock.h
 
 CMakeFiles\Year1_CPP_Project.dir\FileHandler.cpp.obj: ..\FileHandler.cpp
 CMakeFiles\Year1_CPP_Project.dir\FileHandler.cpp.obj: ..\FileHandler.h
+CMakeFiles\Year1_CPP_Project.dir\FileHandler.cpp.obj: ..\Logs.h
 
 CMakeFiles\Year1_CPP_Project.dir\Item.cpp.obj: ..\Item.cpp
 CMakeFiles\Year1_CPP_Project.dir\Item.cpp.obj: ..\Item.h
@@ -25,13 +26,9 @@ CMakeFiles\Year1_CPP_Project.dir\MainLoop.cpp.obj: ..\Item.h
 CMakeFiles\Year1_CPP_Project.dir\MainLoop.cpp.obj: ..\Logs.h
 CMakeFiles\Year1_CPP_Project.dir\MainLoop.cpp.obj: ..\MainLoop.cpp
 CMakeFiles\Year1_CPP_Project.dir\MainLoop.cpp.obj: ..\MainLoop.h
-CMakeFiles\Year1_CPP_Project.dir\MainLoop.cpp.obj: ..\Order.h
 CMakeFiles\Year1_CPP_Project.dir\MainLoop.cpp.obj: ..\Shopper.h
 CMakeFiles\Year1_CPP_Project.dir\MainLoop.cpp.obj: ..\Simulation.h
 CMakeFiles\Year1_CPP_Project.dir\MainLoop.cpp.obj: ..\Stock.h
-
-CMakeFiles\Year1_CPP_Project.dir\Order.cpp.obj: ..\Order.cpp
-CMakeFiles\Year1_CPP_Project.dir\Order.cpp.obj: ..\Order.h
 
 CMakeFiles\Year1_CPP_Project.dir\Shopper.cpp.obj: ..\Item.h
 CMakeFiles\Year1_CPP_Project.dir\Shopper.cpp.obj: ..\Logs.h
@@ -55,7 +52,6 @@ CMakeFiles\Year1_CPP_Project.dir\main.cpp.obj: ..\FileHandler.h
 CMakeFiles\Year1_CPP_Project.dir\main.cpp.obj: ..\Item.h
 CMakeFiles\Year1_CPP_Project.dir\main.cpp.obj: ..\Logs.h
 CMakeFiles\Year1_CPP_Project.dir\main.cpp.obj: ..\MainLoop.h
-CMakeFiles\Year1_CPP_Project.dir\main.cpp.obj: ..\Order.h
 CMakeFiles\Year1_CPP_Project.dir\main.cpp.obj: ..\Shopper.h
 CMakeFiles\Year1_CPP_Project.dir\main.cpp.obj: ..\Simulation.h
 CMakeFiles\Year1_CPP_Project.dir\main.cpp.obj: ..\Stock.h

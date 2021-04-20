@@ -262,33 +262,6 @@ MainLoop.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\MainLoop.cpp.s
 .PHONY : MainLoop.cpp.s
 
-Order.obj: Order.cpp.obj
-
-.PHONY : Order.obj
-
-# target to build an object file
-Order.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Order.cpp.obj
-.PHONY : Order.cpp.obj
-
-Order.i: Order.cpp.i
-
-.PHONY : Order.i
-
-# target to preprocess a source file
-Order.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Order.cpp.i
-.PHONY : Order.cpp.i
-
-Order.s: Order.cpp.s
-
-.PHONY : Order.s
-
-# target to generate assembly for a file
-Order.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Year1_CPP_Project.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Year1_CPP_Project.dir\Order.cpp.s
-.PHONY : Order.cpp.s
-
 Shopper.obj: Shopper.cpp.obj
 
 .PHONY : Shopper.obj
@@ -421,9 +394,6 @@ help:
 	@echo ... MainLoop.obj
 	@echo ... MainLoop.i
 	@echo ... MainLoop.s
-	@echo ... Order.obj
-	@echo ... Order.i
-	@echo ... Order.s
 	@echo ... Shopper.obj
 	@echo ... Shopper.i
 	@echo ... Shopper.s
