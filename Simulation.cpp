@@ -23,10 +23,8 @@ void Simulation::addShopper() {
     // If there is space on the stack for more shoppers
     if (shopperCount <= MAXID) {
         shopperCount++;
-        // TODO: Make sure stock is passed by reference
-        std::unique_ptr<Shopper> newShopper = std::make_unique<Shopper>(shopperCount, stock, true);
         shopperIDs.push_back(std::to_string(shopperCount));
-        shoppersRunning.push_back(*newShopper);
+        shoppersRunning.emplace_back(shopperCount, stock, true);
         Logs::log("New shopper added!", 10);
     } else {
         Logs::log("Too many shoppers running!", 12);
@@ -71,7 +69,7 @@ void Simulation::orderItems(std::string itemName, int numItems) {
 }
 
 void Simulation::giveShopperItem(int ID, std::string itemName, double itemCost, int numItems) {
-    shoppersRunning[ID].giveShopperItem(itemName, itemCost, numItems);
+    shoppersRunning[ID - 1].giveShopperItem(itemName, itemCost, numItems);
 }
 
 void Simulation::simulateShoppers() {
@@ -100,9 +98,9 @@ void Simulation::setShopper(std::string ID, std::string name, int age, int weigh
     bool _isInStore;
     if (isInStore == "1") _isInStore = true;
     else _isInStore = false;
-    std::unique_ptr<Shopper> newShopper = std::make_unique<Shopper>(
-            std::stoi(ID), stock, false, name, height, weight, age, _isInStore);
-    shoppersRunning.push_back(*newShopper);
+    shoppersRunning.emplace_back(std::stoi(ID), stock, false, name, height, weight, age, _isInStore);
+    shopperIDs.push_back(ID);
+    shopperCount++;
 }
 
 void Simulation::setRandomStock() {
@@ -116,7 +114,7 @@ std::string Simulation::getPaused() {
     else return "0";
 }
 
-std::vector<Item> Simulation::getStock() {
+std::vector<Item>& Simulation::getStock() {
     return stock;
 }
 

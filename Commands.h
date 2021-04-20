@@ -54,6 +54,7 @@ public:
     void getSimInfo();
 private:
     // Functions
+    bool endsWith(std::string& string, std::string& ending);
     std::string truncateDouble(double num);
     bool isIDValid(std::vector<std::string>& IDTypes);
     std::vector<std::string> splitCommand(std::string command, char delimeter);

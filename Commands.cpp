@@ -149,6 +149,7 @@ void Commands::loadSimulations() {
     std::vector<std::string> lines = FileHandler::loadFromFile(getFileName());
     std::vector<std::string> _simIDs;
     std::vector<Simulation> _simulationsRunning;
+    int _simCount = 0;
 
     // Loop through each simulation (line)
     for (int line = 0; line < lines.size(); line++) {
@@ -158,6 +159,7 @@ void Commands::loadSimulations() {
         // First, split sim info details and capture
         std::vector<std::string> simInfo = splitCommand(simulationElement[0], ',');
         _simIDs.push_back(simInfo[0]);
+        _simCount++;
         std::unique_ptr<Simulation> _simulation = std::make_unique<Simulation>(std::stoi(simInfo[0]));
         _simulation->setPaused(simInfo[1]);
 
@@ -177,7 +179,7 @@ void Commands::loadSimulations() {
             Logs::log("No shoppers exist in simulation " + simInfo[0] + ".", 12);
         } else {
             // Next, shoppers from sim info and stocks
-            std::vector<std::string> shoppers = splitCommand(simulationElement[3], ':');
+            std::vector<std::string> shoppers = splitCommand(simulationElement[2], ':');
             // Loop through shoppers
             for (int shopper = 0; shopper < shoppers.size(); shopper++) {
                 // Split the shoppers up
@@ -200,20 +202,24 @@ void Commands::loadSimulations() {
                     std::vector<std::string> items = splitCommand(shopperAndItem[1], '+');
                     // Loop through the items
                     for (int item = 0; item < items.size(); item++) {
+                        // Split item into item details
+                        std::vector<std::string> itemDetails = splitCommand(items[item], ',');
+
                         // Give item details to shopper
                         _simulation->giveShopperItem(std::stoi(shopperDetails[0]),
-                                                     items[0],
-                                                     std::stoi(items[1]),
-                                                     std::stoi(items[2]));
+                                                     itemDetails[0],
+                                                     std::stod(itemDetails[1]),
+                                                     std::stoi(itemDetails[2]));
                     }
                 }
             }
         }
         // Push simulation into sims stack
         _simulationsRunning.push_back(*_simulation);
-        Logs::log("File loaded successfully!", 10);
     }
     simulationsRunning = _simulationsRunning;
+    simIDs = _simIDs;
+    simCount = _simCount;
 }
 
 void Commands::deleteFile() {
@@ -236,9 +242,8 @@ void Commands::addSim() {
     // If there is space on the stack for more simulations
     if (simCount <= MAXID) {
         simCount++;
-        std::unique_ptr<Simulation> newSim = std::make_unique<Simulation>(simCount);
         simIDs.push_back(std::to_string(simCount));
-        simulationsRunning.push_back(*newSim);
+        simulationsRunning.emplace_back(simCount);
         Logs::log("New simulation added!", 10);
     } else {
         Logs::log("Too many simulations running!", 12);
@@ -357,9 +362,19 @@ void Commands::simulateShoppers() {
 //endregion
 
 //region Private Functions
+bool Commands::endsWith(std::string& string, std::string& ending) {
+    if (string.length() >= ending.length()) {
+        return (0 == string.compare(string.length() - ending.length(), ending.length(), ending));
+    } else return false;
+}
+
 std::string Commands::truncateDouble(double num) {
     std::string str = std::to_string(num);
+    std::string ending = ".";
     str.erase(str.find_last_not_of('0') + 1, std::string::npos);
+    if (endsWith(str, ending)) {
+        str.replace(str.length() - 1, str.length(), "");
+    }
     return str;
 }
 
@@ -424,10 +439,10 @@ bool Commands::isIDValid(std::vector<std::string>& IDTypes) {
     return true;
 }
 
-std::vector<std::string> Commands::splitCommand(std::string command, char delimeter) {
+std::vector<std::string> Commands::splitCommand(std::string string, char delimeter) {
     std::string line;
     std::vector<std::string> ret;
-    std::stringstream ss(command);
+    std::stringstream ss(string);
     while (std::getline(ss, line, delimeter)) {
         ret.push_back(line);
     }

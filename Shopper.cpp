@@ -21,6 +21,8 @@ Shopper::Shopper(int _shopperID, std::vector<Item>& _stock, bool _isRandomObject
         weight = _weight;
         age = _age;
         isInStore = _isInStore;
+        setItemBank();
+        setItemCostBank();
     }
 }
 //endregion

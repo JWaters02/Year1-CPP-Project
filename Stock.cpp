@@ -30,25 +30,25 @@ Item Stock::setStock(std::string itemName, double itemCost, int numItems) {
 
 //region Getters
 std::vector<std::string> Stock::getItemBank() {
-    return {"Apple", "Banana"/*, "Cherry",
+    return {"Apple", "Banana", "Cherry",
             "Date", "Elderberry", "Fig",
             "Grape", "Huckleberry", "Kiwi",
             "Lemon", "Mango", "Nectarine",
             "Orange", "Pear", "Quince",
             "Raisin", "Satsuma", "Tomato",
             "Ugli", "Victoria Plum",
-            "Watermelon", "Zucchini"*/};
+            "Watermelon", "Zucchini"};
 }
 
 std::vector<double> Stock::getItemCostBank() {
-    return {1.2, 0.8/*, 0.2,
+    return {1.2, 0.8, 0.2,
             0.3, 0.6, 1,
             0.1, 1, 1.2,
             0.5, 1.6, 1,
             1, 1.1, 2,
             0.1, 1, 0.7,
             2, 1.5,
-            2.3, 5*/};
+            2.3, 5};
 }
 //endregion
 

@@ -35,7 +35,7 @@ public:
 
     // Getters
     std::string getPaused();
-    std::vector<Item> getStock();
+    std::vector<Item>& getStock();
     std::vector<Shopper> getShoppers();
     void getSimInfo();
 
@@ -46,7 +46,7 @@ private:
     void setRandomStock();
 
     // Consts
-    const int MAXID = 10; // Max of 10 shoppers per sim
+    static const int MAXID = 10; // Max of 10 shoppers per sim
 
     // Vars
     bool isPaused = false;
