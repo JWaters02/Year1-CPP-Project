@@ -28,6 +28,9 @@ public:
     void simulateShoppers();
 
     // Getters
+    std::string getPaused();
+    std::vector<Item> getStock();
+    std::vector<Shopper> getShoppers();
     void getSimInfo();
 
     // Vars

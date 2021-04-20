@@ -179,6 +179,15 @@ int Shopper::getID() const {
     return shopperID;
 }
 
+std::string Shopper::getIsInStore() {
+    if (isInStore) return "1";
+    else return "0";
+}
+
+std::vector<Item> Shopper::getBasket() {
+    return basket;
+}
+
 void Shopper::getShopperInfo() {
     std::string output = "Name: " + getName()
             + "\nID: " + std::to_string(getID())

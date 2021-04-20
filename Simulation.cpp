@@ -89,6 +89,19 @@ void Simulation::setStock() {
 //endregion
 
 //region Getters
+std::string Simulation::getPaused() {
+    if (isPaused) return "1";
+    else return "0";
+}
+
+std::vector<Item> Simulation::getStock() {
+    return stock;
+}
+
+std::vector<Shopper> Simulation::getShoppers() {
+    return shoppersRunning;
+}
+
 void Simulation::getSimInfo() {
     std::cout << "No. shoppers: " << shopperCount
     << "\nPaused? " << isPaused << std::endl;

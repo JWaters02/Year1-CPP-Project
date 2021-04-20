@@ -57,11 +57,81 @@ void Commands::pause() {
 }
 
 void Commands::saveSimulations() {
-    // TODO: Work out format for saving sim data
+    /*
+     * 1,0#1,joshua,19,45,180,1#apple,1.2,3+banana,0.8,4:2,joe,21,55,175,1#watermelon,2.3,1
+     * # = Main separator
+     * , = Separator
+     * + = Looping separator
+     * : = Shoppers separator
+     */
+    if (simCount == 0) {
+        Logs::log("There are no simulations to save!", 12);
+    } else {
+        std::string totalOutput = "";
+        // Loop through simulation IDs
+        for (int sim = 0; sim < simCount; sim++) {
+            std::string line = "";
+            line += std::to_string(sim+1) + "," + simulationsRunning[sim].getPaused() + "#";
+
+            // Loop through stocks
+            for (int stock = 0; stock < simulationsRunning[sim].getStock().size(); stock++) {
+                line += simulationsRunning[sim].getStock()[stock].getItemName()
+                        + "," + truncateDouble(simulationsRunning[sim].getStock()[stock].getItemCost())
+                        + "," + std::to_string(simulationsRunning[sim].getStock()[stock].getNumItems());
+                if (stock == simulationsRunning[sim].getStock().size()-1) {
+                    // Use main separator
+                    line += "#";
+                } else {
+                    // Use looping separator
+                    line += "+";
+                }
+            }
+
+            if (simulationsRunning[sim].getShoppers().size() == 0) {
+                Logs::log("Sim: " + simIDs[sim] + " has no shoppers to save!", 12);
+                line.replace(line.size()-2, line.size()-1, "");
+            } else {
+                // Loop through shoppers
+                for (int shopper = 0; shopper < simulationsRunning[sim].getShoppers().size(); shopper++) {
+                    line += std::to_string(simulationsRunning[sim].getShoppers()[shopper].getID())
+                            + "," + simulationsRunning[sim].getShoppers()[shopper].getName()
+                            + "," + std::to_string(simulationsRunning[sim].getShoppers()[shopper].getAge())
+                            + "," + std::to_string(simulationsRunning[sim].getShoppers()[shopper].getWeight())
+                            + "," + std::to_string(simulationsRunning[sim].getShoppers()[shopper].getHeight())
+                            + "," + simulationsRunning[sim].getShoppers()[shopper].getIsInStore();
+
+                    if (simulationsRunning[sim].getShoppers()[shopper].getBasket().size() == 0) {
+                        Logs::log("Sim: " + simIDs[sim]+ ", shopper: "
+                        + std::to_string(simulationsRunning[sim].getShoppers()[shopper].getID())
+                        + " has no items to save!", 12);
+                        line.replace(line.size()-2, line.size()-1, "");
+                    } else {
+                        line += "#";
+                        // Loop through items in basket
+                        for (int item = 0; item < simulationsRunning[sim].getShoppers()[shopper].getBasket().size(); item++) {
+                            line += simulationsRunning[sim].getShoppers()[shopper].getBasket()[item].getItemName()
+                                    + "," + truncateDouble(simulationsRunning[sim].getShoppers()[shopper].getBasket()[item].getItemCost())
+                                    + "," + std::to_string(simulationsRunning[sim].getShoppers()[shopper].getBasket()[item].getNumItems());
+                        }
+                    }
+                    if (shopper != simulationsRunning[sim].getShoppers().size()-1) {
+                        // Use shoppers separator
+                        line += ":";
+                    }
+                }
+            }
+            if (sim == simCount-1) {
+                totalOutput += line;
+            } else {
+                totalOutput += line + "\n";
+            }
+        }
+        std::cout << "Save file:\n" << totalOutput << std::endl;
+    }
 }
 
 void Commands::loadSimulations() {
-    // TODO
+    // TODO: Load sim
 }
 
 void Commands::deleteFile() {
@@ -207,6 +277,12 @@ void Commands::simulateShoppers() {
 //endregion
 
 //region Private Functions
+std::string Commands::truncateDouble(double num) {
+    std::string str = std::to_string(num);
+    str.erase(str.find_last_not_of('0') + 1, std::string::npos);
+    return str;
+}
+
 bool Commands::isIDValid(std::vector<std::string>& IDTypes) {
     bool isNumValid = true;
     bool isSimIDValid = true;

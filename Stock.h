@@ -14,8 +14,6 @@
 
 class Stock {
 public:
-    // Functions
-
     // Setters
     static std::vector<Item> setStock();
 
@@ -23,8 +21,6 @@ public:
     static std::vector<std::string> getItemBank();
     static std::vector<double> getItemCostBank();
 private:
-    // Functions
-
     // Vars
     std::vector<std::string> itemBank;
     std::vector<double> itemCostBank;

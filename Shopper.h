@@ -32,6 +32,8 @@ public:
     int getWeight() const;
     int getAge() const;
     int getID() const;
+    std::string getIsInStore();
+    std::vector<Item> getBasket();
     void getShopperInfo();
 private:
     // Functions
