@@ -11,5 +11,7 @@ int main() {
     std::unique_ptr<MainLoop> mainLoop = std::make_unique<MainLoop>();
     mainLoop->mainEventLoop();
 
+    // TODO: Maybe? add user/manager login system here
+
     return 0;
 }

@@ -71,7 +71,7 @@ void Commands::saveSimulations() {
         // Loop through simulation IDs
         for (int sim = 0; sim < simCount; sim++) {
             std::string line = "";
-            line += std::to_string(sim+1) + "," + simulationsRunning[sim].getPaused() + "#";
+            line += std::to_string(sim + 1) + "," + simulationsRunning[sim].getPaused() + "#";
 
             // Loop through stocks
             for (int stock = 0; stock < simulationsRunning[sim].getStock().size(); stock++) {
@@ -89,7 +89,7 @@ void Commands::saveSimulations() {
 
             if (simulationsRunning[sim].getShoppers().size() == 0) {
                 Logs::log("Sim: " + simIDs[sim] + " has no shoppers to save!", 12);
-                line.replace(line.size()-2, line.size()-1, "");
+                line.replace(line.size() - 2, line.size() - 1, "");
             } else {
                 // Loop through shoppers
                 for (int shopper = 0; shopper < simulationsRunning[sim].getShoppers().size(); shopper++) {
@@ -104,7 +104,7 @@ void Commands::saveSimulations() {
                         Logs::log("Sim: " + simIDs[sim]+ ", shopper: "
                         + std::to_string(simulationsRunning[sim].getShoppers()[shopper].getID())
                         + " has no items to save!", 12);
-                        line.replace(line.size()-2, line.size()-1, "");
+                        line.replace(line.size() - 2, line.size() - 1, "");
                     } else {
                         line += "#";
                         // Loop through items in basket
@@ -114,19 +114,22 @@ void Commands::saveSimulations() {
                                     + "," + std::to_string(simulationsRunning[sim].getShoppers()[shopper].getBasket()[item].getNumItems());
                         }
                     }
-                    if (shopper != simulationsRunning[sim].getShoppers().size()-1) {
+                    if (shopper != simulationsRunning[sim].getShoppers().size() - 1) {
                         // Use shoppers separator
                         line += ":";
                     }
                 }
             }
-            if (sim == simCount-1) {
+            if (sim == simCount - 1) {
                 totalOutput += line;
             } else {
                 totalOutput += line + "\n";
             }
         }
-        std::cout << "Save file:\n" << totalOutput << std::endl;
+        FileHandler::saveToFile(totalOutput, getFileName());
+
+        Logs::log("Save file:", 10);
+        Logs::log(totalOutput, 7);
     }
 }
 
@@ -135,13 +138,11 @@ void Commands::loadSimulations() {
 }
 
 void Commands::deleteFile() {
-    std::unique_ptr<FileHandler> fileHandler = std::make_unique<FileHandler>();
-    fileHandler->deleteFile(getFileName());
+    FileHandler::deleteFile(getFileName());
 }
 
 void Commands::printFile() {
-    std::unique_ptr<FileHandler> fileHandler = std::make_unique<FileHandler>();
-    fileHandler->printFileContents(getFileName());
+    FileHandler::printFileContents(getFileName());
 }
 
 void Commands::listSimIDs() {

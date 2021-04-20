@@ -10,14 +10,15 @@
 #include <fstream>
 #include <string>
 #include <Windows.h>
+#include "Logs.h"
 
 class FileHandler {
 public:
     // Functions
-    void saveToFile(std::string inputData, std::string fileName);
-    std::string loadFromFile(std::string filename);
-    void printFileContents(std::string filename);
-    void deleteFile(std::string filename);
+    static void saveToFile(std::string inputData, std::string fileName);
+    static std::string loadFromFile(std::string filename);
+    static void printFileContents(std::string filename);
+    static void deleteFile(std::string filename);
 private:
 
 };
