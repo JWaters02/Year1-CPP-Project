@@ -6,6 +6,46 @@
 
 #IncludeRegexTransform: 
 
+F:/Github Projects/University/Year1-CPP-Project/Commands.cpp
+Commands.h
+F:/Github Projects/University/Year1-CPP-Project/Commands.h
+
+F:/Github Projects/University/Year1-CPP-Project/Commands.h
+vector
+-
+iostream
+-
+string
+-
+sstream
+-
+windows.h
+-
+memory
+-
+functional
+-
+algorithm
+-
+Simulation.h
+F:/Github Projects/University/Year1-CPP-Project/Simulation.h
+FileHandler.h
+F:/Github Projects/University/Year1-CPP-Project/FileHandler.h
+
+F:/Github Projects/University/Year1-CPP-Project/FileHandler.h
+iostream
+-
+fstream
+-
+string
+-
+vector
+-
+Windows.h
+-
+Logs.h
+F:/Github Projects/University/Year1-CPP-Project/Logs.h
+
 F:/Github Projects/University/Year1-CPP-Project/Item.h
 iostream
 -
@@ -22,9 +62,25 @@ iostream
 Windows.h
 -
 
-F:/Github Projects/University/Year1-CPP-Project/Shopper.cpp
-Shopper.h
-F:/Github Projects/University/Year1-CPP-Project/Shopper.h
+F:/Github Projects/University/Year1-CPP-Project/MainLoop.cpp
+MainLoop.h
+F:/Github Projects/University/Year1-CPP-Project/MainLoop.h
+
+F:/Github Projects/University/Year1-CPP-Project/MainLoop.h
+iostream
+-
+memory
+-
+windows.h
+-
+Stock.h
+F:/Github Projects/University/Year1-CPP-Project/Stock.h
+Commands.h
+F:/Github Projects/University/Year1-CPP-Project/Commands.h
+Logs.h
+F:/Github Projects/University/Year1-CPP-Project/Logs.h
+FileHandler.h
+F:/Github Projects/University/Year1-CPP-Project/FileHandler.h
 
 F:/Github Projects/University/Year1-CPP-Project/Shopper.h
 iostream
@@ -44,6 +100,20 @@ F:/Github Projects/University/Year1-CPP-Project/Logs.h
 Stock.h
 F:/Github Projects/University/Year1-CPP-Project/Stock.h
 
+F:/Github Projects/University/Year1-CPP-Project/Simulation.h
+vector
+-
+iostream
+-
+string
+-
+windows.h
+-
+memory
+-
+Shopper.h
+F:/Github Projects/University/Year1-CPP-Project/Shopper.h
+
 F:/Github Projects/University/Year1-CPP-Project/Stock.h
 iostream
 -
@@ -55,4 +125,12 @@ memory
 -
 Item.h
 F:/Github Projects/University/Year1-CPP-Project/Item.h
+
+F:/Github Projects/University/Year1-CPP-Project/main.cpp
+iostream
+-
+memory
+-
+MainLoop.h
+F:/Github Projects/University/Year1-CPP-Project/MainLoop.h
 

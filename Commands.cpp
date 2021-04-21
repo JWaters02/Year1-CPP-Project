@@ -230,6 +230,22 @@ void Commands::printFile() {
     FileHandler::printFileContents(getFileName());
 }
 
+void Commands::changeTickSpeed() {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, 3); // DARK CYAN
+    std::cout << "Please enter new tickspeed (milliseconds):" << std::endl;
+    std::string _tickSpeed;
+    std::cin >> _tickSpeed;
+    SetConsoleTextAttribute(hConsole, 7); // DEFAULT
+
+    if (isNumber(_tickSpeed)) {
+        tickSpeed = std::stoi(_tickSpeed);
+        Logs::log("Tickspeed changed to " + _tickSpeed + "!", 10);
+    } else {
+        Logs::log("Please input a valid number!", 12);
+    }
+}
+
 void Commands::listSimIDs() {
     std::string ret = "";
     for (int i = 0; i < simIDs.size(); i++) {
@@ -533,20 +549,6 @@ void Commands::setCommand(std::string command) {
 //endregion
 
 //region Getters
-std::string Commands::getCommandList() {
-    std::string ret = "";
-    for (int i = 0; i < commands.size(); i++) {
-        ret += commands[i] + "\n";
-    }
-    return ret;
-}
-
-void Commands::getSimInfo() {
-    for (int sim = 0; sim < simCount; sim++) {
-        simulationsRunning[sim].getSimInfo();
-    }
-}
-
 std::string Commands::getFileName() {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, 3); // DARK CYAN

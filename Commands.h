@@ -33,6 +33,7 @@ public:
     void loadSimulations();
     void deleteFile();
     void printFile();
+    void changeTickSpeed();
     void listSimIDs();
     void addSim();
     void removeSim();
@@ -49,9 +50,8 @@ public:
     // Setters
     void setCommand(std::string command);
 
-    // Getters
-    std::string getCommandList();
-    void getSimInfo();
+    // Vars
+    int tickSpeed = 500;
 private:
     // Functions
     bool endsWith(std::string& string, std::string& ending);
@@ -71,14 +71,14 @@ private:
     // Vars
     std::vector<std::string> commands = {"help", "commands", "aliases", "quit", "pause",
                                          "save program", "load program", "delete file",
-                                         "print file", "list sims",
+                                         "print file", "tick speed", "list sims",
                                          "add sim", "remove sim", "list sim info <sim ID>",
                                          "continue sim <sim ID>", "pause sim <sim ID>",
                                          "add shopper <sim ID>", "remove shopper <sim ID>",
                                          "list shopper info <sim ID> <shopper ID>",
                                          "list shoppers <sim ID>", "order items <sim ID>"};
     std::vector<std::string> commandAliases = {"h", "c", "a", "q", "p", "sp", "lp", "df",
-                                               "pf", "ls", "as", "rs", "lsi <sim ID>",
+                                               "pf", "ts", "ls", "as", "rs", "lsi <sim ID>",
                                                "cs <sim ID>", "ps <sim ID>", "ash <sim ID>",
                                                "rsh <sim ID>", "lshi <sim ID> <shopper ID>",
                                                "lsh <sim ID>", "oi <sim ID>"};
@@ -102,6 +102,8 @@ private:
         std::make_pair("df", [this](std::vector<std::string>&){deleteFile();}),
         std::make_pair("print file", [this](std::vector<std::string>&){printFile();}),
         std::make_pair("pf", [this](std::vector<std::string>&){printFile();}),
+        std::make_pair("tick speed", [this](std::vector<std::string>&){changeTickSpeed();}),
+        std::make_pair("ts", [this](std::vector<std::string>&){changeTickSpeed();}),
         std::make_pair("list sims", [this](std::vector<std::string>&){listSimIDs();}),
         std::make_pair("ls", [this](std::vector<std::string>&){listSimIDs();}),
         std::make_pair("add sim", [this](std::vector<std::string>&){addSim();}),

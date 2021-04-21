@@ -16,7 +16,6 @@
 class MainLoop : Commands {
 public:
     void mainEventLoop();
-    void setTickSpeed(int _tickSpeed);
 private:
     int tickSpeed = 500;
 };
