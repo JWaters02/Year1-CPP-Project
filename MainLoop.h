@@ -16,8 +16,6 @@
 class MainLoop : Commands {
 public:
     void mainEventLoop();
-private:
-    int tickSpeed = 500;
 };
 
 #endif //SHOPPER_CPP_MAINLOOP_H

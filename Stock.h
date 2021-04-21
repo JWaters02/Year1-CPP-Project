@@ -21,10 +21,6 @@ public:
     // Getters
     static std::vector<std::string> getItemBank();
     static std::vector<double> getItemCostBank();
-private:
-    // Vars
-    std::vector<std::string> itemBank;
-    std::vector<double> itemCostBank;
 };
 
 #endif //YEAR1_CPP_PROJECT_STOCK_H

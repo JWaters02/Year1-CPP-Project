@@ -82,6 +82,10 @@ F:/Github Projects/University/Year1-CPP-Project/Logs.h
 FileHandler.h
 F:/Github Projects/University/Year1-CPP-Project/FileHandler.h
 
+F:/Github Projects/University/Year1-CPP-Project/Shopper.cpp
+Shopper.h
+F:/Github Projects/University/Year1-CPP-Project/Shopper.h
+
 F:/Github Projects/University/Year1-CPP-Project/Shopper.h
 iostream
 -
@@ -100,6 +104,10 @@ F:/Github Projects/University/Year1-CPP-Project/Logs.h
 Stock.h
 F:/Github Projects/University/Year1-CPP-Project/Stock.h
 
+F:/Github Projects/University/Year1-CPP-Project/Simulation.cpp
+Simulation.h
+F:/Github Projects/University/Year1-CPP-Project/Simulation.h
+
 F:/Github Projects/University/Year1-CPP-Project/Simulation.h
 vector
 -
@@ -113,6 +121,10 @@ memory
 -
 Shopper.h
 F:/Github Projects/University/Year1-CPP-Project/Shopper.h
+
+F:/Github Projects/University/Year1-CPP-Project/Stock.cpp
+Stock.h
+F:/Github Projects/University/Year1-CPP-Project/Stock.h
 
 F:/Github Projects/University/Year1-CPP-Project/Stock.h
 iostream
