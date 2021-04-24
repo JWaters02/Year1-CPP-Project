@@ -62,8 +62,15 @@ void Simulation::listShoppers() {
 void Simulation::orderItems(std::string itemName, int numItems) {
     for (int item = 0; item < stock.size(); item++) {
         if (stock[item].getItemName() == itemName) {
+            moneyInAccount -= Stock::getSupplierItemCostBank()[item] * numItems;
             stock[item].addItems(numItems);
             Logs::log("More " + stock[item].getItemName() + "s have been ordered!", 10);
+            if (moneyInAccount < 0) {
+                Logs::precisionLog("This simulation is in debt! Your simulation account has: \x9C", moneyInAccount,
+                                   "!", 12);
+            } else {
+                Logs::precisionLog("Your simumlation account has: \x9C", moneyInAccount, "!", 10);
+            }
         }
     }
 }
@@ -77,8 +84,21 @@ void Simulation::simulateShoppers() {
         if (shopperCount > 0) {
             std::cout << "SIMULATION " << simID << ":" << std::endl;
         }
+
         for (int shopper = 0; shopper < shopperCount; shopper++) {
-            shoppersRunning[shopper].simulateShopper();
+            bool checkout;
+            shoppersRunning[shopper].simulateShopper(checkout);
+            if (checkout) {
+                // Work out money gained to simulation
+                moneyInAccount += shoppersRunning[shopper].getMoneyMade();
+            }
+        }
+
+        if (moneyInAccount < 0 && shopperCount > 0) {
+            Logs::precisionLog("This simulation is in debt! Your simulation account has: \x9C", moneyInAccount,
+                               "!", 12);
+        } else if (moneyInAccount > 0 && shopperCount > 0) {
+            Logs::precisionLog("Your simumlation account has: \x9C", moneyInAccount, "!", 10);
         }
     }
 }
@@ -122,13 +142,21 @@ std::vector<Shopper> Simulation::getShoppers() {
     return shoppersRunning;
 }
 
+double Simulation::getMoneyInAccount() {
+    return moneyInAccount;
+}
+
 void Simulation::getSimInfo() {
-    std::cout << "No. shoppers: " << shopperCount
-    << "\nPaused? " << isPaused << std::endl;
-    std::cout << "Stocks: " << std::endl;
+    Logs::log( "No. shoppers: " + std::to_string(shopperCount)
+        + "\nPaused? " + getPaused() + "\nStocks: ", 7);
     for (int item = 0; item < stock.size(); item++) {
         std::string output = stock[item].getItemName() + " x" + std::to_string(stock[item].getNumItems());
         Logs::log(output, 7);
+    }
+    if (moneyInAccount < 0) {
+        Logs::precisionLog("Money in account: \x9C", moneyInAccount, ".", 12);
+    } else {
+        Logs::precisionLog("Money in account: \x9C", moneyInAccount, ".", 10);
     }
 }
 //endregion

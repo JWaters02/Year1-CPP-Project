@@ -37,6 +37,7 @@ public:
     std::string getPaused();
     std::vector<Item>& getStock();
     std::vector<Shopper> getShoppers();
+    double getMoneyInAccount();
     void getSimInfo();
 
     // Vars
@@ -54,6 +55,7 @@ private:
     int shopperCount = 0;
     std::vector<Shopper> shoppersRunning;
     std::vector<Item> stock;
+    double moneyInAccount = 50; // Start with $50
 };
 
 

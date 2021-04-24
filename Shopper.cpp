@@ -69,7 +69,7 @@ void Shopper::pickupItem() {
         }
         std::string output = "Shopper " + std::to_string(shopperID) + " has picked up " + std::to_string(ITEMSTOPICKUP)
                              + " " + basket[basket.size() - 1].getItemName() + plural + ".";
-        Logs::log(output, 10); // GREEN
+        Logs::log(output, 10);
     }
 }
 
@@ -86,12 +86,11 @@ void Shopper::dropItem() {
 
         std::string output = "Shopper " + std::to_string(shopperID) + " has dropped their "
                 + basket[ITEMTODROP].getItemName() + "s.";
-        Logs::log(output, 10); // GREEN
+        Logs::log(output, 10);
 
         basket.erase(basket.begin() + ITEMTODROP);
     } else {
-        std::string output = "Shopper " + std::to_string(shopperID) + " has no items to drop!";
-        Logs::log(output, 12); // RED
+        Logs::log("Shopper " + std::to_string(shopperID) + " has no items to drop!", 12);
     }
 }
 
@@ -101,15 +100,16 @@ void Shopper::checkout() {
         total += basket[i].getItemCost() * basket[i].getNumItems();
     }
 
-    std::string output1 = "Shopper " + std::to_string(shopperID) + " has checked out with a value of $";
+    std::string output1 = "Shopper " + std::to_string(shopperID) + " has checked out with a value of \x9C";
     std::string output2 = ", and has left the store!";
-    Logs::precisionLog(output1, total, output2,10); // GREEN
+    Logs::precisionLog(output1, total, output2,10);
 
     isInStore = false;
 }
 
 // This is what drives the changing of every variable in shopper during event loop
-void Shopper::simulateShopper() {
+void Shopper::simulateShopper(bool& doesCheckout) {
+    doesCheckout = false;
     if (isInStore) {
         const int ACTION = rand() % 100;
         const int CHANCETOPICKUP = 80;
@@ -126,10 +126,10 @@ void Shopper::simulateShopper() {
         } else if (ACTION >= CHANCETODROP && ACTION < CHANCETOCHECKOUT) {
             // Checkout
             checkout();
+            doesCheckout = true;
         }
     } else {
-        std::string output = "Shopper " + std::to_string(shopperID) + " is not in the store!";
-        Logs::log(output, 12); // RED
+        Logs::log("Shopper " + std::to_string(shopperID) + " is not in the store!", 12);
     }
 }
 //endregion
@@ -190,6 +190,14 @@ std::vector<Item> Shopper::getBasket() {
     return basket;
 }
 
+double Shopper::getMoneyMade() {
+    double total = 0;
+    for (int i = 0; i < basket.size(); i++) {
+        total += basket[i].getItemCost() * basket[i].getNumItems();
+    }
+    return total;
+}
+
 void Shopper::getShopperInfo() {
     std::string output = "Name: " + getName()
             + "\nID: " + std::to_string(getID())
@@ -203,13 +211,13 @@ void Shopper::getShopperInfo() {
         for (int item = 0; item < basket.size(); item++) {
             std::string output1 = basket[item].getItemName()
                                   + " x" + std::to_string(basket[item].getNumItems())
-                                  + ", costing: $";
+                                  + ", costing: \x9C";
             std::string output2 = ".";
             const double cost = basket[item].getItemCost() * basket[item].getNumItems();
             Logs::precisionLog(output1, cost, output2, 7);
         }
     } else {
-        Logs::log("This shopper is not in the store.", 12); // RED
+        Logs::log("This shopper is not in the store.", 12);
     }
 }
 //endregion

@@ -37,6 +37,7 @@ public:
     void listSimIDs();
     void addSim();
     void removeSim();
+    void listTotalMoneyMade();
     void listSimInfo(std::vector<std::string>& IDTypes);
     void pauseSim(std::vector<std::string>& IDTypes);
     void continueSim(std::vector<std::string>& IDTypes);
@@ -72,13 +73,14 @@ private:
     std::vector<std::string> commands = {"help", "commands", "aliases", "quit", "pause",
                                          "save program", "load program", "delete file",
                                          "print file", "tick speed", "list sims",
-                                         "add sim", "remove sim", "list sim info <sim ID>",
-                                         "continue sim <sim ID>", "pause sim <sim ID>",
-                                         "add shopper <sim ID>", "remove shopper <sim ID>",
+                                         "add sim", "remove sim", "total money",
+                                         "list sim info <sim ID>", "continue sim <sim ID>",
+                                         "pause sim <sim ID>", "add shopper <sim ID>",
+                                         "remove shopper <sim ID>",
                                          "list shopper info <sim ID> <shopper ID>",
                                          "list shoppers <sim ID>", "order items <sim ID>"};
     std::vector<std::string> commandAliases = {"h", "c", "a", "q", "p", "sp", "lp", "df",
-                                               "pf", "ts", "ls", "as", "rs", "lsi <sim ID>",
+                                               "pf", "ts", "ls", "as", "rs", "tm", "lsi <sim ID>",
                                                "cs <sim ID>", "ps <sim ID>", "ash <sim ID>",
                                                "rsh <sim ID>", "lshi <sim ID> <shopper ID>",
                                                "lsh <sim ID>", "oi <sim ID>"};
@@ -110,6 +112,8 @@ private:
         std::make_pair("as", [this](std::vector<std::string>&){addSim();}),
         std::make_pair("remove sim", [this](std::vector<std::string>&){removeSim();}),
         std::make_pair("rs", [this](std::vector<std::string>&){removeSim();}),
+        std::make_pair("total money", [this](std::vector<std::string>&){listTotalMoneyMade();}),
+        std::make_pair("tm", [this](std::vector<std::string>&){listTotalMoneyMade();}),
         std::make_pair("list sim info ", [this](std::vector<std::string>& IDTypes){listSimInfo(IDTypes);}),
         std::make_pair("lsi ", [this](std::vector<std::string>& IDTypes){listSimInfo(IDTypes);}),
         std::make_pair("continue sim ", [this](std::vector<std::string>& IDTypes){continueSim(IDTypes);}),
@@ -125,7 +129,7 @@ private:
         std::make_pair("list shoppers ", [this](std::vector<std::string>& IDTypes){listShoppers(IDTypes);}),
         std::make_pair("lsh ", [this](std::vector<std::string>& IDTypes){listShoppers(IDTypes);}),
         std::make_pair("order items ", [this](std::vector<std::string>& IDTypes){orderItems(IDTypes);}),
-        std::make_pair("oi ", [this](std::vector<std::string>& IDTypes){orderItems(IDTypes);}),
+        std::make_pair("oi ", [this](std::vector<std::string>& IDTypes){orderItems(IDTypes);})
     };
     std::vector<std::string> simIDs;
     int simCount = 0;

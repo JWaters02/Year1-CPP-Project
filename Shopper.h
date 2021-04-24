@@ -24,7 +24,7 @@ public:
 
     // Functions
     void giveShopperItem(const std::string itemName, double itemCost, int numItems);
-    void simulateShopper();
+    void simulateShopper(bool& doesCheckout);
 
     // Getters
     std::string getName() const;
@@ -34,6 +34,7 @@ public:
     int getID() const;
     std::string getIsInStore();
     std::vector<Item> getBasket();
+    double getMoneyMade();
     void getShopperInfo();
 private:
     // Functions

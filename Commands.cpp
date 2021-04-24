@@ -278,6 +278,19 @@ void Commands::removeSim() {
     }
 }
 
+void Commands::listTotalMoneyMade() {
+    double totalMoneyMade = 0;
+    for (int sim = 0; sim < simCount; sim++) {
+        totalMoneyMade += simulationsRunning[sim].getMoneyInAccount();
+    }
+    if (totalMoneyMade < 0) {
+        Logs::precisionLog("Total money made over all simulations: \x9C", totalMoneyMade,
+                           ". You should consider increasing your prices!", 12);
+    } else {
+        Logs::precisionLog("Total money made over all simulations: \x9C", totalMoneyMade, ".", 10);
+    }
+}
+
 void Commands::pauseSim(std::vector<std::string>& IDTypes) {
     if (isIDValid(IDTypes)) {
         for (int sim = 0; sim < simCount; sim++) {
