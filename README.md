@@ -1,2 +1,3 @@
-# Year1-CPP-Project
- 
+# Contactless Store Simulator
+
+This is a prototype of an Object-Oriented program that simulates a contactless store, with individual shoppers, stocks, and items. Through a modular commands system, it allows the user to add as many sims as they like, and in turn as many shoppers inside selected sims as they wish. Each simulation has its own isolated stocks, which the shoppers interact with. The user can order stocks to specific simulations, remove simulations and shoppers, show specific simulation or shopper information, and save & load simulations to external files. Because of the modularity of the commands system, new commands and features can easily be added to the program. 
