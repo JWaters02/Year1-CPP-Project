@@ -11,7 +11,7 @@ void MainLoop::mainEventLoop() {
         while (count < commands->tickSpeed / 2) {
             Sleep(1);
             // If key pressed, pause simulation
-            if (GetAsyncKeyState(VK_SPACE) & 0x8000) {
+            if (GetAsyncKeyState(VK_SHIFT) & 0x8000) {
                 Sleep(commands->tickSpeed / 2);
 
                 // Display list of commands and what the user wishes to do
@@ -29,7 +29,7 @@ void MainLoop::mainEventLoop() {
                 //Run command
                 commands->setCommand(command);
 
-                Logs::log("\nPress space to input new command or nothing to continue program loop.", 3);
+                Logs::log("\nPress shift to input new command or nothing to continue program loop.", 3);
                 break;
             }
             Sleep(1);
@@ -37,7 +37,6 @@ void MainLoop::mainEventLoop() {
         }
 
         // Run simulations
-        // commands->getSimInfo();
         commands->simulateShoppers();
     }
 }

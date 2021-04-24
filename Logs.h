@@ -8,12 +8,14 @@
 
 #include <iostream>
 #include <Windows.h>
+#include <string>
 
 class Logs {
 public:
     // Functions
     static void log(const std::string output, const int colour);
     static void precisionLog(const std::string output1, const double fixedNum, const std::string output2, const int colour);
+    static void dummyGetLineFix();
 };
 
 #endif //YEAR1_CPP_PROJECT_LOGS_H

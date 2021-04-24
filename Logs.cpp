@@ -29,6 +29,11 @@ void Logs::precisionLog(const std::string output1, const double fixedNum, const 
     std::cout << output1 << std::fixed << fixedNum << output2 << std::endl;
     SetConsoleTextAttribute(hConsole, 7); // DEFAULT
 }
+
+void Logs::dummyGetLineFix() {
+    std::string dummyGetline = "";
+    std::getline(std::cin, dummyGetline);
+}
 //endregion
 
 //region Setters

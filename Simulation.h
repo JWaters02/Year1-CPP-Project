@@ -56,7 +56,7 @@ private:
     int shopperCount = 0;
     std::vector<Shopper> shoppersRunning;
     std::vector<Item> stock;
-    double moneyInAccount = 50; // Start with $50
+    double moneyInAccount = 20; // Start with £20
 };
 
 

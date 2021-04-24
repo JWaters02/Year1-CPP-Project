@@ -52,6 +52,7 @@ void Commands::pause() {
     Logs::log("All simulations paused. Enter anything to continue.", 10);
     std::string temp;
     std::cin >> temp;
+    Logs::dummyGetLineFix();
 }
 
 void Commands::saveSimulations() {
@@ -237,6 +238,7 @@ void Commands::changeTickSpeed() {
     std::cout << "Please enter new tickspeed (milliseconds):" << std::endl;
     std::string _tickSpeed;
     std::cin >> _tickSpeed;
+    Logs::dummyGetLineFix();
     SetConsoleTextAttribute(hConsole, 7); // DEFAULT
 
     if (isNumber(_tickSpeed)) {
@@ -375,6 +377,7 @@ void Commands::orderItems(std::vector<std::string> &IDTypes) {
         Logs::log("Please input the number of this item you wish to order: ", 3);
         int numItems;
         std::cin >> numItems;
+        Logs::dummyGetLineFix();
 
         for (int sim = 0; sim < simCount; sim++) {
             if (simIDs[sim] == IDTypes[0]) {
@@ -443,7 +446,7 @@ bool Commands::isIDValid(std::vector<std::string>& IDTypes) {
     } else {
         isNumValid = false;
     }
-    
+
     // Check if the simulation ID inputted is an actual number
     for (int i = 0; i < simID.size(); i++) {
         if (!isdigit(simID[i])) {
@@ -569,6 +572,7 @@ std::string Commands::getFileName() {
     std::cout << "Please enter a filename:" << std::endl;
     std::string fileName;
     std::cin >> fileName;
+    Logs::dummyGetLineFix();
     SetConsoleTextAttribute(hConsole, 7); // DEFAULT
 
     return fileName;
