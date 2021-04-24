@@ -46,7 +46,8 @@ void Shopper::pickupItem() {
     bool canAddItem = true;
 
     if (ITEMSTOPICKUP > stock[PICKITEM].getNumItems()) {
-        Logs::log("Shopped failed to pickup " + itemName + " as it is out of stock!", 12);
+        Logs::log("Shopper " + std::to_string(shopperID) + " failed to pickup "
+            + itemName + " as it is out of stock!", 12);
     } else {
         // Decrement stock
         stock[PICKITEM].decrementStock(ITEMSTOPICKUP);
@@ -112,9 +113,9 @@ void Shopper::simulateShopper(bool& doesCheckout) {
     doesCheckout = false;
     if (isInStore) {
         const int ACTION = rand() % 100;
-        const int CHANCETOPICKUP = 80;
-        const int CHANCETODROP = CHANCETOPICKUP + 15;
-        const int CHANCETOCHECKOUT = CHANCETODROP + 5;
+        const int CHANCETOPICKUP = 50;
+        const int CHANCETODROP = CHANCETOPICKUP + 10;
+        const int CHANCETOCHECKOUT = CHANCETODROP + 40;
 
         // Weighting on certain conditions
         if (ACTION >= 0 && ACTION < CHANCETOPICKUP) {
@@ -135,6 +136,10 @@ void Shopper::simulateShopper(bool& doesCheckout) {
 //endregion
 
 //region Setters
+void Shopper::setID(int newID) {
+    shopperID = newID;
+}
+
 void Shopper::setName() {
     name = nameBank[rand() % nameBank.size()];
 };

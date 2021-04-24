@@ -22,6 +22,7 @@ public:
     void resume();
     void addShopper();
     void removeShopper();
+    void removeInactiveShoppers();
     void listShopperInfo(std::string shopperID);
     void listShoppers();
     void orderItems(std::string itemName, int numItems);
@@ -48,7 +49,7 @@ private:
     void setRandomStock();
 
     // Consts
-    static const int MAXID = 10; // Max of 10 shoppers per sim
+    static const int MAXID = 19; // Max of 20 shoppers per sim
 
     // Vars
     bool isPaused = false;

@@ -43,6 +43,7 @@ public:
     void continueSim(std::vector<std::string>& IDTypes);
     void addShopper(std::vector<std::string>& IDTypes);
     void removeShopper(std::vector<std::string>& IDTypes);
+    void removeInactiveShoppers(std::vector<std::string>& IDTypes);
     void listShopperInfo(std::vector<std::string>& IDTypes);
     void listShoppers(std::vector<std::string>& IDTypes);
     void orderItems(std::vector<std::string>& IDTypes);
@@ -67,7 +68,7 @@ private:
     std::string getFileName();
 
     // Consts
-    const int MAXID = 10; // Max of 10 simulations
+    const int MAXID = 9; // Max of 10 simulations
 
     // Vars
     std::vector<std::pair<std::string, std::string>> commands {
@@ -90,6 +91,7 @@ private:
         std::make_pair("pause sim <sim ID>", "ps <sim ID>"),
         std::make_pair("add shopper <sim ID>", "ash <sim ID>"),
         std::make_pair("remove shopper <sim ID>", "rsh <sim ID>"),
+        std::make_pair("remove inactive shoppers <sim ID>", "rish <sim ID>"),
         std::make_pair("list shopper info <sim ID> <shopper ID>", "lshi <sim ID> <shopper ID>"),
         std::make_pair("list shoppers <sim ID>", "lsh <sim ID>"),
         std::make_pair("order items <sim ID>", "oi <sim ID>")
@@ -134,6 +136,8 @@ private:
         std::make_pair("ash ", [this](std::vector<std::string>& IDTypes){addShopper(IDTypes);}),
         std::make_pair("remove shopper ", [this](std::vector<std::string>& IDTypes){removeShopper(IDTypes);}),
         std::make_pair("rsh ", [this](std::vector<std::string>& IDTypes){removeShopper(IDTypes);}),
+        std::make_pair("remove inactive shoppers ", [this](std::vector<std::string>& IDTypes){removeInactiveShoppers(IDTypes);}),
+        std::make_pair("rish ", [this](std::vector<std::string>& IDTypes){removeInactiveShoppers(IDTypes);}),
         std::make_pair("list shopper info ", [this](std::vector<std::string>& IDTypes){listShopperInfo(IDTypes);}),
         std::make_pair("lshi ", [this](std::vector<std::string>& IDTypes){listShopperInfo(IDTypes);}),
         std::make_pair("list shoppers ", [this](std::vector<std::string>& IDTypes){listShoppers(IDTypes);}),

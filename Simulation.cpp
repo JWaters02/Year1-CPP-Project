@@ -43,6 +43,35 @@ void Simulation::removeShopper() {
     }
 }
 
+void Simulation::removeInactiveShoppers() {
+    int inactiveShoppers = 0;
+    // Count num of inactive shoppers
+    for (int shopper = 0; shopper < shopperCount; shopper++) {
+        if (shoppersRunning[shopper].getIsInStore() == "0") inactiveShoppers++;
+    }
+    // If there are actually any inactive shoppers to remove
+    if (inactiveShoppers > 0) {
+        // Loop through shoppers and remove them
+        for (int shopper = shopperCount; shopper --> 0;) {
+            if (shoppersRunning[shopper].getIsInStore() == "0") {
+                Logs::log("Shopper " + shopperIDs[shopper] + " removed from sim.", 10);
+                shoppersRunning.erase(shoppersRunning.begin()+shopper);
+                shopperCount--;
+            }
+        }
+
+        // Assign current shoppers their new IDs
+        std::vector<std::string> empty;
+        shopperIDs = empty;
+        for (int shopper = 0; shopper < shopperCount; shopper++) {
+            shoppersRunning[shopper].setID(shopper + 1);
+            shopperIDs.push_back(std::to_string(shopper + 1));
+        }
+    } else {
+        Logs::log("There are no inactive shoppers to remove.", 12);
+    }
+}
+
 void Simulation::listShopperInfo(std::string shopperID) {
     for (int shopper = 0; shopper < shopperCount; shopper++) {
         if (shopperIDs[shopper] == shopperID) {

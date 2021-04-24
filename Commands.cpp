@@ -347,12 +347,26 @@ void Commands::removeShopper(std::vector<std::string>& IDTypes) {
     }
 }
 
-void Commands::listShopperInfo(std::vector<std::string>& IDTypes) {
+void Commands::removeInactiveShoppers(std::vector<std::string>& IDTypes) {
     if (isIDValid(IDTypes)) {
-        Logs::log("Information for shopper ID " + IDTypes[1] + " in simulation ID " + IDTypes[0], 10);
         for (int sim = 0; sim < simCount; sim++) {
             if (simIDs[sim] == IDTypes[0]) {
-                simulationsRunning[sim].listShopperInfo(IDTypes[1]);
+                simulationsRunning[sim].removeInactiveShoppers();
+            }
+        }
+    }
+}
+
+void Commands::listShopperInfo(std::vector<std::string>& IDTypes) {
+    if (isIDValid(IDTypes)) {
+        if (IDTypes.size() == 1) {
+            Logs::log("Please input a valid command!", 12);
+        } else {
+            Logs::log("Information for shopper ID " + IDTypes[1] + " in simulation ID " + IDTypes[0], 10);
+            for (int sim = 0; sim < simCount; sim++) {
+                if (simIDs[sim] == IDTypes[0]) {
+                    simulationsRunning[sim].listShopperInfo(IDTypes[1]);
+                }
             }
         }
     }

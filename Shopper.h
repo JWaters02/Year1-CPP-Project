@@ -26,6 +26,9 @@ public:
     void giveShopperItem(const std::string itemName, double itemCost, int numItems);
     void simulateShopper(bool& doesCheckout);
 
+    // Setters
+    void setID(int newID);
+
     // Getters
     std::string getName() const;
     int getHeight() const;
