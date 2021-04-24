@@ -56,7 +56,7 @@ void Commands::pause() {
 
 void Commands::saveSimulations() {
     /*
-     * 1,0#apple,4,23+banana,1,50#1,joshua,19,45,180,1~apple,1.2,3+banana,0.8,4:2,joe,21,55,175,1~watermelon,2.3,1
+     * 1,0,55.2#apple,4,23+banana,1,50#1,joshua,19,45,180,1~apple,1.2,3+banana,0.8,4:2,joe,21,55,175,1~watermelon,2.3,1
      * # = Main separator
      * , = Separator
      * + = Looping separator
@@ -70,7 +70,9 @@ void Commands::saveSimulations() {
         // Loop through simulation IDs
         for (int sim = 0; sim < simCount; sim++) {
             std::string line = "";
-            line += std::to_string(sim + 1) + "," + simulationsRunning[sim].getPaused() + "#";
+            line += std::to_string(sim + 1) + ","
+                    + simulationsRunning[sim].getPaused() + ","
+                    + std::to_string(simulationsRunning[sim].getMoneyInAccount()) + "#";
 
             // Loop through stocks
             for (int stock = 0; stock < simulationsRunning[sim].getStock().size(); stock++) {
@@ -137,7 +139,7 @@ void Commands::saveSimulations() {
 
 void Commands::loadSimulations() {
     /*
-     * 1,0#apple,4,23+banana,1,50#1,joshua,19,45,180,1~apple,1.2,3+banana,0.8,4:2,joe,21,55,175,1~watermelon,2.3,1
+     * 1,0,55.2#apple,4,23+banana,1,50#1,joshua,19,45,180,1~apple,1.2,3+banana,0.8,4:2,joe,21,55,175,1~watermelon,2.3,1
      * # = Main separator
      * , = Separator
      * + = Looping separator
@@ -160,6 +162,7 @@ void Commands::loadSimulations() {
         _simCount++;
         std::unique_ptr<Simulation> _simulation = std::make_unique<Simulation>(std::stoi(simInfo[0]));
         _simulation->setPaused(simInfo[1]);
+        _simulation->setMoneyInAccount(std::stod(simInfo[2]));
 
         // Next, split stock info into individual stocks
         std::vector<std::string> stockInfo = splitCommand(simulationElement[1], '+');

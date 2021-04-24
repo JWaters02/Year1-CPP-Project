@@ -110,6 +110,10 @@ void Simulation::setPaused(std::string _isPaused) {
     else isPaused = false;
 }
 
+void Simulation::setMoneyInAccount(double money) {
+    moneyInAccount = money;
+}
+
 void Simulation::setStock(std::string itemName, double itemCost, int numItems) {
     stock.push_back(Stock::setStock(itemName, itemCost, numItems));
 }

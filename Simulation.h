@@ -30,6 +30,7 @@ public:
 
     // Setters
     void setPaused(std::string _isPaused);
+    void setMoneyInAccount(double money);
     void setStock(std::string itemName, double itemCost, int numItems);
     void setShopper(std::string ID, std::string name, int age, int weight, int height, std::string isInStore);
 
