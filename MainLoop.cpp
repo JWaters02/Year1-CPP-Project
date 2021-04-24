@@ -21,13 +21,18 @@ void MainLoop::mainEventLoop() {
                 std::string command = "";
                 std::getline(std::cin, command);
 
-                // Sanitise to make sure it is all lower case
-                for (int i = 0; i < command.length(); i++) {
-                    command[i] = tolower(command[i]);
-                }
+                // If command is invalid (is a number)
+                if (commands->isNumber(command)) {
+                    Logs::log("Command does not exist!", 12);
+                } else {
+                    // Sanitise to make sure it is all lower case
+                    for (int i = 0; i < command.length(); i++) {
+                        command[i] = tolower(command[i]);
+                    }
 
-                //Run command
-                commands->setCommand(command);
+                    //Run command
+                    commands->setCommand(command);
+                }
 
                 Logs::log("\nPress shift to input new command or nothing to continue program loop.", 3);
                 break;

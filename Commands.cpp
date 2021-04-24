@@ -374,16 +374,29 @@ void Commands::orderItems(std::vector<std::string> &IDTypes) {
         Logs::log("Please input the item name you wish to order: ", 3);
         std::string itemName;
         std::cin >> itemName;
-        Logs::log("Please input the number of this item you wish to order: ", 3);
-        int numItems;
-        std::cin >> numItems;
         Logs::dummyGetLineFix();
 
-        for (int sim = 0; sim < simCount; sim++) {
-            if (simIDs[sim] == IDTypes[0]) {
-                simulationsRunning[sim].orderItems(itemName, numItems);
+        // If item name is invalid
+        if (isNumber(itemName)) {
+            Logs::log("Please input a valid item name!", 12);
+        } else {
+            Logs::log("Please input the number of this item you wish to order: ", 3);
+            int numItems;
+            std::cin >> numItems;
+            Logs::dummyGetLineFix();
+
+            // If num items is invalid
+            if (!isNumber(std::to_string(numItems))) {
+                Logs::log("Please input a valid number of items!", 12);
+            } else {
+                for (int sim = 0; sim < simCount; sim++) {
+                    if (simIDs[sim] == IDTypes[0]) {
+                        simulationsRunning[sim].orderItems(itemName, numItems);
+                    }
+                }
             }
         }
+
     }
 }
 
@@ -391,6 +404,14 @@ void Commands::simulateShoppers() {
     for (int sim = 0; sim < simCount; sim++) {
         simulationsRunning[sim].simulateShoppers();
     }
+}
+
+bool Commands::isNumber(const std::string &string) {
+    std::string::const_iterator iterator = string.begin();
+    while (iterator != string.end() && std::isdigit(*iterator)) {
+        iterator++;
+    }
+    return !string.empty() && iterator == string.end();
 }
 //endregion
 
@@ -480,14 +501,6 @@ std::vector<std::string> Commands::splitCommand(std::string string, char delimet
         ret.push_back(line);
     }
     return ret;
-}
-
-bool Commands::isNumber(const std::string &string) {
-    std::string::const_iterator iterator = string.begin();
-    while (iterator != string.end() && std::isdigit(*iterator)) {
-        iterator++;
-    }
-    return !string.empty() && iterator == string.end();
 }
 
 std::vector<std::string> Commands::parseActualCommand(std::string command) {
