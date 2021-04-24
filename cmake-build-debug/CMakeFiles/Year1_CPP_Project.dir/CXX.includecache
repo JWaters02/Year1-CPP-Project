@@ -6,6 +6,46 @@
 
 #IncludeRegexTransform: 
 
+F:/Github Projects/University/Year1-CPP-Project/Commands.cpp
+Commands.h
+F:/Github Projects/University/Year1-CPP-Project/Commands.h
+
+F:/Github Projects/University/Year1-CPP-Project/Commands.h
+vector
+-
+iostream
+-
+string
+-
+sstream
+-
+windows.h
+-
+memory
+-
+functional
+-
+algorithm
+-
+Simulation.h
+F:/Github Projects/University/Year1-CPP-Project/Simulation.h
+FileHandler.h
+F:/Github Projects/University/Year1-CPP-Project/FileHandler.h
+
+F:/Github Projects/University/Year1-CPP-Project/FileHandler.h
+iostream
+-
+fstream
+-
+string
+-
+vector
+-
+Windows.h
+-
+Logs.h
+F:/Github Projects/University/Year1-CPP-Project/Logs.h
+
 F:/Github Projects/University/Year1-CPP-Project/Item.h
 iostream
 -
@@ -39,10 +79,6 @@ Logs.h
 F:/Github Projects/University/Year1-CPP-Project/Logs.h
 Stock.h
 F:/Github Projects/University/Year1-CPP-Project/Stock.h
-
-F:/Github Projects/University/Year1-CPP-Project/Simulation.cpp
-Simulation.h
-F:/Github Projects/University/Year1-CPP-Project/Simulation.h
 
 F:/Github Projects/University/Year1-CPP-Project/Simulation.h
 vector

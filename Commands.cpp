@@ -27,21 +27,19 @@ void Commands::help() {
 }
 
 void Commands::commandList() {
-    std::string ret = "";
-    for (int i = 0; i < commands.size(); i++) {
-        ret += commands[i] + "\n";
+    for (int command = 0; command < commands.size(); command++) {
+        Logs::log(commands[command].first, 7);
     }
-    std::cout << ret << std::endl;
 }
 
 void Commands::aliases() {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     std::cout << "Aliases:\n";
-    for (int command = 0; command < commandAliases.size(); command++) {
+    for (int command = 0; command < commands.size(); command++) {
         SetConsoleTextAttribute(hConsole, 7); // DEFAULT
-        std::cout << commands[command] << ": ";
+        std::cout << commands[command].first << ": ";
         SetConsoleTextAttribute(hConsole, 12); // RED
-        std::cout << commandAliases[command] << std::endl;
+        std::cout << commands[command].second << std::endl;
     }
     SetConsoleTextAttribute(hConsole, 7); // DEFAULT
 }

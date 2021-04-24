@@ -70,20 +70,30 @@ private:
     const int MAXID = 10; // Max of 10 simulations
 
     // Vars
-    std::vector<std::string> commands = {"help", "commands", "aliases", "quit", "pause",
-                                         "save program", "load program", "delete file",
-                                         "print file", "tick speed", "list sims",
-                                         "add sim", "remove sim", "total money",
-                                         "list sim info <sim ID>", "continue sim <sim ID>",
-                                         "pause sim <sim ID>", "add shopper <sim ID>",
-                                         "remove shopper <sim ID>",
-                                         "list shopper info <sim ID> <shopper ID>",
-                                         "list shoppers <sim ID>", "order items <sim ID>"};
-    std::vector<std::string> commandAliases = {"h", "c", "a", "q", "p", "sp", "lp", "df",
-                                               "pf", "ts", "ls", "as", "rs", "tm", "lsi <sim ID>",
-                                               "cs <sim ID>", "ps <sim ID>", "ash <sim ID>",
-                                               "rsh <sim ID>", "lshi <sim ID> <shopper ID>",
-                                               "lsh <sim ID>", "oi <sim ID>"};
+    std::vector<std::pair<std::string, std::string>> commands {
+        std::make_pair("help", "h"),
+        std::make_pair("commands", "c"),
+        std::make_pair("aliases", "a"),
+        std::make_pair("quit", "q"),
+        std::make_pair("pause", "p"),
+        std::make_pair("save program", "sp"),
+        std::make_pair("load program", "lp"),
+        std::make_pair("delete file", "df"),
+        std::make_pair("print file", "pf"),
+        std::make_pair("tick speed", "ts"),
+        std::make_pair("list sims", "ls"),
+        std::make_pair("add sim", "as"),
+        std::make_pair("remove sim", "rs"),
+        std::make_pair("total money", "tm"),
+        std::make_pair("list sim info <sim ID>", "lsi <sim ID>"),
+        std::make_pair("continue sim <sim ID>", "cs <sim ID>"),
+        std::make_pair("pause sim <sim ID>", "ps <sim ID>"),
+        std::make_pair("add shopper <sim ID>", "ash <sim ID>"),
+        std::make_pair("remove shopper <sim ID>", "rsh <sim ID>"),
+        std::make_pair("list shopper info <sim ID> <shopper ID>", "lshi <sim ID> <shopper ID>"),
+        std::make_pair("list shoppers <sim ID>", "lsh <sim ID>"),
+        std::make_pair("order items <sim ID>", "oi <sim ID>")
+    };
     using funcPair = std::pair<std::string, std::function<void(std::vector<std::string>&)>>;
     std::vector<funcPair> commandFunc {
         std::make_pair("help", [this](std::vector<std::string>&){help();}),
