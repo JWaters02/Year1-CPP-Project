@@ -10,6 +10,12 @@
 //endregion
 
 //region Functions
+/**
+ * Saves data to file from program.
+ *
+ * @param inputData Data from program to save.
+ * @param fileName Inputted filename.
+ */
 void FileHandler::saveToFile(std::string inputData, std::string fileName) {
     std::ofstream file(fileName + ".txt");
 
@@ -23,6 +29,12 @@ void FileHandler::saveToFile(std::string inputData, std::string fileName) {
     }
 }
 
+/**
+ * Loads data from file into program.
+ *
+ * @param fileName Inputted filename.
+ * @return List of lines from the file (each line is a simulation).
+ */
 std::vector<std::string> FileHandler::loadFromFile(std::string fileName) {
     std::ifstream file(fileName + ".txt");
     std::vector<std::string> ret;
@@ -41,6 +53,11 @@ std::vector<std::string> FileHandler::loadFromFile(std::string fileName) {
     return ret;
 }
 
+/**
+ * Loads file and prints data stored in it into console.
+ *
+ * @param fileName Inputted filename.
+ */
 void FileHandler::printFileContents(std::string fileName) {
     std::ifstream file(fileName + ".txt");
 
@@ -59,6 +76,11 @@ void FileHandler::printFileContents(std::string fileName) {
     }
 }
 
+/**
+ * Deletes specified file.
+ *
+ * @param fileName Inputted filename.
+ */
 void FileHandler::deleteFile(std::string fileName) {
     std::string file = fileName + ".txt";
 

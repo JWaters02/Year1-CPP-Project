@@ -24,6 +24,16 @@ public:
     Commands();
 
     // Functions
+    void simulateShoppers();
+    bool isNumber(const std::string& string);
+
+    // Setters
+    void setCommand(std::string command);
+
+    // Vars
+    int tickSpeed = 500;
+private:
+    // Commands
     void help();
     void commandList();
     void aliases();
@@ -47,16 +57,8 @@ public:
     void listShopperInfo(std::vector<std::string>& IDTypes);
     void listShoppers(std::vector<std::string>& IDTypes);
     void orderItems(std::vector<std::string>& IDTypes);
-    void simulateShoppers();
-    bool isNumber(const std::string& string);
 
-    // Setters
-    void setCommand(std::string command);
-
-    // Vars
-    int tickSpeed = 500;
-private:
-    // Functions
+    // Helper functions
     bool endsWith(std::string& string, std::string& ending);
     std::string truncateDouble(double num);
     bool isIDValid(std::vector<std::string>& IDTypes);

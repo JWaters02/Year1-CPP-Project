@@ -11,6 +11,11 @@
 //endregion
 
 //region Setters
+/**
+ * Sets all items to have random numbers of stock.
+ *
+ * @return List of items.
+ */
 std::vector<Item> Stock::setRandomStock() {
     // Get stock of amount of items; names, costs, nums
     std::vector<Item> items;
@@ -22,6 +27,14 @@ std::vector<Item> Stock::setRandomStock() {
     return items;
 }
 
+/**
+ * Initialises the stock with a new item.
+ *
+ * @param itemName Item name.
+ * @param itemCost Item cost.
+ * @param numItems Number of items to add.
+ * @return Item.
+ */
 Item Stock::setStock(std::string itemName, double itemCost, int numItems) {
     std::unique_ptr<Item> newItem = std::make_unique<Item>(itemName, itemCost, numItems);
     return *newItem;

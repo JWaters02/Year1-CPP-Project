@@ -28,15 +28,32 @@ Shopper::Shopper(int _shopperID, std::vector<Item>& _stock, bool _isRandomObject
 //endregion
 
 //region Functions
-// Allows manager (or file handler) to give items with values to shopper if they wish
+/**
+ * Allows file handler to give items with values to shoppers manually.
+ *
+ * @param itemName Item name.
+ * @param itemCost Item cost.
+ * @param numItems Number of items.
+ */
 void Shopper::giveShopperItem(const std::string itemName, double itemCost, int numItems) {
     basket.push_back(Item(itemName, itemCost, numItems));
 }
 
+/**
+ * Generates a new item for the shopper.
+ *
+ * @param itemName Item name.
+ * @param itemCost Item cost.
+ * @param numItems Number of items.
+ * @return Item.
+ */
 Item Shopper::generateShopperItem(const std::string itemName, const double itemCost, const int numItems) {
     return Item(itemName, itemCost, numItems);
 }
 
+/**
+ * Processing for when the shopper picks up and item.
+ */
 void Shopper::pickupItem() {
     const int ITEMSTOPICKUP = rand() % 10 + 1;
     const int PICKITEM = rand() % itemBank.size();
@@ -74,6 +91,9 @@ void Shopper::pickupItem() {
     }
 }
 
+/**
+ * Processing for when the shopper drops an item.
+ */
 void Shopper::dropItem() {
     if (basket.size() > 0) {
         const int ITEMTODROP = rand() % (basket.size());
@@ -95,6 +115,9 @@ void Shopper::dropItem() {
     }
 }
 
+/**
+ * Processing for when the shopper checks out from the store.
+ */
 void Shopper::checkout() {
     double total = 0;
     for (int i = 0; i < basket.size(); i++) {
@@ -108,7 +131,11 @@ void Shopper::checkout() {
     isInStore = false;
 }
 
-// This is what drives the changing of every variable in shopper during event loop
+/**
+ * This is what drives the changing of every variable in shopper during event loop.
+ *
+ * @param doesCheckout Passthrough that changes if the shopper decides to checkout from the store.
+ */
 void Shopper::simulateShopper(bool& doesCheckout) {
     doesCheckout = false;
     if (isInStore) {

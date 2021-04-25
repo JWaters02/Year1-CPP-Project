@@ -7,12 +7,13 @@
 
 //region Constructor
 Commands::Commands() {
+    // Sort commands pairs in order to differentiate between the command and its alias
     std::sort(commandFunc.begin(), commandFunc.end(),
               [](const funcPair& a, const funcPair& b){return (a.first.length() > b.first.length());});
 };
 //endregion
 
-//region Public Functions
+//region Commands
 void Commands::help() {
     std::string output = "Help page:";
     Logs::log(output, 10);
@@ -419,7 +420,15 @@ void Commands::simulateShoppers() {
         simulationsRunning[sim].simulateShoppers();
     }
 }
+//endregion
 
+//region Helper functions
+/**
+ * Checks if a string is a number.
+ *
+ * @param string String to check if it is a number.
+ * @return True if string is a number.
+ */
 bool Commands::isNumber(const std::string &string) {
     std::string::const_iterator iterator = string.begin();
     while (iterator != string.end() && std::isdigit(*iterator)) {
@@ -427,15 +436,26 @@ bool Commands::isNumber(const std::string &string) {
     }
     return !string.empty() && iterator == string.end();
 }
-//endregion
 
-//region Private Functions
+/**
+ * Checks if a string ends with another string.
+ *
+ * @param string String to check ending for.
+ * @param ending String that is being checked from &string.
+ * @return True if string does end with ending.
+ */
 bool Commands::endsWith(std::string& string, std::string& ending) {
     if (string.length() >= ending.length()) {
         return (0 == string.compare(string.length() - ending.length(), ending.length(), ending));
     } else return false;
 }
 
+/**
+ * Truncates a double to 2 decimal places.
+ *
+ * @param num Double that is truncated.
+ * @return String of truncated double.
+ */
 std::string Commands::truncateDouble(double num) {
     std::string str = std::to_string(num);
     std::string ending = ".";
@@ -446,6 +466,12 @@ std::string Commands::truncateDouble(double num) {
     return str;
 }
 
+/**
+ * Checks if the ID is valid in simulation and shopper IDs.
+ *
+ * @param IDTypes Parameters used in command.
+ * @return True if any of the inputted IDs are valid.
+ */
 bool Commands::isIDValid(std::vector<std::string>& IDTypes) {
     bool isNumValid = true;
     bool isSimIDValid = true;
@@ -507,6 +533,13 @@ bool Commands::isIDValid(std::vector<std::string>& IDTypes) {
     return true;
 }
 
+/**
+ * Splits up a string into a list, using the delimeter as a splitting point.
+ *
+ * @param string Input string to split up.
+ * @param delimeter Character to split by.
+ * @return List of split up strings.
+ */
 std::vector<std::string> Commands::splitCommand(std::string string, char delimeter) {
     std::string line;
     std::vector<std::string> ret;
@@ -517,6 +550,12 @@ std::vector<std::string> Commands::splitCommand(std::string string, char delimet
     return ret;
 }
 
+/**
+ * Parses a string command into the multiple parts of the command.
+ *
+ * @param command Command string.
+ * @return List of parts of the command.
+ */
 std::vector<std::string> Commands::parseActualCommand(std::string command) {
     std::vector<std::string> actualCommand = splitCommand(command, ' ');
     bool trailingRequired = false;
@@ -545,6 +584,12 @@ std::vector<std::string> Commands::parseActualCommand(std::string command) {
     return actualCommand;
 }
 
+/**
+ * Checks if the command is a valid one.
+ *
+ * @param command Command string.
+ * @return True if the command is valid.
+ */
 bool Commands::isCommandValid(std::string command) {
     // Check if string even contains space
     for (int i = 0; i < commandFunc.size(); i++) {
