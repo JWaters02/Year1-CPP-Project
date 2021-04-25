@@ -113,9 +113,9 @@ void Shopper::simulateShopper(bool& doesCheckout) {
     doesCheckout = false;
     if (isInStore) {
         const int ACTION = rand() % 100;
-        const int CHANCETOPICKUP = 50;
-        const int CHANCETODROP = CHANCETOPICKUP + 10;
-        const int CHANCETOCHECKOUT = CHANCETODROP + 40;
+        const int CHANCETOPICKUP = 80;
+        const int CHANCETODROP = CHANCETOPICKUP + 15;
+        const int CHANCETOCHECKOUT = CHANCETODROP + 5;
 
         // Weighting on certain conditions
         if (ACTION >= 0 && ACTION < CHANCETOPICKUP) {
